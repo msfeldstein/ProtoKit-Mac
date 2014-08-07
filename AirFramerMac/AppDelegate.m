@@ -14,24 +14,50 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [self setupServer];
     [self setupWatcherSocket];
     [self setupBonjour];
+    NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
+    if (!defaultDirectory) {
+        defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
+        [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    self.folder = [NSURL URLWithString:defaultDirectory];
+    [self reconfig];
+}
+
+- (IBAction)chooseFolder:(id)sender {
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+    [openDlg setCanChooseFiles:NO];
+    [openDlg setCanChooseDirectories:YES];
+    [openDlg setPrompt:@"Select"];
+    if ([openDlg runModal] == NSOKButton) {
+        self.folder = [openDlg URL];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    [self reconfig];
+}
+
+- (void) reconfig {
+    [self setupServer];
     [self setupWatcher];
-    
 }
 
 - (void) setupServer {
-    self.server = [[HTTPServer alloc] init];
-    self.server.type = @"_http._tcp.";
-    self.server.port = 3007;
-    self.server.documentRoot = [@"~/Prototypes" stringByExpandingTildeInPath];
-    self.server.connectionClass = [MyHTTPConnection class];
-    NSError *error = nil;
-	if(![self.server start:&error])
-	{
-		NSLog(@"Error starting HTTP Server: %@", error);
-	}
+    if (!self.server) {
+        self.server = [[HTTPServer alloc] init];
+        self.server.type = @"_http._tcp.";
+        self.server.port = 3007;
+        self.server.connectionClass = [MyHTTPConnection class];
+        NSError *error = nil;
+        if(![self.server start:&error])
+        {
+            NSLog(@"Error starting HTTP Server: %@", error);
+        }
+    }
+    NSLog(@"Path %@", self.folder.path);
+    self.server.documentRoot = self.folder.path;
+
 
 }
 
@@ -69,7 +95,7 @@
 }
 
 - (void)setupWatcher {
-    NSArray* paths = @[[NSURL URLWithString:[@"~/Prototypes/" stringByExpandingTildeInPath]]];
+    NSArray* paths = @[self.folder];
     self.watcher = [[CDEvents alloc] initWithURLs:paths block:^(CDEvents *watcher, CDEvent *event) {
         NSLog(@"CHANGE\n");
         NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];

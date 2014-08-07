@@ -21,4 +21,8 @@
 @property CDEvents* watcher;
 @property GCDAsyncSocket* watcherSocket;
 @property GCDAsyncSocket* connectedSocket;
+
+@property NSURL* folder;
+
+- (IBAction)chooseFolder:(id)sender;
 @end

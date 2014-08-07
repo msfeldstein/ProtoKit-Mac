@@ -1,11 +1,6 @@
 #import "MyHTTPConnection.h"
 #import "HTTPDataResponse.h"
-#import "HTTPLogging.h"
-
-// Log levels: off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
-
+#import "AppDelegate.h"
 
 @implementation MyHTTPConnection
 
@@ -35,8 +30,10 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	
 	if ([relativePath isEqualToString:@"/list"])
 	{
-		HTTPLogVerbose(@"%@[%p]: Serving up dynamic content", THIS_FILE, self);
-		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[@"~/Prototypes" stringByExpandingTildeInPath] error:nil];
+        AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
+        NSString* directory = appDel.folder.path;
+        NSLog(@"Getting directory %@", directory);
+		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
         NSString* filter = @"!%K BEGINSWITH %@";
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"self", @"."];
         dirFiles = [dirFiles filteredArrayUsingPredicate:predicate];
