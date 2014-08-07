@@ -18,6 +18,9 @@
 		4CB839D919931EDB002A67D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB839B819931EDB002A67D8 /* Cocoa.framework */; };
 		4CB839E119931EDB002A67D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CB839DF19931EDB002A67D8 /* InfoPlist.strings */; };
 		4CB839E319931EDB002A67D8 /* AirFramerMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB839E219931EDB002A67D8 /* AirFramerMacTests.m */; };
+		4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB839F0199324C6002A67D8 /* MyHTTPConnection.m */; };
+		4CB83A021993310B002A67D8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB83A011993310B002A67D8 /* CoreServices.framework */; };
+		50F19C7DC9464C0ABDE74891 /* libPods-AirFramerMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirFramerMac.xcconfig"; path = "Pods/Pods-AirFramerMac.xcconfig"; sourceTree = "<group>"; };
 		4CB839B519931EDB002A67D8 /* AirFramerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFramerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,6 +54,10 @@
 		4CB839DE19931EDB002A67D8 /* AirFramerMacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirFramerMacTests-Info.plist"; sourceTree = "<group>"; };
 		4CB839E019931EDB002A67D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CB839E219931EDB002A67D8 /* AirFramerMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFramerMacTests.m; sourceTree = "<group>"; };
+		4CB839EF199324C6002A67D8 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
+		4CB839F0199324C6002A67D8 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
+		4CB83A011993310B002A67D8 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirFramerMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB83A021993310B002A67D8 /* CoreServices.framework in Frameworks */,
 				4CB839B919931EDB002A67D8 /* Cocoa.framework in Frameworks */,
+				50F19C7DC9464C0ABDE74891 /* libPods-AirFramerMac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +90,7 @@
 				4CB839DC19931EDB002A67D8 /* AirFramerMacTests */,
 				4CB839B719931EDB002A67D8 /* Frameworks */,
 				4CB839B619931EDB002A67D8 /* Products */,
+				1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +106,11 @@
 		4CB839B719931EDB002A67D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CB83A011993310B002A67D8 /* CoreServices.framework */,
 				4CB839B819931EDB002A67D8 /* Cocoa.framework */,
 				4CB839D719931EDB002A67D8 /* XCTest.framework */,
 				4CB839BA19931EDB002A67D8 /* Other Frameworks */,
+				AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +130,8 @@
 			children = (
 				4CB839CA19931EDB002A67D8 /* AppDelegate.h */,
 				4CB839CB19931EDB002A67D8 /* AppDelegate.m */,
+				4CB839EF199324C6002A67D8 /* MyHTTPConnection.h */,
+				4CB839F0199324C6002A67D8 /* MyHTTPConnection.m */,
 				4CB839CD19931EDB002A67D8 /* MainMenu.xib */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4CB839BF19931EDB002A67D8 /* Supporting Files */,
@@ -161,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMac" */;
 			buildPhases = (
+				23D70413FB8B4FD2BA8A98E9 /* Check Pods Manifest.lock */,
 				4CB839B119931EDB002A67D8 /* Sources */,
 				4CB839B219931EDB002A67D8 /* Frameworks */,
 				4CB839B319931EDB002A67D8 /* Resources */,
+				3326CA7B6D65411BB49E6DF5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,11 +264,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23D70413FB8B4FD2BA8A98E9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3326CA7B6D65411BB49E6DF5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AirFramerMac-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CB839B119931EDB002A67D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */,
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
 				4CB839C519931EDB002A67D8 /* main.m in Sources */,
 			);
@@ -383,6 +434,7 @@
 		};
 		4CB839E719931EDB002A67D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -396,6 +448,7 @@
 		};
 		4CB839E819931EDB002A67D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -466,6 +519,7 @@
 				4CB839E819931EDB002A67D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CB839E919931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMacTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +528,7 @@
 				4CB839EB19931EDB002A67D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

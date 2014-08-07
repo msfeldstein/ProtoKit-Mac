@@ -7,9 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CocoaHTTPServer/HTTPServer.h>
+#import <CDEvents/CDEvents.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-
+@property NSNetService* netService;
+@property HTTPServer* server;
+@property CDEvents* watcher;
 @end
