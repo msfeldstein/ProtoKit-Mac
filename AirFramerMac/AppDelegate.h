@@ -9,11 +9,16 @@
 #import <Cocoa/Cocoa.h>
 #import <CocoaHTTPServer/HTTPServer.h>
 #import <CDEvents/CDEvents.h>
+#import <CocoaAsyncSocket/AsyncSocket.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate>
+#import <CocoaAsyncSocket/GCDAsyncSocket.h>
+
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property NSNetService* netService;
 @property HTTPServer* server;
 @property CDEvents* watcher;
+@property GCDAsyncSocket* watcherSocket;
+@property GCDAsyncSocket* connectedSocket;
 @end

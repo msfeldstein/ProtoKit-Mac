@@ -1,0 +1,24 @@
+PODS:
+  - CDEvents (1.2.2)
+  - CocoaAsyncSocket (7.3.5)
+  - CocoaHTTPServer (2.3):
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+  - CocoaLumberjack (1.9.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.9.1)
+  - CocoaLumberjack/Extensions (1.9.1):
+    - CocoaLumberjack/Core
+
+DEPENDENCIES:
+  - CDEvents
+  - CocoaAsyncSocket
+  - CocoaHTTPServer
+
+SPEC CHECKSUMS:
+  CDEvents: 5f1ad4c85acee39795c42eb25da3b8e995624525
+  CocoaAsyncSocket: 45bdbbc1c0a5ed0640ff4c42af325ba43a2f099a
+  CocoaHTTPServer: 217df4cba4e48803db2480f97b805aaad2230dd1
+  CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
+
+COCOAPODS: 0.33.1

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-AirFramerMac-CDEvents.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AirFramerMac-CocoaAsyncSocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AirFramerMac-CocoaHTTPServer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AirFramerMac-CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AirFramerMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3A8BD84B3CDF4619B6E1F0DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42F8AC0EBFF840259DC511ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BA0A6D6505E456D8917BA26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>958EC05852E6459188354B68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A745059E1AEF48A88038C1F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

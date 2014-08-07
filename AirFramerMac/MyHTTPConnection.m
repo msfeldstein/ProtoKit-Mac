@@ -19,7 +19,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	// and security restrictions (ensuring we don't serve documents outside configured document root folder).
 	
 	NSString *filePath = [self filePathForURI:path];
-    NSLog(@"File path %@", filePath);
 	
 	// Convert to relative path
 	
