@@ -28,7 +28,7 @@
 	}
 	
 	NSString *relativePath = [filePath substringFromIndex:[documentRoot length]];
-	
+	NSLog(@"relativePath %@", relativePath);
 	if ([relativePath isEqualToString:@"/list"])
 	{
         AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
@@ -44,9 +44,16 @@
         ManifestGenerator* generator = [ManifestGenerator new];
         NSString* manifest = [generator generateManifest:[filePath stringByDeletingLastPathComponent]];
         return [[HTTPDataResponse alloc] initWithData:[manifest dataUsingEncoding:NSASCIIStringEncoding]];
+    } else if ([[path lastPathComponent] isEqualToString:@"index.html"]) {
+        NSString* html = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:nil];
+        NSLog(@"html %@", html);
+        html = [html stringByReplacingOccurrencesOfString:@"<html>" withString:@"<html manifest=\"airframe.appcache\">"];
+        NSLog(@"html %@", html);
+        return [[HTTPDataResponse alloc] initWithData:[html dataUsingEncoding:NSASCIIStringEncoding]];
     }
 	
 	return [super httpResponseForMethod:method URI:path];
 }
+
 
 @end
