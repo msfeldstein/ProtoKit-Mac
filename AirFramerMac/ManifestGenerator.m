@@ -11,7 +11,7 @@
 @implementation ManifestGenerator
 
 - (NSString*)generateManifest:(NSString*)folder {
-    return [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:@"" root:folder];
+    return [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:@"CACHE MANIFEST\n" root:folder];
 }
 
 - (NSString*) recursiveFileFetch:(NSURL*) directory appendTo:(NSString*)existing root:(NSString*)root {
@@ -24,7 +24,6 @@
                                          includingPropertiesForKeys:keys
                                          options:0
                                          errorHandler:^(NSURL *url, NSError *error) {
-                                             // Handle the error.
                                              // Return YES if the enumeration should continue after the error.
                                              return YES;
                                          }];
@@ -33,14 +32,13 @@
         NSError *error;
         NSNumber *isDirectory = nil;
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
-            // handle error
-            NSLog(@"Error i guess %@", error);
-        }
-        if ([isDirectory boolValue]) {
+            NSLog(@"Error in determining if a file is a directory: %@", error);
+        } else if ([isDirectory boolValue]) {
             [self recursiveFileFetch:url appendTo:existing root:root];
         } else {
             NSString* relativePath = [url.path stringByReplacingOccurrencesOfString:root withString:@""];
-            existing = [existing stringByAppendingString:[NSString stringWithFormat:@".%@\n", relativePath]];
+            relativePath = [relativePath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+            existing = [existing stringByAppendingString:[NSString stringWithFormat:@"%@\n", relativePath]];
         }
     }
     return existing;
