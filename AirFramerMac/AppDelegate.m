@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MyHTTPConnection.h"
-
+#import "ManifestGenerator.h"
 
 @implementation AppDelegate
 
@@ -23,6 +23,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     self.folder = [NSURL URLWithString:defaultDirectory];
+    ManifestGenerator* manifest = [ManifestGenerator new];
+    NSLog(@"Manifest \n%@", [manifest generateManifest:defaultDirectory]);
     [self reconfig];
     self.statusIndicator.layer.cornerRadius = 6;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
