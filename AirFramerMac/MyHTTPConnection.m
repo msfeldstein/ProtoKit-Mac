@@ -33,7 +33,12 @@
 	{
         AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
         NSString* directory = appDel.folder.path;
-		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
+        NSError* err;
+		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&err];
+        if (err) {
+            NSLog(@"Error opening directory %@", err);
+            return [[HTTPDataResponse alloc] initWithData:[@"[]" dataUsingEncoding:NSASCIIStringEncoding]];
+        }
         NSString* filter = @"!%K BEGINSWITH %@";
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"self", @"."];
         dirFiles = [dirFiles filteredArrayUsingPredicate:predicate];
