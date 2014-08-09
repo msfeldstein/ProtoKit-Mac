@@ -1,6 +1,7 @@
 #import "MyHTTPConnection.h"
 #import "HTTPDataResponse.h"
 #import "AppDelegate.h"
+#import "ManifestGenerator.h"
 
 @implementation MyHTTPConnection
 
@@ -32,7 +33,6 @@
 	{
         AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
         NSString* directory = appDel.folder.path;
-        NSLog(@"Getting directory %@", directory);
 		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
         NSString* filter = @"!%K BEGINSWITH %@";
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"self", @"."];
@@ -40,7 +40,11 @@
 		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dirFiles
                                                            options:NSJSONWritingPrettyPrinted error:nil];
 		return [[HTTPDataResponse alloc] initWithData:jsonData];
-	}
+	} else if ([[path lastPathComponent] isEqualToString:@"airframe.appcache"]) {
+        ManifestGenerator* generator = [ManifestGenerator new];
+        NSString* manifest = [generator generateManifest:[filePath stringByDeletingLastPathComponent]];
+        return [[HTTPDataResponse alloc] initWithData:[manifest dataUsingEncoding:NSASCIIStringEncoding]];
+    }
 	
 	return [super httpResponseForMethod:method URI:path];
 }

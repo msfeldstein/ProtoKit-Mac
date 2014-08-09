@@ -40,7 +40,7 @@
             [self recursiveFileFetch:url appendTo:existing root:root];
         } else {
             NSString* relativePath = [url.path stringByReplacingOccurrencesOfString:root withString:@""];
-            existing = [[existing stringByAppendingString:relativePath] stringByAppendingString:@"\n"];
+            existing = [existing stringByAppendingString:[NSString stringWithFormat:@".%@\n", relativePath]];
         }
     }
     return existing;
