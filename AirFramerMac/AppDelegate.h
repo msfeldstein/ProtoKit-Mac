@@ -15,7 +15,9 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow* window;
+@property (assign) IBOutlet NSView* statusIndicator;
+@property (assign) IBOutlet NSTextField* statusText;
 @property NSNetService* netService;
 @property HTTPServer* server;
 @property CDEvents* watcher;

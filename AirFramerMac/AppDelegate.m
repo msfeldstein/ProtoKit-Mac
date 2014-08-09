@@ -24,6 +24,9 @@
     }
     self.folder = [NSURL URLWithString:defaultDirectory];
     [self reconfig];
+    self.statusIndicator.layer.cornerRadius = 6;
+    self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
+    
 }
 
 - (IBAction)chooseFolder:(id)sender {
@@ -41,6 +44,7 @@
 - (void) reconfig {
     [self setupServer];
     [self setupWatcher];
+    [self sendChangeNotification];
 }
 
 - (void) setupServer {
@@ -78,6 +82,15 @@
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
     NSLog(@"Did accept new socket");
     self.connectedSocket = newSocket;
+    self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
+    self.statusText.stringValue = @"Phone Connected!";
+}
+
+- (void) socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
+    NSLog(@"Socket %@ %@", sock, err);
+    self.connectedSocket = nil;
+    self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
+    self.statusText.stringValue = @"No Phone Connected (Make sure it's on the same wifi network)";
 }
 
 - (void) setupBonjour {
@@ -97,10 +110,14 @@
 - (void)setupWatcher {
     NSArray* paths = @[self.folder];
     self.watcher = [[CDEvents alloc] initWithURLs:paths block:^(CDEvents *watcher, CDEvent *event) {
-        NSLog(@"CHANGE\n");
-        NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
-        [self.connectedSocket writeData:data withTimeout:-1 tag:0];
+        [self sendChangeNotification];
     }];
+}
+
+- (void) sendChangeNotification {
+    NSLog(@"CHANGE\n");
+    NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
+    [self.connectedSocket writeData:data withTimeout:-1 tag:0];
 }
 
 @end

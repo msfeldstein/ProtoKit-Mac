@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B4C371994AAB700F489D6 /* DropTargetView.m */; };
 		4CB839B919931EDB002A67D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB839B819931EDB002A67D8 /* Cocoa.framework */; };
 		4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CB839C119931EDB002A67D8 /* InfoPlist.strings */; };
 		4CB839C519931EDB002A67D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB839C419931EDB002A67D8 /* main.m */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirFramerMac.xcconfig"; path = "Pods/Pods-AirFramerMac.xcconfig"; sourceTree = "<group>"; };
+		4C3B4C361994AAB700F489D6 /* DropTargetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropTargetView.h; sourceTree = "<group>"; };
+		4C3B4C371994AAB700F489D6 /* DropTargetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropTargetView.m; sourceTree = "<group>"; };
 		4CB839B519931EDB002A67D8 /* AirFramerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFramerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,8 @@
 				4CB839CD19931EDB002A67D8 /* MainMenu.xib */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4CB839BF19931EDB002A67D8 /* Supporting Files */,
+				4C3B4C361994AAB700F489D6 /* DropTargetView.h */,
+				4C3B4C371994AAB700F489D6 /* DropTargetView.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			files = (
 				4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */,
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
+				4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */,
 				4CB839C519931EDB002A67D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
