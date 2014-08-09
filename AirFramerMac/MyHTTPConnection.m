@@ -49,7 +49,8 @@
         ManifestGenerator* generator = [ManifestGenerator new];
         NSString* manifest = [generator generateManifest:[filePath stringByDeletingLastPathComponent]];
         return [[HTTPDataResponse alloc] initWithData:[manifest dataUsingEncoding:NSASCIIStringEncoding]];
-    } else if ([[path lastPathComponent] isEqualToString:@"index.html"]) {
+    } else if ([[path lastPathComponent] isEqualToString:@"cached-index.html"]) {
+        filePath = [filePath stringByReplacingOccurrencesOfString:@"cached-" withString:@""];
         NSString* html = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:nil];
         html = [html stringByReplacingOccurrencesOfString:@"<html>" withString:@"<html manifest=\"airframe.appcache\">"];
         return [[HTTPDataResponse alloc] initWithData:[html dataUsingEncoding:NSASCIIStringEncoding]];

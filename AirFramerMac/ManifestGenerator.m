@@ -11,7 +11,9 @@
 @implementation ManifestGenerator
 
 - (NSString*)generateManifest:(NSString*)folder {
-    return [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:@"CACHE MANIFEST\n" root:folder];
+    NSString* manifest = [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:@"CACHE MANIFEST\n" root:folder];
+    manifest = [manifest stringByAppendingString:@"\n\nNETWORK:\n*\nhttp://*\n"];
+    return manifest;
 }
 
 - (NSString*) recursiveFileFetch:(NSURL*) directory appendTo:(NSString*)existing root:(NSString*)root {

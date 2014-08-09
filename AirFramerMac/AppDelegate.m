@@ -36,6 +36,7 @@
     [openDlg setPrompt:@"Select"];
     if ([openDlg runModal] == NSOKButton) {
         self.folder = [openDlg URL];
+        [[NSUserDefaults standardUserDefaults] setObject:self.folder.path forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     [self reconfig];
