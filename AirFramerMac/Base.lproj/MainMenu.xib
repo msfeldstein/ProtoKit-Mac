@@ -13,7 +13,10 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="helpButton" destination="B4E-ci-e5g" id="Obi-jy-9uf"/>
+                <outlet property="helpPanel" destination="UWw-sK-7FP" id="EIP-iq-MJO"/>
                 <outlet property="qrView" destination="3rq-Hd-WX7" id="mzC-vX-9c6"/>
+                <outlet property="reloadButton" destination="RT1-zx-Vg1" id="q8m-F1-dRx"/>
                 <outlet property="statusIndicator" destination="bqA-dy-0d2" id="cjg-Ue-6Fa"/>
                 <outlet property="statusText" destination="LFk-dS-w0y" id="G8T-JM-b6l"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -750,11 +753,22 @@
                             <action selector="sendChange:" target="Voe-Tx-rLC" id="kzj-lt-t3C"/>
                         </connections>
                     </button>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4E-ci-e5g">
+                        <rect key="frame" x="395" y="12" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jjo-Ya-P3O">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showHelp:" target="Voe-Tx-rLC" id="CKY-Yf-73U"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="nbA-F8-SAR"/>
-        <window title="Help!" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="UWw-sK-7FP" customClass="NSPanel">
+        <window title="Help!" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="UWw-sK-7FP" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-153" y="1222" width="252" height="378"/>

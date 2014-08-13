@@ -16,6 +16,9 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
 @property (assign) IBOutlet NSWindow* window;
+@property (assign) IBOutlet NSPanel* helpPanel;
+@property (assign) IBOutlet NSButton* helpButton;
+@property (assign) IBOutlet NSButton* reloadButton;
 @property (assign) IBOutlet NSView* statusIndicator;
 @property (assign) IBOutlet NSTextField* statusText;
 @property (assign) IBOutlet NSImageView* qrView;
@@ -30,4 +33,5 @@
 
 - (IBAction)chooseFolder:(id)sender;
 - (IBAction)sendChange:(id)sender;
+- (IBAction)showHelp:(id)sender;
 @end

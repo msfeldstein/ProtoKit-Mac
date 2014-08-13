@@ -31,6 +31,8 @@
     NSLog(@"Yup");
     self.statusIndicator.layer.cornerRadius = 6;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
+
+    [self.reloadButton setHidden:YES];
     
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
@@ -94,10 +96,13 @@
     self.connectedSocket = newSocket;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
     self.statusText.stringValue = @"Phone Connected!";
+    [self.reloadButton setHidden:NO];
+    [self.helpButton setHidden:YES];
 }
 
 - (void) socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
-    NSLog(@"Socket %@ %@", sock, err);
+    [self.reloadButton setHidden:YES];
+    [self.helpButton setHidden:NO];
     self.connectedSocket = nil;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
     self.statusText.stringValue = @"No Phone Connected (Make sure it's on the same wifi network)";
@@ -145,6 +150,10 @@
         }
     }
     return nil;
+}
+
+- (IBAction)showHelp:(id)sender {
+    [self.helpPanel makeKeyAndOrderFront:self];
 }
 
 @end
