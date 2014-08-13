@@ -5,6 +5,7 @@ target "AirFramerMac" do
 pod "CocoaHTTPServer"
 pod "CDEvents"
 pod "CocoaAsyncSocket"
+pod "QR-Code-Encoder-for-Objective-C", "~> 1.0.0"
 end
 
 target "AirFramerMacTests" do

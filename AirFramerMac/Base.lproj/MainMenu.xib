@@ -13,17 +13,19 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="qrView" destination="3rq-Hd-WX7" id="mzC-vX-9c6"/>
                 <outlet property="statusIndicator" destination="bqA-dy-0d2" id="cjg-Ue-6Fa"/>
                 <outlet property="statusText" destination="LFk-dS-w0y" id="G8T-JM-b6l"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="GT2-D1-2Of" customClass="SUUpdater"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="AirFramerMac" id="1Xt-HY-uBw">
+                <menuItem title="Air Framer" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="AirFramerMac" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Air Framer" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
                             <menuItem title="About AirFramerMac" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -32,6 +34,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                            <menuItem title="Check for Updates..." id="6xT-9G-ek6">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="GT2-D1-2Of" id="Kqd-V3-bBD"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
@@ -731,9 +739,49 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RT1-zx-Vg1">
+                        <rect key="frame" x="388" y="15" width="38" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="Reload" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vcn-8a-lNh">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="systemBold" size="12"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="sendChange:" target="Voe-Tx-rLC" id="kzj-lt-t3C"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="nbA-F8-SAR"/>
+        <window title="Help!" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="UWw-sK-7FP" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="-153" y="1222" width="252" height="378"/>
+            <rect key="screenRect" x="-425" y="1050" width="2560" height="1418"/>
+            <view key="contentView" id="TVt-t0-Phu">
+                <rect key="frame" x="0.0" y="0.0" width="252" height="378"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsw-98-30E">
+                        <rect key="frame" x="18" y="215" width="216" height="136"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Some networks disable bonjour, so scan this from the app to connect directly" id="imw-gv-WzE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3rq-Hd-WX7">
+                        <rect key="frame" x="18" y="65" width="217" height="217"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" id="Ahh-NS-lDr"/>
+                    </imageView>
+                </subviews>
+            </view>
+        </window>
     </objects>
+    <resources>
+        <image name="Reload" width="15" height="12"/>
+    </resources>
 </document>

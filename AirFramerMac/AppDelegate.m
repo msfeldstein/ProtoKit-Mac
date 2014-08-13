@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MyHTTPConnection.h"
 #import "ManifestGenerator.h"
+#import "QRCodeGenerator.h"
+
 
 @implementation AppDelegate
 
@@ -17,15 +19,22 @@
     [self setupWatcherSocket];
     [self setupBonjour];
     NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
+    NSLog(@"Default %@", defaultDirectory);
     if (!defaultDirectory) {
         defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     self.folder = [NSURL URLWithString:defaultDirectory];
+    NSLog(@"Folder %@", self.folder);
     [self reconfig];
+    NSLog(@"Yup");
     self.statusIndicator.layer.cornerRadius = 6;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
+    
+    
+    self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
+    self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
     
 }
 
@@ -62,7 +71,7 @@
     }
     NSLog(@"Path %@", self.folder.path);
     self.server.documentRoot = self.folder.path;
-
+    NSLog(@"Set doc root");
 
 }
 
@@ -109,6 +118,7 @@
 }
 
 - (void)setupWatcher {
+    if (!self.folder) return;
     NSArray* paths = @[self.folder];
     self.watcher = [[CDEvents alloc] initWithURLs:paths block:^(CDEvents *watcher, CDEvent *event) {
         [self sendChangeNotification];
@@ -119,6 +129,22 @@
     NSLog(@"CHANGE\n");
     NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
     [self.connectedSocket writeData:data withTimeout:-1 tag:0];
+}
+
+- (IBAction)sendChange:(id)sender {
+    [self sendChangeNotification];
+}
+
+-(NSString *)getIPAddress
+{
+    for (NSString* address in [[NSHost currentHost] addresses]) {
+        if ([address componentsSeparatedByString:@"."].count == 4) {
+            if (![address isEqualToString:@"127.0.0.1"]) {
+                return address;
+            }
+        }
+    }
+    return nil;
 }
 
 @end

@@ -18,6 +18,8 @@
 @property (assign) IBOutlet NSWindow* window;
 @property (assign) IBOutlet NSView* statusIndicator;
 @property (assign) IBOutlet NSTextField* statusText;
+@property (assign) IBOutlet NSImageView* qrView;
+
 @property NSNetService* netService;
 @property HTTPServer* server;
 @property CDEvents* watcher;
@@ -27,4 +29,5 @@
 @property NSURL* folder;
 
 - (IBAction)chooseFolder:(id)sender;
+- (IBAction)sendChange:(id)sender;
 @end
