@@ -11,7 +11,6 @@
 #import "ManifestGenerator.h"
 #import "QRCodeGenerator.h"
 
-
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -19,16 +18,15 @@
     [self setupWatcherSocket];
     [self setupBonjour];
     NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
-    NSLog(@"Default %@", defaultDirectory);
     if (!defaultDirectory) {
         defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     self.folder = [NSURL URLWithString:defaultDirectory];
-    NSLog(@"Folder %@", self.folder);
+    
     [self reconfig];
-    NSLog(@"Yup");
+    
     self.statusIndicator.layer.cornerRadius = 6;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
 
@@ -71,10 +69,7 @@
             NSLog(@"Error starting HTTP Server: %@", error);
         }
     }
-    NSLog(@"Path %@", self.folder.path);
     self.server.documentRoot = self.folder.path;
-    NSLog(@"Set doc root");
-
 }
 
 - (void)setupWatcherSocket {

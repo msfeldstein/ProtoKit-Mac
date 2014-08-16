@@ -11,6 +11,7 @@
 		4C2895461996B323006B7C5D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
 		4C28954B1996B4D3006B7C5D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
+		4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */; };
 		4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B4C371994AAB700F489D6 /* DropTargetView.m */; };
 		4C985948199BC8E400CB68D3 /* DataMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C985941199BC8E400CB68D3 /* DataMatrix.mm */; };
 		4C985949199BC8E400CB68D3 /* QR_Encode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C985942199BC8E400CB68D3 /* QR_Encode.cpp */; };
@@ -68,6 +69,8 @@
 		4C2895431995AC06006B7C5D /* ManifestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManifestGenerator.m; sourceTree = "<group>"; };
 		4C2895451996B323006B7C5D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		4C2895481996B48F006B7C5D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesGenerator.h; sourceTree = "<group>"; };
+		4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourcesGenerator.m; sourceTree = "<group>"; };
 		4C3B4C361994AAB700F489D6 /* DropTargetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropTargetView.h; sourceTree = "<group>"; };
 		4C3B4C371994AAB700F489D6 /* DropTargetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropTargetView.m; sourceTree = "<group>"; };
 		4C985940199BC8E400CB68D3 /* DataMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMatrix.h; sourceTree = "<group>"; };
@@ -94,7 +97,7 @@
 		4C98595A199BCCB300CB68D3 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
 		4C985962199BCCBD00CB68D3 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
 		4C985963199BCCBD00CB68D3 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
-		4CB839B519931EDB002A67D8 /* AirFramerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFramerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB839B519931EDB002A67D8 /* Frame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4CB839BC19931EDB002A67D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -204,7 +207,7 @@
 		4CB839B619931EDB002A67D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CB839B519931EDB002A67D8 /* AirFramerMac.app */,
+				4CB839B519931EDB002A67D8 /* Frame.app */,
 				4CB839D619931EDB002A67D8 /* AirFramerMacTests.xctest */,
 			);
 			name = Products;
@@ -248,6 +251,8 @@
 				4C3B4C371994AAB700F489D6 /* DropTargetView.m */,
 				4C2895421995AC06006B7C5D /* ManifestGenerator.h */,
 				4C2895431995AC06006B7C5D /* ManifestGenerator.m */,
+				4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */,
+				4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -304,7 +309,7 @@
 			);
 			name = AirFramerMac;
 			productName = AirFramerMac;
-			productReference = 4CB839B519931EDB002A67D8 /* AirFramerMac.app */;
+			productReference = 4CB839B519931EDB002A67D8 /* Frame.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4CB839D519931EDB002A67D8 /* AirFramerMacTests */ = {
@@ -434,6 +439,7 @@
 				4CB839C519931EDB002A67D8 /* main.m in Sources */,
 				4C98595B199BCCB300CB68D3 /* bitstream.c in Sources */,
 				4C98595D199BCCB300CB68D3 /* qrencode.c in Sources */,
+				4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */,
 				4C98594A199BC8E400CB68D3 /* QREncoder.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +581,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Frame;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -593,7 +599,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Frame;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

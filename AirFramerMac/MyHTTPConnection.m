@@ -34,7 +34,6 @@
         AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
         NSString* directory = appDel.folder.path;
         NSError* err;
-        NSLog(@"Directory: %@", directory);
 		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&err];
         if (err) {
             NSLog(@"Error opening directory %@", err);

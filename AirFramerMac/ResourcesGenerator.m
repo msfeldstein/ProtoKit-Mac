@@ -1,25 +1,25 @@
 //
-//  ManifestGenerator.m
+//  ResourcesGenerator.m
 //  AirFramerMac
 //
-//  Created by Michael Feldstein on 8/8/14.
+//  Created by Michael Feldstein on 8/13/14.
 //  Copyright (c) 2014 Macromeez. All rights reserved.
 //
 
-#import "ManifestGenerator.h"
+#import "ResourcesGenerator.h"
 
-@implementation ManifestGenerator
+@implementation ResourcesGenerator
 
 - (NSString*)generateManifest:(NSString*)folder {
-    NSString* manifest = [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:@"CACHE MANIFEST\n" root:folder];
-    manifest = [manifest stringByAppendingString:@"\n\nNETWORK:\n*\nhttp://*\n"];
-    return manifest;
+    NSMutableDictionary* files = [NSMutableDictionary dictionary];
+    files = [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:files];
+    NSLog(@"Files %@", files);
+    return @"";
 }
 
-- (NSString*) recursiveFileFetch:(NSURL*) directory appendTo:(NSString*)existing root:(NSString*)root {
+- (NSMutableDictionary*) recursiveFileFetch:(NSURL*) directory appendTo:(NSMutableDictionary*)existing {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *directoryURL = directory;
-    NSLog(@"Directory %@", directory);
     NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
     
     NSDirectoryEnumerator *enumerator = [fileManager
@@ -31,17 +31,22 @@
                                              return YES;
                                          }];
     
+    
     for (NSURL *url in enumerator) {
         NSError *error;
         NSNumber *isDirectory = nil;
+        NSString* filename = [[url pathComponents]lastObject];
+        
+        if ([filename rangeOfString:@"."].location == 0) continue;
+        NSLog(@"Filename %@", filename);
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
             NSLog(@"Error in determining if a file is a directory: %@", error);
         } else if ([isDirectory boolValue]) {
-            [self recursiveFileFetch:url appendTo:existing root:root];
+            NSMutableDictionary* nodes = [NSMutableDictionary dictionary];
+            existing[filename] = nodes;
+            [self recursiveFileFetch:url appendTo:nodes];
         } else {
-            NSString* relativePath = [url.path stringByReplacingOccurrencesOfString:root withString:@""];
-            relativePath = [relativePath stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-            existing = [existing stringByAppendingString:[NSString stringWithFormat:@"%@\n", relativePath]];
+            existing[filename] = @"FILE";
         }
     }
     return existing;
