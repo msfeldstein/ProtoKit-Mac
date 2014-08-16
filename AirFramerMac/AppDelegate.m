@@ -44,7 +44,13 @@
     [openDlg setCanChooseDirectories:YES];
     [openDlg setPrompt:@"Select"];
     if ([openDlg runModal] == NSOKButton) {
-        self.folder = [openDlg URL];
+        NSURL* url = openDlg.URL;
+        NSLog(@"Folder %@ %@", url, url.path);
+        if ([url.pathExtension isEqualToString:@"framer"]) {
+            url = [NSURL URLWithString:[[url absoluteString] stringByDeletingLastPathComponent]];
+            NSLog(@"Yes %@", url);
+        }
+        self.folder = url;
         [[NSUserDefaults standardUserDefaults] setObject:self.folder.path forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -126,7 +132,6 @@
 }
 
 - (void) sendChangeNotification {
-    NSLog(@"CHANGE\n");
     NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
     [self.connectedSocket writeData:data withTimeout:-1 tag:0];
 }
