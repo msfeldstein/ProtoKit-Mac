@@ -36,6 +36,7 @@
                                                            options:NSJSONWritingPrettyPrinted error:nil];
 		return [[HTTPDataResponse alloc] initWithData:jsonData];
     } else if ([[path lastPathComponent] isEqualToString:@"resources.json"]) {
+        // TODO (feldstein) cache this until images change
         ResourcesGenerator* generator = [ResourcesGenerator new];
         NSDictionary* resources = [generator generateManifest:projectPath];
         NSError* err;
