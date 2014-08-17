@@ -10,6 +10,7 @@
 #import "MyHTTPConnection.h"
 #import "ManifestGenerator.h"
 #import "QRCodeGenerator.h"
+#import "ResourcesGenerator.h"
 
 @implementation AppDelegate
 
@@ -18,12 +19,15 @@
     [self setupWatcherSocket];
     [self setupBonjour];
     NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
+    NSLog(@"Default directory %@", defaultDirectory);
     if (!defaultDirectory) {
         defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    self.folder = [NSURL URLWithString:defaultDirectory];
+    self.folder = [NSURL fileURLWithPath:defaultDirectory];
+    NSLog(@"Default directory2 %@", self.folder);
+    
     
     [self reconfig];
     
@@ -35,7 +39,6 @@
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
-    
 }
 
 - (IBAction)chooseFolder:(id)sender {
@@ -53,6 +56,7 @@
         self.folder = url;
         [[NSUserDefaults standardUserDefaults] setObject:self.folder.path forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        NSLog(@"Synced");
     }
     [self reconfig];
 }

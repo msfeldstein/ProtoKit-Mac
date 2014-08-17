@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CB839B419931EDB002A67D8"
-               BuildableName = "AirFramerMac.app"
+               BuildableName = "Frame.app"
                BlueprintName = "AirFramerMac"
                ReferencedContainer = "container:AirFramerMac.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
-            BuildableName = "AirFramerMac.app"
+            BuildableName = "Frame.app"
             BlueprintName = "AirFramerMac"
             ReferencedContainer = "container:AirFramerMac.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
-            BuildableName = "AirFramerMac.app"
+            BuildableName = "Frame.app"
             BlueprintName = "AirFramerMac"
             ReferencedContainer = "container:AirFramerMac.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
-            BuildableName = "AirFramerMac.app"
+            BuildableName = "Frame.app"
             BlueprintName = "AirFramerMac"
             ReferencedContainer = "container:AirFramerMac.xcodeproj">
          </BuildableReference>

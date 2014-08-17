@@ -2,39 +2,29 @@
 #import "HTTPDataResponse.h"
 #import "AppDelegate.h"
 #import "ManifestGenerator.h"
+#import "ResourcesGenerator.h"
 
 @implementation MyHTTPConnection
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
-	// Use HTTPConnection's filePathForURI method.
-	// This method takes the given path (which comes directly from the HTTP request),
-	// and converts it to a full path by combining it with the configured document root.
-	// 
-	// It also does cool things for us like support for converting "/" to "/index.html",
-	// and security restrictions (ensuring we don't serve documents outside configured document root folder).
-	
 	NSString *filePath = [self filePathForURI:path];
-	
-	// Convert to relative path
-	
-	NSString *documentRoot = [config documentRoot];
-	
+    NSString *documentRoot = [config documentRoot];
 	if (![filePath hasPrefix:documentRoot])
 	{
-		// Uh oh.
-		// HTTPConnection's filePathForURI was supposed to take care of this for us.
 		return nil;
 	}
 	
-	NSString *relativePath = [filePath substringFromIndex:[documentRoot length]];
-
-	if ([relativePath isEqualToString:@"/list"])
+	NSString* relativePath = [filePath substringFromIndex:[documentRoot length]];
+    NSString* projectPath = [filePath stringByDeletingLastPathComponent];
+    AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
+    NSString* workspaceDirectory = appDel.folder.path;
+	
+    if ([relativePath isEqualToString:@"/list"])
 	{
-        AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
-        NSString* directory = appDel.folder.path;
+        
         NSError* err;
-		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&err];
+		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:workspaceDirectory error:&err];
         if (err) {
             NSLog(@"Error opening directory %@", err);
             return [[HTTPDataResponse alloc] initWithData:[@"[]" dataUsingEncoding:NSASCIIStringEncoding]];
@@ -45,9 +35,18 @@
 		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dirFiles
                                                            options:NSJSONWritingPrettyPrinted error:nil];
 		return [[HTTPDataResponse alloc] initWithData:jsonData];
+    } else if ([[path lastPathComponent] isEqualToString:@"resources.json"]) {
+        ResourcesGenerator* generator = [ResourcesGenerator new];
+        NSDictionary* resources = [generator generateManifest:projectPath];
+        NSError* err;
+        NSData* json = [NSJSONSerialization dataWithJSONObject:resources options:NSJSONWritingPrettyPrinted error:&err];
+        if (err) {
+            NSLog(@"Error creating json for resource manifest %@", err);
+        }
+        return [[HTTPDataResponse alloc] initWithData:json];
 	} else if ([[path lastPathComponent] isEqualToString:@"airframe.appcache"]) {
         ManifestGenerator* generator = [ManifestGenerator new];
-        NSString* manifest = [generator generateManifest:[filePath stringByDeletingLastPathComponent]];
+        NSString* manifest = [generator generateManifest:projectPath];
         return [[HTTPDataResponse alloc] initWithData:[manifest dataUsingEncoding:NSASCIIStringEncoding]];
     } else if ([[path lastPathComponent] isEqualToString:@"cached-index.html"]) {
         filePath = [filePath stringByReplacingOccurrencesOfString:@"cached-" withString:@""];

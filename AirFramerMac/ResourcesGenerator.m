@@ -10,11 +10,11 @@
 
 @implementation ResourcesGenerator
 
-- (NSString*)generateManifest:(NSString*)folder {
+- (NSDictionary*)generateManifest:(NSString*)folder {
     NSMutableDictionary* files = [NSMutableDictionary dictionary];
-    files = [self recursiveFileFetch:[NSURL URLWithString:folder] appendTo:files];
-    NSLog(@"Files %@", files);
-    return @"";
+    NSURL* url = [NSURL fileURLWithPath:[[folder stringByAppendingPathComponent:@"images"] stringByAppendingString:@"/"]];
+    files = [self recursiveFileFetch:url appendTo:files];
+    return files;
 }
 
 - (NSMutableDictionary*) recursiveFileFetch:(NSURL*) directory appendTo:(NSMutableDictionary*)existing {
@@ -30,15 +30,12 @@
                                              // Return YES if the enumeration should continue after the error.
                                              return YES;
                                          }];
-    
-    
     for (NSURL *url in enumerator) {
         NSError *error;
         NSNumber *isDirectory = nil;
         NSString* filename = [[url pathComponents]lastObject];
         
         if ([filename rangeOfString:@"."].location == 0) continue;
-        NSLog(@"Filename %@", filename);
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
             NSLog(@"Error in determining if a file is a directory: %@", error);
         } else if ([isDirectory boolValue]) {
@@ -46,10 +43,17 @@
             existing[filename] = nodes;
             [self recursiveFileFetch:url appendTo:nodes];
         } else {
-            existing[filename] = @"FILE";
+            existing[filename] = [self dictionaryForImage:url];
         }
     }
     return existing;
+}
+
+- (NSDictionary*)dictionaryForImage:(NSURL*)imagePath {
+    NSImage* image = [[NSImage alloc] initByReferencingURL:imagePath];
+    return @{@"path": imagePath.path,
+             @"width": [NSNumber numberWithDouble:image.size.width],
+             @"height":[NSNumber numberWithDouble:image.size.height]};
 }
 
 @end

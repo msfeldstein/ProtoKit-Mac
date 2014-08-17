@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ResourcesGenerator : NSObject
-- (NSString*)generateManifest:(NSString*)folder;
+- (NSDictionary*)generateManifest:(NSString*)folder;
 @end
