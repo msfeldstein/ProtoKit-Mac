@@ -12,7 +12,7 @@
 
 - (NSDictionary*)generateManifest:(NSString*)folder {
     NSMutableDictionary* files = [NSMutableDictionary dictionary];
-    NSURL* url = [NSURL fileURLWithPath:[[folder stringByAppendingPathComponent:@"images"] stringByAppendingString:@"/"]];
+    NSURL* url = [NSURL fileURLWithPath:[folder stringByAppendingString:@"/"]];
     files = [self recursiveFileFetch:url appendTo:files];
     return files;
 }

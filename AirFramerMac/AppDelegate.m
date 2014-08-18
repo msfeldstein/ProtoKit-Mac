@@ -105,7 +105,7 @@
     if (self.connectedSockets.count > 0) {
         self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
         if (self.connectedSockets.count == 1) {
-            self.statusText.stringValue = @"One phone Connected";
+            self.statusText.stringValue = @"One phone connected";
         } else {
             self.statusText.stringValue = [NSString stringWithFormat:@"%lu phones connected", (unsigned long)self.connectedSockets.count];
         }
