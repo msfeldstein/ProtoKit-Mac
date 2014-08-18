@@ -27,7 +27,7 @@
 @property HTTPServer* server;
 @property CDEvents* watcher;
 @property GCDAsyncSocket* watcherSocket;
-@property GCDAsyncSocket* connectedSocket;
+@property NSMutableArray* connectedSockets;
 
 @property NSURL* folder;
 

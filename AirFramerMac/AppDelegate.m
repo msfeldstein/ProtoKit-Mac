@@ -16,18 +16,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.connectedSockets = [NSMutableArray array];
     [self setupWatcherSocket];
     [self setupBonjour];
     NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
-    NSLog(@"Default directory %@", defaultDirectory);
     if (!defaultDirectory) {
         defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     self.folder = [NSURL fileURLWithPath:defaultDirectory];
-    NSLog(@"Default directory2 %@", self.folder);
-    
     
     [self reconfig];
     
@@ -36,28 +34,24 @@
 
     [self.reloadButton setHidden:YES];
     
-    
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
 }
 
 - (IBAction)chooseFolder:(id)sender {
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
-    [openDlg setCanChooseFiles:NO];
-    [openDlg setCanChooseDirectories:YES];
-    [openDlg setPrompt:@"Select"];
+    openDlg.canChooseFiles = NO;
+    openDlg.canChooseDirectories = YES;
+    openDlg.prompt = @"Select";
     openDlg.title = @"Select Workspace Folder";
     if ([openDlg runModal] == NSOKButton) {
         NSURL* url = openDlg.URL;
-        NSLog(@"Folder %@ %@", url, url.path);
         if ([url.pathExtension isEqualToString:@"framer"]) {
-            url = [NSURL URLWithString:[[url absoluteString] stringByDeletingLastPathComponent]];
-            NSLog(@"Yes %@", url);
+            url = [NSURL URLWithString:[url.absoluteString stringByDeletingLastPathComponent]];
         }
         self.folder = url;
         [[NSUserDefaults standardUserDefaults] setObject:self.folder.path forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        NSLog(@"Synced");
     }
     [self reconfig];
 }
@@ -93,25 +87,36 @@
     }
 }
 
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
-    NSLog(@"Wrote some data");
-}
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag { }
 
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
     NSLog(@"Did accept new socket");
-    self.connectedSocket = newSocket;
-    self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
-    self.statusText.stringValue = @"Phone Connected!";
-    [self.reloadButton setHidden:NO];
-    [self.helpButton setHidden:YES];
+    [self.connectedSockets addObject:newSocket];
+    [self updateLabel];
 }
 
-- (void) socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
-    [self.reloadButton setHidden:YES];
-    [self.helpButton setHidden:NO];
-    self.connectedSocket = nil;
-    self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
-    self.statusText.stringValue = @"No Phone Connected (Make sure it's on the same wifi network)";
+- (void) socketDidDisconnect:(GCDAsyncSocket *)socket withError:(NSError *)err {
+    NSLog(@"Did disconnect socket");
+    [self.connectedSockets removeObject:socket];
+    [self updateLabel];
+}
+
+- (void)updateLabel {
+    if (self.connectedSockets.count > 0) {
+        self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
+        if (self.connectedSockets.count == 1) {
+            self.statusText.stringValue = @"One phone Connected";
+        } else {
+            self.statusText.stringValue = [NSString stringWithFormat:@"%lu phones connected", (unsigned long)self.connectedSockets.count];
+        }
+        [self.reloadButton setHidden:NO];
+        [self.helpButton setHidden:YES];
+    } else {
+        [self.reloadButton setHidden:YES];
+        [self.helpButton setHidden:NO];
+        self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
+        self.statusText.stringValue = @"No Phone Connected (Make sure it's on the same wifi network)";
+    }
 }
 
 - (void) setupBonjour {
@@ -138,7 +143,9 @@
 
 - (void) sendChangeNotification {
     NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
-    [self.connectedSocket writeData:data withTimeout:-1 tag:0];
+    for (GCDAsyncSocket* socket in self.connectedSockets) {
+        [socket writeData:data withTimeout:-1 tag:0];
+    }
 }
 
 - (IBAction)sendChange:(id)sender {
