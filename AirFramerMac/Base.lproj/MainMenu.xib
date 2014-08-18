@@ -669,9 +669,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="AirFramerMac Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Connection Issues" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
-                                    <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
+                                    <action selector="showHelp:" target="Voe-Tx-rLC" id="b3V-Yu-qUa"/>
                                 </connections>
                             </menuItem>
                         </items>
