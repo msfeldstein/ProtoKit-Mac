@@ -46,6 +46,7 @@
     [openDlg setCanChooseFiles:NO];
     [openDlg setCanChooseDirectories:YES];
     [openDlg setPrompt:@"Select"];
+    openDlg.title = @"Select Workspace Folder";
     if ([openDlg runModal] == NSOKButton) {
         NSURL* url = openDlg.URL;
         NSLog(@"Folder %@ %@", url, url.path);
