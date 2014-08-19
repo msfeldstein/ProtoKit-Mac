@@ -64,18 +64,23 @@
     [delegate showSimulator:textField.stringValue];
 }
 
+- (IBAction)showFolder:(id)sender {
+    NSButton *button = (NSButton *)sender;
+    NSTextField* textField = [(NSTextField *)[button superview] viewWithTag:100];
+    AppDelegate* delegate = ((AppDelegate*)[NSApplication sharedApplication].delegate);
+    [delegate showFolder:textField.stringValue];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return _projects.count;
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
-    return 60;
+    return 30;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSString* project = _projects[row];
-//    ProjectTableRowViewController* vc = [[ProjectTableRowViewController alloc] init];
-//    [vc setProject:project];
     NSView* view = [self.tableView makeViewWithIdentifier:@"justText" owner:self];
     NSTextField* title = [view viewWithTag:100];
     title.stringValue = project;

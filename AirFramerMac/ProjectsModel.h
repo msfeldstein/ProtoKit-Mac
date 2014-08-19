@@ -13,4 +13,5 @@
 @property NSURL* folder;
 - (void)reload;
 - (IBAction)showSim:(id)sender;
+- (IBAction)showFolder:(id)sender;
 @end

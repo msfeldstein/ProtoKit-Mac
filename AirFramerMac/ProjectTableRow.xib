@@ -26,15 +26,26 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMi-Q8-7gw">
-                    <rect key="frame" x="285" y="21" width="124" height="25"/>
+                <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMi-Q8-7gw">
+                    <rect key="frame" x="382" y="23" width="27" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundTextured" title="View in Simulator" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qKg-Q8-tzg">
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="run" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="qKg-Q8-tzg">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="showSimulator:" target="-2" id="NTw-8n-VHm"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7E-rd-Ydo">
+                    <rect key="frame" x="347" y="24" width="27" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="folder" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="24Q-gk-7C9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showSimulator:" target="-2" id="xRV-NI-QuK"/>
                     </connections>
                 </button>
             </subviews>
@@ -44,4 +55,8 @@
             </constraints>
         </customView>
     </objects>
+    <resources>
+        <image name="folder" width="20" height="20"/>
+        <image name="run" width="22" height="22"/>
+    </resources>
 </document>

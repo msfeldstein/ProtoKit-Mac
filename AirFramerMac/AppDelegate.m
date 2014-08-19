@@ -42,10 +42,21 @@
 }
 
 - (void)showSimulator:(NSString*)project {
-    self.simulatorController = [[SimulatorWindowController alloc]init];
-    [self.simulatorController showWindow:self];
-    [self.simulatorController.window makeKeyAndOrderFront:nil];
-    [self.simulatorController loadURL:[NSString stringWithFormat:@"http://%@:%i/%@/index.html",[self getIPAddress], 3007, project]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[self urlForProject:project]]];
+}
+
+
+- (void)showFolder:(NSString*)project {
+    NSString* path = [self filePathForProjectFolder:project];
+   [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:path]];
+}
+
+- (NSString*)filePathForProjectFolder:(NSString*)project {
+    return [self.folder.path stringByAppendingPathComponent:project];
+}
+
+- (NSString*)urlForProject:(NSString*)project {
+    return [NSString stringWithFormat:@"http://%@:%i/%@/index.html",[self getIPAddress], 3007, project];
 }
 
 - (IBAction)chooseFolder:(id)sender {
@@ -67,6 +78,8 @@
 }
 
 - (void) reconfig {
+    [self.projects setFolder:self.folder];
+    [self.projects reload];
     [self setupServer];
     [self setupWatcher];
     [self sendChangeNotification];
@@ -191,6 +204,8 @@
         NSLog(@"Error copying new project template %@", err);
     }
     NSURL* folderURL = [NSURL fileURLWithPath:newPath];
+
+    [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:[self urlForProject:name]]];
     [[NSWorkspace sharedWorkspace] openURL: folderURL];
     [self.projects reload];
 }

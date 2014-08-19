@@ -38,6 +38,7 @@
 @property NSURL* folder;
 
 - (void)showSimulator:(NSString*)project;
+- (void)showFolder:(NSString*)project;
 
 - (IBAction)newProject:(id)sender;
 - (IBAction)chooseFolder:(id)sender;
