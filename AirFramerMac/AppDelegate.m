@@ -11,6 +11,7 @@
 #import "ManifestGenerator.h"
 #import "QRCodeGenerator.h"
 #import "ResourcesGenerator.h"
+#import "SimulatorWindowController.h"
 
 @implementation AppDelegate
 
@@ -36,6 +37,12 @@
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
+}
+
+- (IBAction)showSimulator:(id)sender {
+    self.simulatorController = [[SimulatorWindowController alloc]init];
+    [self.simulatorController showWindow:self];
+    [self.simulatorController loadURL:[NSString stringWithFormat:@"http://%@:%i/example.framer/index.html",[self getIPAddress], 3007]];
 }
 
 - (IBAction)chooseFolder:(id)sender {
@@ -166,6 +173,40 @@
 
 - (IBAction)showHelp:(id)sender {
     [self.helpPanel makeKeyAndOrderFront:self];
+}
+
+- (IBAction)newProject:(id)sender {
+    NSString* name = [self input:@"Name of prototype" defaultValue:@"New Project"];
+    name = [name stringByAppendingPathExtension:@"framer"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* templatePath = [bundle pathForResource:@"example" ofType:@"framer"];
+    NSError* err;
+    NSString* newPath = [self.folder.path stringByAppendingPathComponent:name];
+    [fm copyItemAtPath:templatePath toPath:newPath error:&err];
+    if (err) {
+        NSLog(@"Error copying new project template %@", err);
+    }
+    NSURL* folderURL = [NSURL fileURLWithPath:newPath];
+    [[NSWorkspace sharedWorkspace] openURL: folderURL];
+}
+
+- (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
+    NSAlert *alert = [NSAlert alertWithMessageText: prompt
+                                     defaultButton:@"OK"
+                                   alternateButton:@"Cancel"
+                                       otherButton:nil
+                         informativeTextWithFormat:@""];
+    
+    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    [input setStringValue:defaultValue];
+    [alert setAccessoryView:input];
+    NSInteger button = [alert runModal];
+    if (button == NSAlertDefaultReturn) {
+        [input validateEditing];
+        return [input stringValue];
+    }
+    return nil;
 }
 
 @end

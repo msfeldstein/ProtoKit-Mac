@@ -13,6 +13,8 @@
 
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
 
+@class SimulatorWindowController;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
 @property (assign) IBOutlet NSWindow* window;
@@ -28,9 +30,11 @@
 @property CDEvents* watcher;
 @property GCDAsyncSocket* watcherSocket;
 @property NSMutableArray* connectedSockets;
+@property SimulatorWindowController* simulatorController;
 
 @property NSURL* folder;
 
+- (IBAction)newProject:(id)sender;
 - (IBAction)chooseFolder:(id)sender;
 - (IBAction)sendChange:(id)sender;
 - (IBAction)showHelp:(id)sender;

@@ -25,7 +25,6 @@
         
         NSError* err;
 		NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:workspaceDirectory error:&err];
-
         if (err) {
             NSLog(@"Error opening directory %@", err);
             return [[HTTPDataResponse alloc] initWithData:[@"[]" dataUsingEncoding:NSASCIIStringEncoding]];
@@ -33,21 +32,20 @@
         NSMutableArray* directoriesWithIndex = [NSMutableArray array];
         for (NSString* directory in dirFiles) {
             NSString* indexPath = [[workspaceDirectory stringByAppendingPathComponent:directory] stringByAppendingPathComponent:@"index.html"];
-            NSLog(@"Index %@", indexPath);
             if ([[NSFileManager defaultManager] fileExistsAtPath:indexPath]) {
                 [directoriesWithIndex addObject:directory];
             }
         }
         NSString* filter = @"!%K BEGINSWITH %@";
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"self", @"."];
-        dirFiles = [directoriesWithIndex filteredArrayUsingPredicate:predicate];
-		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dirFiles
+        NSArray* finalDirectories = [directoriesWithIndex filteredArrayUsingPredicate:predicate];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:finalDirectories
                                                            options:NSJSONWritingPrettyPrinted error:nil];
 		return [[HTTPDataResponse alloc] initWithData:jsonData];
     } else if ([[path lastPathComponent] isEqualToString:@"resources.json"]) {
         // TODO (feldstein) cache this until images change
         ResourcesGenerator* generator = [ResourcesGenerator new];
-        NSDictionary* resources = [generator generateManifest:[projectPath stringByAppendingPathComponent:@"images"] ];
+        NSDictionary* resources = [generator generateManifestInProject:projectPath directory:@"images"];
         NSError* err;
         NSData* json = [NSJSONSerialization dataWithJSONObject:resources options:NSJSONWritingPrettyPrinted error:&err];
         if (err) {
@@ -57,7 +55,7 @@
     } else if ([[path lastPathComponent] isEqualToString:@"scripts.json"]) {
         // TODO (feldstein) cache this until images change
         ResourcesGenerator* generator = [ResourcesGenerator new];
-        NSDictionary* resources = [generator generateManifest:[projectPath stringByAppendingPathComponent:@"scripts"] ];
+        NSDictionary* resources = [generator generateManifestInProject:projectPath directory:@"scripts"];
         NSError* err;
         NSData* json = [NSJSONSerialization dataWithJSONObject:resources options:NSJSONWritingPrettyPrinted error:&err];
         if (err) {

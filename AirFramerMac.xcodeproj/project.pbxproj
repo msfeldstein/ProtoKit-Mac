@@ -12,6 +12,9 @@
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
 		4C28954B1996B4D3006B7C5D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
 		4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */; };
+		4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385119A2EDEC001A1511 /* Simulator.xib */; };
+		4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385419A2EED9001A1511 /* SimulatorWindowController.m */; };
+		4C35385719A2FD19001A1511 /* example.framer in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385619A2FD19001A1511 /* example.framer */; };
 		4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B4C371994AAB700F489D6 /* DropTargetView.m */; };
 		4C985948199BC8E400CB68D3 /* DataMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C985941199BC8E400CB68D3 /* DataMatrix.mm */; };
 		4C985949199BC8E400CB68D3 /* QR_Encode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C985942199BC8E400CB68D3 /* QR_Encode.cpp */; };
@@ -71,6 +74,10 @@
 		4C2895481996B48F006B7C5D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesGenerator.h; sourceTree = "<group>"; };
 		4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourcesGenerator.m; sourceTree = "<group>"; };
+		4C35385119A2EDEC001A1511 /* Simulator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Simulator.xib; sourceTree = "<group>"; };
+		4C35385319A2EED9001A1511 /* SimulatorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorWindowController.h; sourceTree = "<group>"; };
+		4C35385419A2EED9001A1511 /* SimulatorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulatorWindowController.m; sourceTree = "<group>"; };
+		4C35385619A2FD19001A1511 /* example.framer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = example.framer; sourceTree = "<group>"; };
 		4C3B4C361994AAB700F489D6 /* DropTargetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropTargetView.h; sourceTree = "<group>"; };
 		4C3B4C371994AAB700F489D6 /* DropTargetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropTargetView.m; sourceTree = "<group>"; };
 		4C985940199BC8E400CB68D3 /* DataMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMatrix.h; sourceTree = "<group>"; };
@@ -253,6 +260,9 @@
 				4C2895431995AC06006B7C5D /* ManifestGenerator.m */,
 				4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */,
 				4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */,
+				4C35385119A2EDEC001A1511 /* Simulator.xib */,
+				4C35385319A2EED9001A1511 /* SimulatorWindowController.h */,
+				4C35385419A2EED9001A1511 /* SimulatorWindowController.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 		4CB839BF19931EDB002A67D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C35385619A2FD19001A1511 /* example.framer */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4C2895481996B48F006B7C5D /* dsa_pub.pem */,
 				4CB839C019931EDB002A67D8 /* AirFramerMac-Info.plist */,
@@ -369,7 +380,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */,
+				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
+				4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */,
 				4CB839D119931EDB002A67D8 /* Images.xcassets in Resources */,
 				4CB839C919931EDB002A67D8 /* Credits.rtf in Resources */,
 				4CB839CF19931EDB002A67D8 /* MainMenu.xib in Resources */,
@@ -426,6 +439,7 @@
 			files = (
 				4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */,
 				4C985964199BCCBD00CB68D3 /* QRCodeGenerator.m in Sources */,
+				4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */,
 				4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */,
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
 				4C985961199BCCB300CB68D3 /* split.c in Sources */,

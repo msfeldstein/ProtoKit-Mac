@@ -10,14 +10,16 @@
 
 @implementation ResourcesGenerator
 
-- (NSDictionary*)generateManifest:(NSString*)folder {
+- (NSDictionary*)generateManifestInProject:(NSString*)folder directory:(NSString*)directory {
     NSMutableDictionary* files = [NSMutableDictionary dictionary];
-    NSURL* url = [NSURL fileURLWithPath:[folder stringByAppendingString:@"/"]];
-    files = [self recursiveFileFetch:url appendTo:files];
+    NSString* path = [[folder stringByAppendingPathComponent:directory] stringByAppendingString:@"/"];
+    NSLog(@"path %@", path);
+    NSURL* url = [NSURL fileURLWithPath:path];
+    files = [self recursiveFileFetch:url appendTo:files withPath:directory];
     return files;
 }
 
-- (NSMutableDictionary*) recursiveFileFetch:(NSURL*) directory appendTo:(NSMutableDictionary*)existing {
+- (NSMutableDictionary*) recursiveFileFetch:(NSURL*) directory appendTo:(NSMutableDictionary*)existing withPath:(NSString*)path {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *directoryURL = directory;
     NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
@@ -36,22 +38,25 @@
         NSString* filename = [[url pathComponents]lastObject];
         
         if ([filename rangeOfString:@"."].location == 0) continue;
+        NSLog(@"FILENAME %@", filename);
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
             NSLog(@"Error in determining if a file is a directory: %@", error);
         } else if ([isDirectory boolValue]) {
             NSMutableDictionary* nodes = [NSMutableDictionary dictionary];
             existing[filename] = nodes;
-            [self recursiveFileFetch:url appendTo:nodes];
+            [self recursiveFileFetch:url appendTo:nodes withPath:[path stringByAppendingPathComponent:filename]];
         } else {
-            existing[filename] = [self dictionaryForImage:url];
+            existing[filename] = [self dictionaryForImage:url atPath:path];
         }
     }
     return existing;
 }
 
-- (NSDictionary*)dictionaryForImage:(NSURL*)imagePath {
+- (NSDictionary*)dictionaryForImage:(NSURL*)imagePath atPath:(NSString*)path {
     NSImage* image = [[NSImage alloc] initByReferencingURL:imagePath];
-    return @{@"path": imagePath.path,
+    NSString* filename = imagePath.pathComponents.lastObject;
+    
+    return @{@"path": [path stringByAppendingPathComponent:filename],
              @"width": [NSNumber numberWithDouble:image.size.width],
              @"height":[NSNumber numberWithDouble:image.size.height]};
 }

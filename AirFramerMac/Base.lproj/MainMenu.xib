@@ -82,7 +82,7 @@
                         <items>
                             <menuItem title="New FramerJS Project" keyEquivalent="n" id="Was-JA-tGl">
                                 <connections>
-                                    <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
+                                    <action selector="newProject:" target="Voe-Tx-rLC" id="l9I-Pi-iy9"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
