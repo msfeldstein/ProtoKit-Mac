@@ -210,11 +210,11 @@
                         </textFieldCell>
                     </textField>
                     <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqA-dy-0d2">
-                        <rect key="frame" x="12" y="19" width="12" height="12"/>
+                        <rect key="frame" x="20" y="18" width="12" height="12"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-dS-w0y">
-                        <rect key="frame" x="30" y="15" width="336" height="17"/>
+                        <rect key="frame" x="38" y="14" width="336" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Phone Connected (Make sure it's on the same wifi network)" id="m2C-bh-r9g">
                             <font key="font" metaFont="smallSystem"/>
@@ -223,7 +223,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RT1-zx-Vg1">
-                        <rect key="frame" x="380" y="15" width="38" height="19"/>
+                        <rect key="frame" x="388" y="14" width="38" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="Reload" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vcn-8a-lNh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -234,7 +234,7 @@
                         </connections>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4E-ci-e5g">
-                        <rect key="frame" x="387" y="12" width="25" height="25"/>
+                        <rect key="frame" x="395" y="11" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jjo-Ya-P3O">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
