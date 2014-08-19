@@ -15,6 +15,8 @@
 		4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385119A2EDEC001A1511 /* Simulator.xib */; };
 		4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385419A2EED9001A1511 /* SimulatorWindowController.m */; };
 		4C35385719A2FD19001A1511 /* example.framer in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385619A2FD19001A1511 /* example.framer */; };
+		4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385919A31189001A1511 /* ProjectsModel.m */; };
+		4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385B19A31568001A1511 /* ProjectTableRow.xib */; };
 		4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B4C371994AAB700F489D6 /* DropTargetView.m */; };
 		4C985948199BC8E400CB68D3 /* DataMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C985941199BC8E400CB68D3 /* DataMatrix.mm */; };
 		4C985949199BC8E400CB68D3 /* QR_Encode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C985942199BC8E400CB68D3 /* QR_Encode.cpp */; };
@@ -78,6 +80,9 @@
 		4C35385319A2EED9001A1511 /* SimulatorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorWindowController.h; sourceTree = "<group>"; };
 		4C35385419A2EED9001A1511 /* SimulatorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulatorWindowController.m; sourceTree = "<group>"; };
 		4C35385619A2FD19001A1511 /* example.framer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = example.framer; sourceTree = "<group>"; };
+		4C35385819A31189001A1511 /* ProjectsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsModel.h; sourceTree = "<group>"; };
+		4C35385919A31189001A1511 /* ProjectsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsModel.m; sourceTree = "<group>"; };
+		4C35385B19A31568001A1511 /* ProjectTableRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableRow.xib; sourceTree = "<group>"; };
 		4C3B4C361994AAB700F489D6 /* DropTargetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropTargetView.h; sourceTree = "<group>"; };
 		4C3B4C371994AAB700F489D6 /* DropTargetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropTargetView.m; sourceTree = "<group>"; };
 		4C985940199BC8E400CB68D3 /* DataMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMatrix.h; sourceTree = "<group>"; };
@@ -263,6 +268,9 @@
 				4C35385119A2EDEC001A1511 /* Simulator.xib */,
 				4C35385319A2EED9001A1511 /* SimulatorWindowController.h */,
 				4C35385419A2EED9001A1511 /* SimulatorWindowController.m */,
+				4C35385819A31189001A1511 /* ProjectsModel.h */,
+				4C35385919A31189001A1511 /* ProjectsModel.m */,
+				4C35385B19A31568001A1511 /* ProjectTableRow.xib */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */,
 				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
+				4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */,
 				4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */,
 				4CB839D119931EDB002A67D8 /* Images.xcassets in Resources */,
 				4CB839C919931EDB002A67D8 /* Credits.rtf in Resources */,
@@ -445,6 +454,7 @@
 				4C985961199BCCB300CB68D3 /* split.c in Sources */,
 				4C985960199BCCB300CB68D3 /* rscode.c in Sources */,
 				4C985949199BC8E400CB68D3 /* QR_Encode.cpp in Sources */,
+				4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */,
 				4C98595F199BCCB300CB68D3 /* qrspec.c in Sources */,
 				4C3B4C381994AAB700F489D6 /* DropTargetView.m in Sources */,
 				4C98595E199BCCB300CB68D3 /* qrinput.c in Sources */,

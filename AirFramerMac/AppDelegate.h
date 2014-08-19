@@ -12,6 +12,7 @@
 #import <CocoaAsyncSocket/AsyncSocket.h>
 
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import "ProjectsModel.h"
 
 @class SimulatorWindowController;
 
@@ -24,6 +25,8 @@
 @property (assign) IBOutlet NSView* statusIndicator;
 @property (assign) IBOutlet NSTextField* statusText;
 @property (assign) IBOutlet NSImageView* qrView;
+@property (assign) IBOutlet NSTableView* projectList;
+@property (assign) IBOutlet ProjectsModel* projects;
 
 @property NSNetService* netService;
 @property HTTPServer* server;

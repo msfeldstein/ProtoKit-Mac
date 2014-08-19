@@ -37,6 +37,8 @@
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
+
+    self.projects.folder = self.folder;
 }
 
 - (IBAction)showSimulator:(id)sender {
