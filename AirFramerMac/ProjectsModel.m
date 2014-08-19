@@ -7,6 +7,8 @@
 //
 
 #import "ProjectsModel.h"
+#import "AppDelegate.h"
+#import "ProjectTableRowViewController.h"
 
 @interface ProjectsModel () {
     NSMutableArray* _projects;
@@ -31,6 +33,10 @@
     }
 }
 
+- (void)reload {
+    [self loadFolder];
+}
+
 - (void)loadFolder {
     [_projects removeAllObjects];
     if (self.folder) {
@@ -50,6 +56,14 @@
     
 }
 
+- (IBAction)showSim:(id)sender {
+    NSButton *button = (NSButton *)sender;
+    NSTextField* textField = [(NSTextField *)[button superview] viewWithTag:100];
+    NSLog(@"Rep obj %@", textField.stringValue);
+    AppDelegate* delegate = ((AppDelegate*)[NSApplication sharedApplication].delegate);
+    [delegate showSimulator:textField.stringValue];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return _projects.count;
 }
@@ -60,9 +74,11 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSString* project = _projects[row];
-    NSTextField* view = [[NSTextField alloc]initWithFrame:NSMakeRect(0, 0, 200, 60)];
-    view.stringValue = project;
-    [view setEditable:NO];
+//    ProjectTableRowViewController* vc = [[ProjectTableRowViewController alloc] init];
+//    [vc setProject:project];
+    NSView* view = [self.tableView makeViewWithIdentifier:@"justText" owner:self];
+    NSTextField* title = [view viewWithTag:100];
+    title.stringValue = project;
     return view;
 }
 @end

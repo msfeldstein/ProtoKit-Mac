@@ -41,10 +41,11 @@
     self.projects.folder = self.folder;
 }
 
-- (IBAction)showSimulator:(id)sender {
+- (void)showSimulator:(NSString*)project {
     self.simulatorController = [[SimulatorWindowController alloc]init];
     [self.simulatorController showWindow:self];
-    [self.simulatorController loadURL:[NSString stringWithFormat:@"http://%@:%i/example.framer/index.html",[self getIPAddress], 3007]];
+    [self.simulatorController.window makeKeyAndOrderFront:nil];
+    [self.simulatorController loadURL:[NSString stringWithFormat:@"http://%@:%i/%@/index.html",[self getIPAddress], 3007, project]];
 }
 
 - (IBAction)chooseFolder:(id)sender {
@@ -191,6 +192,7 @@
     }
     NSURL* folderURL = [NSURL fileURLWithPath:newPath];
     [[NSWorkspace sharedWorkspace] openURL: folderURL];
+    [self.projects reload];
 }
 
 - (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {

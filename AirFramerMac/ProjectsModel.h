@@ -11,4 +11,6 @@
 @interface ProjectsModel : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 @property IBOutlet NSTableView* tableView;
 @property NSURL* folder;
+- (void)reload;
+- (IBAction)showSim:(id)sender;
 @end
