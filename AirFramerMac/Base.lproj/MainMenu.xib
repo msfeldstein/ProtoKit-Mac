@@ -210,11 +210,11 @@
                         </textFieldCell>
                     </textField>
                     <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqA-dy-0d2">
-                        <rect key="frame" x="20" y="18" width="12" height="12"/>
+                        <rect key="frame" x="12" y="18" width="12" height="12"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-dS-w0y">
-                        <rect key="frame" x="38" y="14" width="336" height="17"/>
+                        <rect key="frame" x="30" y="14" width="336" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Phone Connected (Make sure it's on the same wifi network)" id="m2C-bh-r9g">
                             <font key="font" metaFont="smallSystem"/>
@@ -223,7 +223,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RT1-zx-Vg1">
-                        <rect key="frame" x="388" y="14" width="38" height="19"/>
+                        <rect key="frame" x="402" y="14" width="38" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="Reload" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vcn-8a-lNh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -234,7 +234,7 @@
                         </connections>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4E-ci-e5g">
-                        <rect key="frame" x="395" y="11" width="25" height="25"/>
+                        <rect key="frame" x="409" y="11" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jjo-Ya-P3O">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -245,20 +245,21 @@
                         </connections>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-z9-tkr">
-                        <rect key="frame" x="20" y="48" width="398" height="259"/>
+                        <rect key="frame" x="-1" y="48" width="448" height="259"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="dm8-Du-034">
-                            <rect key="frame" x="1" y="1" width="396" height="257"/>
+                            <rect key="frame" x="1" y="1" width="446" height="257"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="Jjm-rX-ghk">
-                                    <rect key="frame" x="0.0" y="0.0" width="396" height="257"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="446" height="257"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" red="0.8784313725490196" green="0.89411764705882346" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                    <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="393" minWidth="40" maxWidth="1000" id="BLC-pX-t75">
+                                        <tableColumn width="443" minWidth="40" maxWidth="1000" id="BLC-pX-t75">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -268,11 +269,11 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="justText" id="o0d-P9-3P5">
-                                                    <rect key="frame" x="1" y="1" width="393" height="24"/>
+                                                    <rect key="frame" x="1" y="1" width="443" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-r4-2MB">
-                                                            <rect key="frame" x="0.0" y="7" width="393" height="17"/>
+                                                            <rect key="frame" x="20" y="17" width="443" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="21o-Om-OsM">
                                                                 <font key="font" metaFont="system"/>
@@ -281,7 +282,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-bl-iD5">
-                                                            <rect key="frame" x="363" y="-2" width="27" height="22"/>
+                                                            <rect key="frame" x="403" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="run" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Wkb-XA-6Em">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -292,7 +293,7 @@
                                                             </connections>
                                                         </button>
                                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-AZ-wBX">
-                                                            <rect key="frame" x="328" y="-1" width="27" height="22"/>
+                                                            <rect key="frame" x="368" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="folder" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="JIs-eH-Ipa">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -304,7 +305,7 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="2" id="jSo-jp-rBq"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="22" id="OLd-Yg-BMs"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="textField" destination="9yd-r4-2MB" id="G5b-1T-GiB"/>
@@ -393,7 +394,7 @@
     </objects>
     <resources>
         <image name="Reload" width="15" height="12"/>
-        <image name="folder" width="20" height="20"/>
-        <image name="run" width="22" height="22"/>
+        <image name="folder" width="25" height="25"/>
+        <image name="run" width="25" height="25"/>
     </resources>
 </document>

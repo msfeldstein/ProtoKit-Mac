@@ -19,6 +19,10 @@
 		4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385B19A31568001A1511 /* ProjectTableRow.xib */; };
 		4C35386219A3165F001A1511 /* ProjectTableRowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */; };
 		4C35386619A3B3EA001A1511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C35386519A3B3EA001A1511 /* Assets.xcassets */; };
+		4C3538AF19A4439C001A1511 /* coffee in Resources */ = {isa = PBXBuildFile; fileRef = 4C3538AE19A4439C001A1511 /* coffee */; };
+		4C3538B119A45148001A1511 /* node in Resources */ = {isa = PBXBuildFile; fileRef = 4C3538B019A45148001A1511 /* node */; };
+		4C3538B319A45187001A1511 /* coffee-script in Resources */ = {isa = PBXBuildFile; fileRef = 4C3538B219A45187001A1511 /* coffee-script */; };
+		4C3538B519A452AC001A1511 /* coffeescript in Resources */ = {isa = PBXBuildFile; fileRef = 4C3538B419A452AC001A1511 /* coffeescript */; };
 		4C98595B199BCCB300CB68D3 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C98594D199BCCB300CB68D3 /* bitstream.c */; };
 		4C98595C199BCCB300CB68D3 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C98594F199BCCB300CB68D3 /* mask.c */; };
 		4C98595D199BCCB300CB68D3 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C985951199BCCB300CB68D3 /* qrencode.c */; };
@@ -85,6 +89,10 @@
 		4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTableRowViewController.m; path = ../ProjectTableRowViewController.m; sourceTree = "<group>"; };
 		4C35386419A3257B001A1511 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		4C35386519A3B3EA001A1511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C3538AE19A4439C001A1511 /* coffee */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = coffee; sourceTree = "<group>"; };
+		4C3538B019A45148001A1511 /* node */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = node; sourceTree = "<group>"; };
+		4C3538B219A45187001A1511 /* coffee-script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "coffee-script"; sourceTree = "<group>"; };
+		4C3538B419A452AC001A1511 /* coffeescript */ = {isa = PBXFileReference; lastKnownFileType = folder; path = coffeescript; sourceTree = "<group>"; };
 		4C98594D199BCCB300CB68D3 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
 		4C98594E199BCCB300CB68D3 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
 		4C98594F199BCCB300CB68D3 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
@@ -178,6 +186,17 @@
 				4C35385419A2EED9001A1511 /* SimulatorWindowController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C3538AD19A44392001A1511 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				4C3538B419A452AC001A1511 /* coffeescript */,
+				4C3538B219A45187001A1511 /* coffee-script */,
+				4C3538B019A45148001A1511 /* node */,
+				4C3538AE19A4439C001A1511 /* coffee */,
+			);
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 		4C98594B199BCCA200CB68D3 /* QREncoder */ = {
@@ -279,6 +298,7 @@
 		4CB839BF19931EDB002A67D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C3538AD19A44392001A1511 /* Scripts */,
 				4C35385619A2FD19001A1511 /* example.framer */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4C2895481996B48F006B7C5D /* dsa_pub.pem */,
@@ -388,15 +408,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3538AF19A4439C001A1511 /* coffee in Resources */,
 				4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */,
 				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
 				4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */,
 				4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */,
 				4CB839D119931EDB002A67D8 /* Images.xcassets in Resources */,
+				4C3538B519A452AC001A1511 /* coffeescript in Resources */,
 				4CB839C919931EDB002A67D8 /* Credits.rtf in Resources */,
 				4C35386619A3B3EA001A1511 /* Assets.xcassets in Resources */,
+				4C3538B119A45148001A1511 /* node in Resources */,
 				4CB839CF19931EDB002A67D8 /* MainMenu.xib in Resources */,
+				4C3538B319A45187001A1511 /* coffee-script in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
