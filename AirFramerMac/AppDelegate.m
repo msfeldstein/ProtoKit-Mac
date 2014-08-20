@@ -67,7 +67,11 @@
 }
 
 - (void)showSimulator:(NSString*)project {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[self urlForProject:project]]];
+    NSString* urlStr = [self urlForProject:project];
+    NSLog(@"URLS TR %@", urlStr);
+    NSURL* url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"URL %@", url);
+    [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 

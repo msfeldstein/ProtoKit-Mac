@@ -23,7 +23,7 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *directoryURL = directory;
     NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
-    
+    NSLog(@"URL IS %@", directoryURL);
     NSDirectoryEnumerator *enumerator = [fileManager
                                          enumeratorAtURL:directoryURL
                                          includingPropertiesForKeys:keys
