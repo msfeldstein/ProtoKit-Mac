@@ -23,6 +23,7 @@
     NSString* defaultDirectory = [[NSUserDefaults standardUserDefaults] objectForKey:@"prototypeDirectory"];
     if (!defaultDirectory) {
         defaultDirectory = [@"~/Prototypes/" stringByExpandingTildeInPath];
+        [[NSFileManager defaultManager] createDirectoryAtPath:defaultDirectory withIntermediateDirectories:YES attributes:nil error:nil];
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
