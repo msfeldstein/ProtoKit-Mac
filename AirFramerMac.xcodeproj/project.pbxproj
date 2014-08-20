@@ -101,7 +101,7 @@
 		4C98595A199BCCB300CB68D3 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
 		4C985962199BCCBD00CB68D3 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
 		4C985963199BCCBD00CB68D3 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
-		4CB839B519931EDB002A67D8 /* AirFramerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFramerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB839B519931EDB002A67D8 /* Frame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4CB839BC19931EDB002A67D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -225,7 +225,7 @@
 		4CB839B619931EDB002A67D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CB839B519931EDB002A67D8 /* AirFramerMac.app */,
+				4CB839B519931EDB002A67D8 /* Frame.app */,
 				4CB839D619931EDB002A67D8 /* AirFramerMacTests.xctest */,
 			);
 			name = Products;
@@ -329,7 +329,7 @@
 			);
 			name = AirFramerMac;
 			productName = AirFramerMac;
-			productReference = 4CB839B519931EDB002A67D8 /* AirFramerMac.app */;
+			productReference = 4CB839B519931EDB002A67D8 /* Frame.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4CB839D519931EDB002A67D8 /* AirFramerMacTests */ = {
@@ -604,7 +604,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
-				PRODUCT_NAME = AirFramerMac;
+				PRODUCT_NAME = Frame;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -623,7 +623,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
-				PRODUCT_NAME = AirFramerMac;
+				PRODUCT_NAME = Frame;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
