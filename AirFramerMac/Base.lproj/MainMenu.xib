@@ -18,7 +18,7 @@
                 <outlet property="projects" destination="vdq-IW-IZW" id="7EZ-ZR-E4E"/>
                 <outlet property="qrView" destination="3rq-Hd-WX7" id="mzC-vX-9c6"/>
                 <outlet property="reloadButton" destination="RT1-zx-Vg1" id="q8m-F1-dRx"/>
-                <outlet property="statusIndicator" destination="bqA-dy-0d2" id="cjg-Ue-6Fa"/>
+                <outlet property="statusIndicator" destination="a5g-9s-1M1" id="LTx-Zp-pKn"/>
                 <outlet property="statusText" destination="LFk-dS-w0y" id="G8T-JM-b6l"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -209,10 +209,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqA-dy-0d2">
-                        <rect key="frame" x="12" y="18" width="12" height="12"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-dS-w0y">
                         <rect key="frame" x="30" y="14" width="336" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -331,6 +327,17 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5g-9s-1M1">
+                        <rect key="frame" x="12" y="18" width="12" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="Vit-nU-bRJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showHelp:" target="Voe-Tx-rLC" id="PNS-IM-c4N"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
