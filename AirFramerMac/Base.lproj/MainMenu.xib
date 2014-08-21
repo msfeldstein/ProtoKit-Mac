@@ -299,6 +299,17 @@
                                                                 <action selector="showFolder:" target="vdq-IW-IZW" id="lbE-z7-OQK"/>
                                                             </connections>
                                                         </button>
+                                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-KR-uUp">
+                                                            <rect key="frame" x="333" y="13" width="27" height="25"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="edit" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="nEd-NK-odf">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="editProject:" target="vdq-IW-IZW" id="pVy-lX-Wph"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="22" id="OLd-Yg-BMs"/>
@@ -392,6 +403,7 @@
     </objects>
     <resources>
         <image name="Reload" width="15" height="12"/>
+        <image name="edit" width="25" height="25"/>
         <image name="folder" width="25" height="25"/>
         <image name="run" width="25" height="25"/>
     </resources>

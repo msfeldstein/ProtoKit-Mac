@@ -39,6 +39,7 @@
 
 - (void)showSimulator:(NSString*)project;
 - (void)showFolder:(NSString*)project;
+- (void)openInEditor: (NSString*)project;
 
 - (IBAction)newProject:(id)sender;
 - (IBAction)chooseFolder:(id)sender;

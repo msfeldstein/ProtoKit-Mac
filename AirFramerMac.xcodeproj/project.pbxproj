@@ -16,7 +16,6 @@
 		4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385419A2EED9001A1511 /* SimulatorWindowController.m */; };
 		4C35385719A2FD19001A1511 /* example.framer in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385619A2FD19001A1511 /* example.framer */; };
 		4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385919A31189001A1511 /* ProjectsModel.m */; };
-		4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385B19A31568001A1511 /* ProjectTableRow.xib */; };
 		4C35386219A3165F001A1511 /* ProjectTableRowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */; };
 		4C35386619A3B3EA001A1511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C35386519A3B3EA001A1511 /* Assets.xcassets */; };
 		4C79AB2819A55BF300D09982 /* JSEnv in Resources */ = {isa = PBXBuildFile; fileRef = 4C79AB2719A55BF300D09982 /* JSEnv */; };
@@ -83,7 +82,6 @@
 		4C35385619A2FD19001A1511 /* example.framer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = example.framer; sourceTree = "<group>"; };
 		4C35385819A31189001A1511 /* ProjectsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsModel.h; sourceTree = "<group>"; };
 		4C35385919A31189001A1511 /* ProjectsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsModel.m; sourceTree = "<group>"; };
-		4C35385B19A31568001A1511 /* ProjectTableRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableRow.xib; sourceTree = "<group>"; };
 		4C35386019A3165F001A1511 /* ProjectTableRowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectTableRowViewController.h; path = ../ProjectTableRowViewController.h; sourceTree = "<group>"; };
 		4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTableRowViewController.m; path = ../ProjectTableRowViewController.m; sourceTree = "<group>"; };
 		4C35386419A3257B001A1511 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				4C35385119A2EDEC001A1511 /* Simulator.xib */,
-				4C35385B19A31568001A1511 /* ProjectTableRow.xib */,
 				4CB839CD19931EDB002A67D8 /* MainMenu.xib */,
 				4C35386519A3B3EA001A1511 /* Assets.xcassets */,
 			);
@@ -405,7 +402,6 @@
 				4C79AB2819A55BF300D09982 /* JSEnv in Resources */,
 				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
-				4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */,
 				4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */,
 				4CB839D119931EDB002A67D8 /* Images.xcassets in Resources */,
 				4CB839C919931EDB002A67D8 /* Credits.rtf in Resources */,

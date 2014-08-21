@@ -52,7 +52,14 @@
 
 - (void)showFolder:(NSString*)project {
     NSString* path = [self filePathForProjectFolder:project];
-   [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:path]];
+    NSWorkspace* ws = [NSWorkspace sharedWorkspace];
+    [ws openURL:[NSURL fileURLWithPath:path]];
+}
+
+- (void)openInEditor: (NSString*)project {
+    NSString* path = [self filePathForProjectFolder:project];
+    NSWorkspace* ws = [NSWorkspace sharedWorkspace];
+    [ws openFile:path withApplication:@"Sublime Text 2"];
 }
 
 - (NSString*)filePathForProjectFolder:(NSString*)project {

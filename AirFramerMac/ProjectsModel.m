@@ -83,6 +83,13 @@
     [delegate showFolder:textField.stringValue];
 }
 
+- (IBAction)editProject:(id)sender {
+    NSButton *button = (NSButton *)sender;
+    NSTextField* textField = [(NSTextField *)[button superview] viewWithTag:100];
+    AppDelegate* delegate = ((AppDelegate*)[NSApplication sharedApplication].delegate);
+    [delegate openInEditor:textField.stringValue];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return _projects.count;
 }
