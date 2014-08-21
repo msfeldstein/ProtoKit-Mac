@@ -24,68 +24,20 @@
     self.directory = directory;
     _queue = [[NSOperationQueue alloc] init];
     NSArray* paths = @[[NSURL fileURLWithPath:self.directory]];
-    _watcher = [[CDEvents alloc] initWithURLs:paths block:^(CDEvents *watcher, CDEvent *event) {
-        [self doCompile];
-    }];
-    
+    CDEventsEventStreamCreationFlags creationFlags = kCDEventsDefaultEventStreamFlags | kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents;
+    _watcher = [[CDEvents alloc] initWithURLs:paths delegate:self onRunLoop:[NSRunLoop currentRunLoop] sinceEventIdentifier:kCDEventsSinceEventNow notificationLantency:1.0f ignoreEventsFromSubDirs:NO excludeURLs:@[] streamCreationFlags:creationFlags];
     [self doCompile];
-    
     return self;
+}
+
+- (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
+    if (![event.URL.lastPathComponent isEqualToString:@"compiled.js"])
+        [self doCompile];
 }
 
 - (void)doCompile {
     CompileOperation* compilation = [[CompileOperation alloc] initWithProjectDirectory:self.directory];
     [_queue addOperation:compilation];
 }
-//
-//- (void)compile {
-//    NSURL *outputURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
-//    NSError* error;
-//    [[NSFileManager defaultManager] createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
-//    NSLog(@"output %@ %@", outputURL, outputURL.path);
-//    
-//    [self compileFolder: @"/Users/michael/Desktop/ESFramework" toFolder:outputURL.path];
-//    [self concatFolder:outputURL toFile:@"/Users/michael/Desktop/out2.js"];
-//    [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
-//}
-//
-//- (void)compileFolder:(NSString*)folder toFolder:(NSString*)destination {
-//    NSString* env = [[NSBundle mainBundle] pathForResource:@"JSEnv" ofType:@""];
-//    NSString* nodePath = [env stringByAppendingPathComponent:@"node"];
-//    NSString* coffeePath = [env stringByAppendingPathComponent:@"coffee/bin/coffee"];
-//    NSPipe *pipe = [NSPipe pipe];
-//    NSFileHandle *file = pipe.fileHandleForReading;
-//    NSTask *task = [[NSTask alloc] init];
-//    task.launchPath = nodePath;
-//    task.arguments = @[coffeePath, @"-o", destination, @"-c", folder];
-//    task.standardOutput = pipe;
-//    [task launch];
-////    NSData *data = [file readDataToEndOfFile];
-////    NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-////    NSLog (@"grep returned:\n%@", grepOutput);
-//    [file closeFile];
-//
-//}
-//
-//- (void)concatFolder:(NSURL*)input toFile:(NSString*)destination {
-//    NSURL* output = [NSURL URLWithString:destination];
-//    NSFileManager* fm = [NSFileManager defaultManager];
-//    [fm createFileAtPath:output.path contents:nil attributes:nil];
-//    NSError* err;
-//    NSArray* files = [fm contentsOfDirectoryAtPath:input.path error:&err];
-//    if (err) {
-//        NSLog(@"Error getting contents of path %@: %@", input.path, err);
-//        return;
-//    }
-//    
-//    NSFileHandle *writer = [NSFileHandle fileHandleForWritingAtPath:output.path];
-//    for (NSString* file in files) {
-//        NSFileHandle* reader = [NSFileHandle fileHandleForReadingAtPath:[input.path stringByAppendingPathComponent:file]];
-//        [reader seekToFileOffset:0];
-//        [writer writeData:[reader readDataToEndOfFile]];
-//        [reader closeFile];
-//    }
-//    [writer closeFile];
-//
-//}
+
 @end

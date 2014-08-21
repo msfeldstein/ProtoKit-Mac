@@ -18,7 +18,6 @@
 
 - (void) main {
     @autoreleasepool {
-        NSLog(@"Running compile operation for %@", self.directory);
         [self compile];
     }
 }
@@ -27,11 +26,10 @@
     NSURL *outputURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
     NSError* error;
     [[NSFileManager defaultManager] createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
-    NSLog(@"output %@ %@", outputURL, outputURL.path);
-    
     [self compileFolder:self.directory toFolder:outputURL.path];
-    [self concatFolder:outputURL toFile:@"/Users/michael/Desktop/out2.js"];
-//    [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
+    NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"compiled.js"];
+    [self concatFolder:outputURL toFile:compiledFile];
+    [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
 }
 
 - (void)compileFolder:(NSString*)folder toFolder:(NSString*)destination {
@@ -45,34 +43,40 @@
     task.arguments = @[coffeePath, @"-o", destination, @"-c", folder];
     task.standardOutput = pipe;
     [task launch];
-    //    NSData *data = [file readDataToEndOfFile];
-    //    NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    //    NSLog (@"grep returned:\n%@", grepOutput);
+    // We need to actually read the data here otherwise NSTask will return asynchronously and the files wont be there for the next step
+    [file readDataToEndOfFile];
     [file closeFile];
-    
 }
 
 - (void)concatFolder:(NSURL*)input toFile:(NSString*)destination {
     NSURL* output = [NSURL URLWithString:destination];
     NSFileManager* fm = [NSFileManager defaultManager];
     [fm createFileAtPath:output.path contents:nil attributes:nil];
-    NSError* err;
-    NSArray* files = [fm contentsOfDirectoryAtPath:input.path error:&err];
-    if (err) {
-        NSLog(@"Error getting contents of path %@: %@", input.path, err);
-        return;
-    }
-    
     NSFileHandle *writer = [NSFileHandle fileHandleForWritingAtPath:output.path];
+    input = [input URLByResolvingSymlinksInPath];
     
-    for (NSString* file in files) {
-        NSFileHandle* reader = [NSFileHandle fileHandleForReadingAtPath:[input.path stringByAppendingPathComponent:file]];
-        [reader seekToFileOffset:0];
-        [writer writeData:[reader readDataToEndOfFile]];
-        [reader closeFile];
+    NSDirectoryEnumerator *enumerator = [fm
+                                         enumeratorAtURL:input
+                                         includingPropertiesForKeys:@[NSURLIsDirectoryKey]
+                                         options:NSDirectoryEnumerationSkipsHiddenFiles
+                                         errorHandler:^(NSURL *url, NSError *error) {
+                                             return YES;
+                                         }];
+    for (NSURL *url in enumerator) {
+        NSError *error;
+        NSNumber *isDirectory = nil;
+        NSString* filename = [[url pathComponents]lastObject];
+        if ([filename rangeOfString:@"."].location == 0) continue;
+        if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
+            NSLog(@"Error in determining if a file is a directory: %@", error);
+        } else if (![isDirectory boolValue]) {
+            NSFileHandle* reader = [NSFileHandle fileHandleForReadingAtPath:url.path];
+            [reader seekToFileOffset:0];
+            [writer writeData:[reader readDataToEndOfFile]];
+            [reader closeFile];
+        }
     }
     [writer closeFile];
-    
 }
 
 @end

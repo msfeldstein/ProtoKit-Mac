@@ -32,11 +32,20 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"folder"]) {
         [self loadFolder];
+        [self setupCompile];
     }
 }
 
 - (void)reload {
     [self loadFolder];
+}
+
+- (void) setupCompile {
+    if (!_projects.firstObject) return;
+    NSString* first = [_projects firstObject];
+    
+    NSString* path = [self.folder.path stringByAppendingPathComponent:first];
+    _compiler = [[Compiler alloc] initWithProjectDirectory:path];
 }
 
 - (void)loadFolder {
@@ -53,11 +62,6 @@
                 [_projects addObject:directory];
             }
         }
-        NSString* first = [_projects firstObject];
-
-        NSString* path = [self.folder.path stringByAppendingPathComponent:first];
-        _compiler = [[Compiler alloc] initWithProjectDirectory:path];
-        
     }
     [self.tableView reloadData];
     
@@ -66,7 +70,6 @@
 - (IBAction)showSim:(id)sender {
     NSButton *button = (NSButton *)sender;
     NSTextField* textField = [(NSTextField *)[button superview] viewWithTag:100];
-    NSLog(@"Rep obj %@", textField.stringValue);
     AppDelegate* delegate = ((AppDelegate*)[NSApplication sharedApplication].delegate);
     [delegate showSimulator:textField.stringValue];
 }

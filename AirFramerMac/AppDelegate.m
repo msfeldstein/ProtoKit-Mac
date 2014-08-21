@@ -41,19 +41,11 @@
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
 
     self.projects.folder = self.folder;
-    [self testCompile];
-}
-
-- (void)testCompile {
-//    Compiler* compiler = [Compiler new];
-//    [compiler compile];
 }
 
 - (void)showSimulator:(NSString*)project {
     NSString* urlStr = [self urlForProject:project];
-    NSLog(@"URLS TR %@", urlStr);
     NSURL* url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"URL %@", url);
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 

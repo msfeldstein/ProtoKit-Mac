@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Compiler : NSObject
+#import <CDEvents/CDEventsDelegate.h>
+@interface Compiler : NSObject <CDEventsDelegate>
 
 @property NSString* directory;
 
