@@ -19,6 +19,8 @@
 		4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385B19A31568001A1511 /* ProjectTableRow.xib */; };
 		4C35386219A3165F001A1511 /* ProjectTableRowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */; };
 		4C35386619A3B3EA001A1511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C35386519A3B3EA001A1511 /* Assets.xcassets */; };
+		4C79AB2819A55BF300D09982 /* JSEnv in Resources */ = {isa = PBXBuildFile; fileRef = 4C79AB2719A55BF300D09982 /* JSEnv */; };
+		4C79AB2B19A55C0600D09982 /* Compiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C79AB2A19A55C0600D09982 /* Compiler.m */; };
 		4C98595B199BCCB300CB68D3 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C98594D199BCCB300CB68D3 /* bitstream.c */; };
 		4C98595C199BCCB300CB68D3 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C98594F199BCCB300CB68D3 /* mask.c */; };
 		4C98595D199BCCB300CB68D3 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C985951199BCCB300CB68D3 /* qrencode.c */; };
@@ -85,6 +87,9 @@
 		4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTableRowViewController.m; path = ../ProjectTableRowViewController.m; sourceTree = "<group>"; };
 		4C35386419A3257B001A1511 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		4C35386519A3B3EA001A1511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C79AB2719A55BF300D09982 /* JSEnv */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSEnv; sourceTree = "<group>"; };
+		4C79AB2919A55C0600D09982 /* Compiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compiler.h; sourceTree = "<group>"; };
+		4C79AB2A19A55C0600D09982 /* Compiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Compiler.m; sourceTree = "<group>"; };
 		4C98594D199BCCB300CB68D3 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
 		4C98594E199BCCB300CB68D3 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
 		4C98594F199BCCB300CB68D3 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
@@ -272,6 +277,8 @@
 				4CB839BF19931EDB002A67D8 /* Supporting Files */,
 				4C35385F19A315BB001A1511 /* Libraries */,
 				4C35386419A3257B001A1511 /* Macros.h */,
+				4C79AB2919A55C0600D09982 /* Compiler.h */,
+				4C79AB2A19A55C0600D09982 /* Compiler.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 		4CB839BF19931EDB002A67D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C79AB2719A55BF300D09982 /* JSEnv */,
 				4C35385619A2FD19001A1511 /* example.framer */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4C2895481996B48F006B7C5D /* dsa_pub.pem */,
@@ -389,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */,
+				4C79AB2819A55BF300D09982 /* JSEnv in Resources */,
 				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
 				4C35385C19A31568001A1511 /* ProjectTableRow.xib in Resources */,
@@ -448,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C79AB2B19A55C0600D09982 /* Compiler.m in Sources */,
 				4C35386219A3165F001A1511 /* ProjectTableRowViewController.m in Sources */,
 				4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */,
 				4C985964199BCCBD00CB68D3 /* QRCodeGenerator.m in Sources */,

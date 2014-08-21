@@ -12,6 +12,7 @@
 #import "QRCodeGenerator.h"
 #import "ResourcesGenerator.h"
 #import "SimulatorWindowController.h"
+#import "Compiler.h"
 
 @implementation AppDelegate
 
@@ -40,30 +41,12 @@
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
 
     self.projects.folder = self.folder;
-   // [self testCompile];
+    [self testCompile];
 }
 
 - (void)testCompile {
-    NSString* nodePath = [[NSBundle mainBundle] pathForResource:@"node" ofType:@""];
-    NSString* coffeePath = [[NSBundle mainBundle] pathForResource:@"coffeescript" ofType:@""];
-    coffeePath = [coffeePath stringByAppendingPathComponent:@"bin/coffee"];
-    NSLog(@"coffee %@", coffeePath);
-    int pid = [[NSProcessInfo processInfo] processIdentifier];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = pipe.fileHandleForReading;
-    
-    NSTask *task = [[NSTask alloc] init];
-    task.launchPath = nodePath;
-    task.arguments = @[coffeePath, @"-c", @"/Users/michael/Desktop/test.coffee"];
-    task.standardOutput = pipe;
-    
-    [task launch];
-    
-    NSData *data = [file readDataToEndOfFile];
-    [file closeFile];
-    
-    NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    NSLog (@"grep returned:\n%@", grepOutput);
+    Compiler* compiler = [Compiler new];
+    [compiler compile];
 }
 
 - (void)showSimulator:(NSString*)project {
