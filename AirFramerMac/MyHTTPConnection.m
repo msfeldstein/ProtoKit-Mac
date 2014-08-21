@@ -8,7 +8,6 @@
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
-    NSLog(@"HTTP Path %@", path);
 	NSString *filePath = [self filePathForURI:path];
     NSString *documentRoot = [config documentRoot];
 	if (![filePath hasPrefix:documentRoot])
@@ -65,7 +64,6 @@
         return [[HTTPDataResponse alloc] initWithData:json];
 	} else if ([[path lastPathComponent] isEqualToString:@"airframe.appcache"]) {
         ManifestGenerator* generator = [ManifestGenerator new];
-        NSLog(@"Proejct Path %@", projectPath);
         NSString* manifest = [generator generateManifest:projectPath];
         return [[HTTPDataResponse alloc] initWithData:[manifest dataUsingEncoding:NSASCIIStringEncoding]];
     } else if ([[path lastPathComponent] isEqualToString:@"cached-index.html"]) {

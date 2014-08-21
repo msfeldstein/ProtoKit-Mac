@@ -23,11 +23,12 @@
 }
 
 - (void)compile {
+    NSLog(@"Compiling %@", self.directory);
     NSURL *outputURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
     NSError* error;
     [[NSFileManager defaultManager] createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
     [self compileFolder:self.directory toFolder:outputURL.path];
-    NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"compiled.js"];
+    NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"out/compiled.js"];
     [self concatFolder:outputURL toFile:compiledFile];
     [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
 }

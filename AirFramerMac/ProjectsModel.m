@@ -13,7 +13,7 @@
 
 @interface ProjectsModel () {
     NSMutableArray* _projects;
-    Compiler* _compiler;
+    NSMutableArray* _compilers;
 }
 
 @end
@@ -23,8 +23,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [self addObserver:self forKeyPath:@"folder" options:NSKeyValueObservingOptionInitial context:nil];
         _projects = [NSMutableArray array];
+        _compilers = [NSMutableArray array];
+        [self addObserver:self forKeyPath:@"folder" options:NSKeyValueObservingOptionInitial context:nil];
     }
     return self;
 }
@@ -41,11 +42,12 @@
 }
 
 - (void) setupCompile {
-    if (!_projects.firstObject) return;
-    NSString* first = [_projects firstObject];
-    
-    NSString* path = [self.folder.path stringByAppendingPathComponent:first];
-    _compiler = [[Compiler alloc] initWithProjectDirectory:path];
+    [_compilers removeAllObjects];
+    for (NSString* project in _projects) {
+        NSString* url = [self.folder.path stringByAppendingPathComponent:project];
+        Compiler* compiler = [[Compiler alloc] initWithProjectDirectory:url];
+        [_compilers addObject:compiler];
+    }
 }
 
 - (void)loadFolder {

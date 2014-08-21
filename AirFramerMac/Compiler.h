@@ -13,5 +13,5 @@
 @property NSString* directory;
 
 - (id) initWithProjectDirectory:(NSString*)directory;
-//- (void)compile;
+
 @end
