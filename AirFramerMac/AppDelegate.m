@@ -28,7 +28,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    NSLog(@"Set delegate");
+
     self.folder = [NSURL fileURLWithPath:defaultDirectory];
     
     [self reconfig];
@@ -40,6 +40,13 @@
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"SOURCE_HAS_CHANGED" object:nil];
+}
+
+- (void) changed:(NSNotification*) n {
+    Compiler* c = n.object;
+    [self sendChangeNotification];
 }
 
 - (void)showSimulator:(NSString*)project {
@@ -91,7 +98,6 @@
     [self.projects setFolder:self.folder];
     [self.projects reload];
     [self setupServer];
-    [self setupWatcher];
     [self sendChangeNotification];
 }
 
@@ -166,13 +172,6 @@
     
 }
 
-- (void)setupWatcher {
-    if (!self.folder) return;
-    NSArray* paths = @[self.folder];
-    self.watcher = [[CDEvents alloc] initWithURLs:paths block:^(CDEvents *watcher, CDEvent *event) {
-        [self sendChangeNotification];
-    }];
-}
 
 - (void) sendChangeNotification {
     NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
