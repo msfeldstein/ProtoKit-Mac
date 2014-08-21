@@ -83,8 +83,8 @@
         self.folder = url;
         [[NSUserDefaults standardUserDefaults] setObject:self.folder.path forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        [self reconfig];
     }
-    [self reconfig];
 }
 
 - (void) reconfig {
