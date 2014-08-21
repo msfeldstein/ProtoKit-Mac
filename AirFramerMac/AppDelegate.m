@@ -46,7 +46,7 @@
 
 - (void) changed:(NSNotification*) n {
     Compiler* c = n.object;
-    [self sendChangeNotification];
+    [self sendChangeNotification:[NSString stringWithFormat:@"change:%@", c.directory.lastPathComponent]];
 }
 
 - (void)showSimulator:(NSString*)project {
@@ -98,7 +98,7 @@
     [self.projects setFolder:self.folder];
     [self.projects reload];
     [self setupServer];
-    [self sendChangeNotification];
+    [self sendChangeNotification:@"CHANGE"];
 }
 
 - (void) setupServer {
@@ -173,15 +173,15 @@
 }
 
 
-- (void) sendChangeNotification {
-    NSData* data = [@"CHANGE\n" dataUsingEncoding:NSUTF8StringEncoding];
+- (void) sendChangeNotification:(NSString*)message {
+    NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
     for (GCDAsyncSocket* socket in self.connectedSockets) {
         [socket writeData:data withTimeout:-1 tag:0];
     }
 }
 
 - (IBAction)sendChange:(id)sender {
-    [self sendChangeNotification];
+    [self sendChangeNotification:@"CHANGE"];
 }
 
 -(NSString *)getIPAddress
