@@ -45,8 +45,8 @@
 }
 
 - (void)testCompile {
-    Compiler* compiler = [Compiler new];
-    [compiler compile];
+//    Compiler* compiler = [Compiler new];
+//    [compiler compile];
 }
 
 - (void)showSimulator:(NSString*)project {

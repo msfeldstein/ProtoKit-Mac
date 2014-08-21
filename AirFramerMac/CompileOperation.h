@@ -1,5 +1,5 @@
 //
-//  Compiler.h
+//  CompileOperation.h
 //  AirFramerMac
 //
 //  Created by Michael Feldstein on 8/20/14.
@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Compiler : NSObject
+@interface CompileOperation : NSOperation
 
 @property NSString* directory;
 
 - (id) initWithProjectDirectory:(NSString*)directory;
-//- (void)compile;
+- (void)compile;
+
 @end

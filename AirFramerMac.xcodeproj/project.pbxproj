@@ -42,6 +42,7 @@
 		4CB839E319931EDB002A67D8 /* AirFramerMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB839E219931EDB002A67D8 /* AirFramerMacTests.m */; };
 		4CB839F1199324C6002A67D8 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB839F0199324C6002A67D8 /* MyHTTPConnection.m */; };
 		4CB83A021993310B002A67D8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB83A011993310B002A67D8 /* CoreServices.framework */; };
+		4CB995B119A5BF6500BECA35 /* CompileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB995B019A5BF6500BECA35 /* CompileOperation.m */; };
 		50F19C7DC9464C0ABDE74891 /* libPods-AirFramerMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,8 @@
 		4CB839EF199324C6002A67D8 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
 		4CB839F0199324C6002A67D8 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
 		4CB83A011993310B002A67D8 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		4CB995AF19A5BF6500BECA35 /* CompileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompileOperation.h; sourceTree = "<group>"; };
+		4CB995B019A5BF6500BECA35 /* CompileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompileOperation.m; sourceTree = "<group>"; };
 		AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirFramerMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -279,6 +282,8 @@
 				4C35386419A3257B001A1511 /* Macros.h */,
 				4C79AB2919A55C0600D09982 /* Compiler.h */,
 				4C79AB2A19A55C0600D09982 /* Compiler.m */,
+				4CB995AF19A5BF6500BECA35 /* CompileOperation.h */,
+				4CB995B019A5BF6500BECA35 /* CompileOperation.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
 				4C985961199BCCB300CB68D3 /* split.c in Sources */,
 				4C985960199BCCB300CB68D3 /* rscode.c in Sources */,
+				4CB995B119A5BF6500BECA35 /* CompileOperation.m in Sources */,
 				4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */,
 				4C98595F199BCCB300CB68D3 /* qrspec.c in Sources */,
 				4C98595E199BCCB300CB68D3 /* qrinput.c in Sources */,

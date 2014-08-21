@@ -9,9 +9,11 @@
 #import "ProjectsModel.h"
 #import "AppDelegate.h"
 #import "ProjectTableRowViewController.h"
+#import "Compiler.h"
 
 @interface ProjectsModel () {
     NSMutableArray* _projects;
+    Compiler* _compiler;
 }
 
 @end
@@ -51,6 +53,11 @@
                 [_projects addObject:directory];
             }
         }
+        NSString* first = [_projects firstObject];
+
+        NSString* path = [self.folder.path stringByAppendingPathComponent:first];
+        _compiler = [[Compiler alloc] initWithProjectDirectory:path];
+        
     }
     [self.tableView reloadData];
     
