@@ -28,6 +28,7 @@
     NSLog(@"Did close");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.connected = NO;
+    [self.connection myWebSocketDidDisconnect:self];
 	[super didClose];
 }
 

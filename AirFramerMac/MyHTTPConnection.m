@@ -105,23 +105,17 @@
         
 		ReloadWebSocket* socket = [[ReloadWebSocket alloc] initWithRequest:request socket:asyncSocket];
         [_websockets addObject:socket];
+        socket.connection = self;
         return socket;
 	}
 	
 	return [super webSocketForURI:path];
 }
 
-//- (void) webSocketDidOpen:(WebSocket *)ws {
-//    NSLog(@"Did open");
-//}
-//
-//- (void) webSocket:(WebSocket *)ws didReceiveMessage:(NSString *)msg {
-//    NSLog(@"WebSocket did receive message %@", msg);
-//}
-//
-//- (void)webSocketDidClose:(WebSocket*)socket {
-//    [_websockets removeObject:socket];
-//}
+- (void)myWebSocketDidDisconnect:(ReloadWebSocket *)socket {
+    NSLog(@"did disconnect");
+    [_websockets removeObject:socket];
+}
 
 - (void)finalize {
     NSLog(@"Dealloc");

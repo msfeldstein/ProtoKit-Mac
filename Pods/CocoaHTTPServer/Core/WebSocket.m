@@ -550,7 +550,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	
 	// Start reading for messages
 	[asyncSocket readDataToLength:1 withTimeout:TIMEOUT_NONE tag:(isRFC6455 ? TAG_PAYLOAD_PREFIX : TAG_PREFIX)];
-	
+	NSLog(@"Delegate: %@", delegate);
 	// Notify delegate
 	if ([delegate respondsToSelector:@selector(webSocketDidOpen:)])
 	{

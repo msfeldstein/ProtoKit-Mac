@@ -2,7 +2,9 @@
 #import "HTTPConnection.h"
 #import <CocoaHTTPServer/WebSocket.h>
 
-@interface MyHTTPConnection : HTTPConnection //<WebSocketDelegate>
+@class ReloadWebSocket;
 
+@interface MyHTTPConnection : HTTPConnection <WebSocketDelegate>
 
+- (void) myWebSocketDidDisconnect:(ReloadWebSocket*)webSocket;
 @end

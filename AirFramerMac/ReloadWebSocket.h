@@ -7,9 +7,11 @@
 //
 
 #import "WebSocket.h"
+#import "MyHTTPConnection.h"
 
 @interface ReloadWebSocket : WebSocket
 
 @property BOOL connected;
+@property MyHTTPConnection* connection;
 
 @end
