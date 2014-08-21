@@ -219,7 +219,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RT1-zx-Vg1">
-                        <rect key="frame" x="402" y="14" width="38" height="19"/>
+                        <rect key="frame" x="409" y="14" width="25" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="Reload" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vcn-8a-lNh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -364,20 +364,20 @@
                     <constraint firstAttribute="trailing" secondItem="O4F-z9-tkr" secondAttribute="trailing" constant="-1" id="IfN-Ps-v1m"/>
                     <constraint firstAttribute="trailing" secondItem="uxT-9B-Iyy" secondAttribute="trailing" constant="119" id="OXh-I0-0GP"/>
                     <constraint firstItem="B4E-ci-e5g" firstAttribute="top" secondItem="O4F-z9-tkr" secondAttribute="bottom" constant="13" id="Pdq-xz-4Qn"/>
+                    <constraint firstItem="RT1-zx-Vg1" firstAttribute="centerY" secondItem="B4E-ci-e5g" secondAttribute="centerY" id="URQ-6h-LFa"/>
                     <constraint firstAttribute="bottom" secondItem="B4E-ci-e5g" secondAttribute="bottom" constant="14" id="UwQ-lP-H3N"/>
                     <constraint firstAttribute="trailing" secondItem="B4E-ci-e5g" secondAttribute="trailing" constant="14" id="VqH-TI-9eV"/>
                     <constraint firstAttribute="bottom" secondItem="O4F-z9-tkr" secondAttribute="bottom" constant="48" id="Xcx-xJ-Mwl"/>
                     <constraint firstItem="LFk-dS-w0y" firstAttribute="top" secondItem="O4F-z9-tkr" secondAttribute="bottom" constant="17" id="bcB-X6-9dL"/>
+                    <constraint firstAttribute="trailing" secondItem="RT1-zx-Vg1" secondAttribute="trailing" constant="12" id="cY8-Dn-7gZ"/>
                     <constraint firstAttribute="bottom" secondItem="a5g-9s-1M1" secondAttribute="bottom" constant="18" id="faI-Sj-cbj"/>
                     <constraint firstItem="LFk-dS-w0y" firstAttribute="bottom" secondItem="B4E-ci-e5g" secondAttribute="bottom" id="h02-GB-ViD"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="-1" id="lWM-E7-sqM"/>
-                    <constraint firstAttribute="bottom" secondItem="RT1-zx-Vg1" secondAttribute="bottom" constant="15" id="p5M-5W-FLU"/>
-                    <constraint firstItem="RT1-zx-Vg1" firstAttribute="leading" secondItem="LFk-dS-w0y" secondAttribute="trailing" constant="38" id="qfv-bv-idH"/>
+                    <constraint firstItem="RT1-zx-Vg1" firstAttribute="centerX" secondItem="B4E-ci-e5g" secondAttribute="centerX" id="onV-WT-mdl"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="133" id="req-Yg-ZPR"/>
                     <constraint firstItem="uxT-9B-Iyy" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="18" id="tCu-d9-8eI"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="uxT-9B-Iyy" secondAttribute="bottom" constant="66" id="uTh-C1-qH8"/>
                     <constraint firstAttribute="trailing" secondItem="oAC-2i-NjF" secondAttribute="trailing" constant="20" id="xeO-XF-Qmc"/>
-                    <constraint firstAttribute="trailing" secondItem="RT1-zx-Vg1" secondAttribute="trailing" constant="6" id="y45-Q9-Ovz"/>
                     <constraint firstItem="a5g-9s-1M1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" id="zcU-M1-uMn"/>
                 </constraints>
             </view>
