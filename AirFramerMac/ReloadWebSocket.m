@@ -12,16 +12,22 @@
 
 - (void)didOpen
 {
+    NSLog(@"Did open");
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendReload:) name:@"SOURCE_HAS_CHANGED" object:nil];
 	[super didOpen];
+    self.connected = YES;
 }
 
-- (void)didReceiveMessage:(NSString *)msg
-{
-	[self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
+- (void)sendReload:(NSNotification*)n {
+    NSLog(@"Reload %@", self);
+    [self sendMessage:@"reload"];
 }
 
 - (void)didClose
 {
+    NSLog(@"Did close");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.connected = NO;
 	[super didClose];
 }
 

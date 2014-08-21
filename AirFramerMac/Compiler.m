@@ -38,7 +38,9 @@
 - (void)doCompile {
     CompileOperation* compilation = [[CompileOperation alloc] initWithProjectDirectory:self.directory];
     NSBlockOperation* complete = [NSBlockOperation blockOperationWithBlock:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SOURCE_HAS_CHANGED" object:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SOURCE_HAS_CHANGED" object:self];
+        });
     }];
     [complete addDependency:compilation];
     [_queue addOperation:compilation];

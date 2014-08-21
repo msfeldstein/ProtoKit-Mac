@@ -3,8 +3,28 @@
 #import "AppDelegate.h"
 #import "ManifestGenerator.h"
 #import "ResourcesGenerator.h"
+#import "ReloadWebSocket.h"
+
+@interface MyHTTPConnection () {
+    NSMutableArray* _websockets;
+}
+
+@end
 
 @implementation MyHTTPConnection
+
+- (id) initWithAsyncSocket:(GCDAsyncSocket *)newSocket configuration:(HTTPConfig *)aConfig {
+    self = [super initWithAsyncSocket:newSocket configuration:aConfig];
+    _websockets = [NSMutableArray array];
+    return self;
+}
+
+- (void)sendReload:(NSNotification*)n {
+    NSLog(@"Send Reload %@", n);
+    for (WebSocket* socket in _websockets) {
+        [socket sendMessage:@"reload"];
+    }
+}
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
@@ -19,8 +39,7 @@
     NSString* projectPath = [filePath stringByDeletingLastPathComponent];
     AppDelegate* appDel = (AppDelegate*)[NSApplication sharedApplication].delegate;
     NSString* workspaceDirectory = appDel.folder.path;
-	
-    if ([relativePath isEqualToString:@"/list"])
+	if ([relativePath isEqualToString:@"/list"])
 	{
         
         NSError* err;
@@ -76,5 +95,36 @@
 	return [super httpResponseForMethod:method URI:path];
 }
 
+- (WebSocket *)webSocketForURI:(NSString *)path
+{
+    NSLog(@"Web socket for URI: %@", path);
+	
+	if([path isEqualToString:@"/live-reload"])
+	{
+		NSLog(@"MyHTTPConnection: Creating MyWebSocket...");
+        
+		ReloadWebSocket* socket = [[ReloadWebSocket alloc] initWithRequest:request socket:asyncSocket];
+        [_websockets addObject:socket];
+        return socket;
+	}
+	
+	return [super webSocketForURI:path];
+}
+
+//- (void) webSocketDidOpen:(WebSocket *)ws {
+//    NSLog(@"Did open");
+//}
+//
+//- (void) webSocket:(WebSocket *)ws didReceiveMessage:(NSString *)msg {
+//    NSLog(@"WebSocket did receive message %@", msg);
+//}
+//
+//- (void)webSocketDidClose:(WebSocket*)socket {
+//    [_websockets removeObject:socket];
+//}
+
+- (void)finalize {
+    NSLog(@"Dealloc");
+}
 
 @end

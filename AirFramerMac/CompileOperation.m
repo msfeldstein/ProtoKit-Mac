@@ -45,12 +45,22 @@
     task.standardOutput = pipe;
     task.standardError = pipe;
     [task launch];
-    // We need to actually read the data here otherwise NSTask will return asynchronously and the files wont be there for the next step
     
+    // We need to actually read the data here otherwise NSTask will return asynchronously and the files wont be there for the next step
     NSData *outputData = [[pipe fileHandleForReading] readDataToEndOfFile];
     NSString* output = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
     if (output && output.length > 0) {
         NSLog(@"There was an error: %@", output);
+        NSUserNotification* notification = [[NSUserNotification alloc] init];
+
+        NSArray* parts = [output componentsSeparatedByString:@"error: "];
+        NSString* filepath = [[parts[0] componentsSeparatedByString:@"/"] lastObject];
+        NSLog(@"FilePath %@", filepath);
+        NSString* message = parts[1];
+        notification.title = filepath;
+        notification.informativeText = message;
+        notification.soundName = @"Sosumi";
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
     [file closeFile];
 }

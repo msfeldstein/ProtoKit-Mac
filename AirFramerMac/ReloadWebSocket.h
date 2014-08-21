@@ -10,4 +10,6 @@
 
 @interface ReloadWebSocket : WebSocket
 
+@property BOOL connected;
+
 @end
