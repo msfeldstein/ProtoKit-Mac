@@ -28,6 +28,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:defaultDirectory forKey:@"prototypeDirectory"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    NSLog(@"Set delegate");
     self.folder = [NSURL fileURLWithPath:defaultDirectory];
     
     [self reconfig];
@@ -39,8 +40,6 @@
     
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
-
-    self.projects.folder = self.folder;
 }
 
 - (void)showSimulator:(NSString*)project {

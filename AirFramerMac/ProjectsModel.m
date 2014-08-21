@@ -32,6 +32,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"folder"]) {
+        NSLog(@"Folder changed %@", self.folder);
         [self loadFolder];
         [self setupCompile];
     }
