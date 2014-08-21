@@ -43,9 +43,15 @@
     task.launchPath = nodePath;
     task.arguments = @[coffeePath, @"-o", destination, @"-c", folder];
     task.standardOutput = pipe;
+    task.standardError = pipe;
     [task launch];
     // We need to actually read the data here otherwise NSTask will return asynchronously and the files wont be there for the next step
-    [file readDataToEndOfFile];
+    
+    NSData *outputData = [[pipe fileHandleForReading] readDataToEndOfFile];
+    NSString* output = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
+    if (output && output.length > 0) {
+        NSLog(@"There was an error: %@", output);
+    }
     [file closeFile];
 }
 

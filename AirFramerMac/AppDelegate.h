@@ -32,6 +32,7 @@
 @property HTTPServer* server;
 @property CDEvents* watcher;
 @property GCDAsyncSocket* watcherSocket;
+@property WebSocket* reloadSocket;
 @property NSMutableArray* connectedSockets;
 @property SimulatorWindowController* simulatorController;
 
