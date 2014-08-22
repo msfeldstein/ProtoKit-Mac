@@ -28,6 +28,8 @@
     NSError* error;
     [[NSFileManager defaultManager] createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
     [self compileFolder:self.directory toFolder:outputURL.path];
+    NSURL* outFolder = [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:@"out"]];
+    [[NSFileManager defaultManager] createDirectoryAtURL:outFolder withIntermediateDirectories:YES attributes:nil error:&error];
     NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"out/compiled.js"];
     [self concatFolder:outputURL toFile:compiledFile];
     [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
@@ -55,7 +57,6 @@
 
         NSArray* parts = [output componentsSeparatedByString:@"error: "];
         NSString* filepath = [[parts[0] componentsSeparatedByString:@"/"] lastObject];
-        NSLog(@"FilePath %@", filepath);
         NSString* message = parts[1];
         notification.title = filepath;
         notification.informativeText = message;
