@@ -80,21 +80,33 @@
                                          errorHandler:^(NSURL *url, NSError *error) {
                                              return YES;
                                          }];
+    NSURL * appPath = nil;
     for (NSURL *url in enumerator) {
         NSError *error;
         NSNumber *isDirectory = nil;
         NSString* filename = [[url pathComponents]lastObject];
+        if ([filename isEqualToString:@"app.js"]) {
+            // Lets append app.js last so it as access to all classes
+            appPath = url;
+            continue;
+        }
         if ([filename rangeOfString:@"."].location == 0) continue;
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
             NSLog(@"Error in determining if a file is a directory: %@", error);
         } else if (![isDirectory boolValue]) {
-            NSFileHandle* reader = [NSFileHandle fileHandleForReadingAtPath:url.path];
-            [reader seekToFileOffset:0];
-            [writer writeData:[reader readDataToEndOfFile]];
-            [reader closeFile];
+            [self appendFile:url.path toFile:writer];
         }
     }
+    [self appendFile:appPath.path toFile:writer];
+    
     [writer closeFile];
+}
+
+- (void) appendFile:(NSString*)path toFile:(NSFileHandle*)writer {
+    NSFileHandle* reader = [NSFileHandle fileHandleForReadingAtPath:path];
+    [reader seekToFileOffset:0];
+    [writer writeData:[reader readDataToEndOfFile]];
+    [reader closeFile];
 }
 
 @end
