@@ -22,6 +22,11 @@
 - (id) initWithProjectDirectory:(NSString*)directory {
     self = [super init];
     self.directory = directory;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.directory stringByAppendingPathComponent:@"frame-compile.json"]]) {
+        NSLog(@"No frame compiler at %@", self.directory);
+        return self;;
+    }
+    NSLog(@"WILL COPMILE %@", self.directory);
     _queue = [[NSOperationQueue alloc] init];
     NSArray* paths = @[[NSURL fileURLWithPath:self.directory]];
     CDEventsEventStreamCreationFlags creationFlags = kCDEventsDefaultEventStreamFlags | kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents;
