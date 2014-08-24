@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VDKQueue.h"
 
-@interface ProjectsModel : NSObject <NSTableViewDataSource, NSTableViewDelegate>
+@interface ProjectsModel : NSObject <NSTableViewDataSource, NSTableViewDelegate, VDKQueueDelegate>
 @property IBOutlet NSTableView* tableView;
 @property NSURL* folder;
 - (void)reload;

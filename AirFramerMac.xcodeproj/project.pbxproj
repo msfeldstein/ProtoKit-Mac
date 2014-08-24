@@ -18,6 +18,7 @@
 		4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385919A31189001A1511 /* ProjectsModel.m */; };
 		4C35386219A3165F001A1511 /* ProjectTableRowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */; };
 		4C35386619A3B3EA001A1511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C35386519A3B3EA001A1511 /* Assets.xcassets */; };
+		4C48A26819AA628D0035027C /* VDKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C48A26719AA628D0035027C /* VDKQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4C79AB2819A55BF300D09982 /* JSEnv in Resources */ = {isa = PBXBuildFile; fileRef = 4C79AB2719A55BF300D09982 /* JSEnv */; };
 		4C79AB2B19A55C0600D09982 /* Compiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C79AB2A19A55C0600D09982 /* Compiler.m */; };
 		4C98595B199BCCB300CB68D3 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C98594D199BCCB300CB68D3 /* bitstream.c */; };
@@ -87,6 +88,8 @@
 		4C35386119A3165F001A1511 /* ProjectTableRowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTableRowViewController.m; path = ../ProjectTableRowViewController.m; sourceTree = "<group>"; };
 		4C35386419A3257B001A1511 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		4C35386519A3B3EA001A1511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C48A26619AA628D0035027C /* VDKQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDKQueue.h; sourceTree = "<group>"; };
+		4C48A26719AA628D0035027C /* VDKQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDKQueue.m; sourceTree = "<group>"; };
 		4C79AB2719A55BF300D09982 /* JSEnv */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSEnv; sourceTree = "<group>"; };
 		4C79AB2919A55C0600D09982 /* Compiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compiler.h; sourceTree = "<group>"; };
 		4C79AB2A19A55C0600D09982 /* Compiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Compiler.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 		4C35385F19A315BB001A1511 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4C48A26619AA628D0035027C /* VDKQueue.h */,
+				4C48A26719AA628D0035027C /* VDKQueue.m */,
 				4C98594B199BCCA200CB68D3 /* QREncoder */,
 			);
 			name = Libraries;
@@ -482,6 +487,7 @@
 				4C98595B199BCCB300CB68D3 /* bitstream.c in Sources */,
 				4C98595D199BCCB300CB68D3 /* qrencode.c in Sources */,
 				4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */,
+				4C48A26819AA628D0035027C /* VDKQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

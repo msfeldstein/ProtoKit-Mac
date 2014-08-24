@@ -10,10 +10,11 @@
 #import "AppDelegate.h"
 #import "ProjectTableRowViewController.h"
 #import "Compiler.h"
-
+#import "VDKQueue.h"
 @interface ProjectsModel () {
     NSMutableArray* _projects;
     NSMutableArray* _compilers;
+    VDKQueue* _watcher;
 }
 
 @end
@@ -25,6 +26,8 @@
     if (self) {
         _projects = [NSMutableArray array];
         _compilers = [NSMutableArray array];
+        _watcher = [[VDKQueue alloc] init];
+        [_watcher setDelegate:self];
         [self addObserver:self forKeyPath:@"folder" options:NSKeyValueObservingOptionInitial context:nil];
     }
     return self;
@@ -32,9 +35,25 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"folder"]) {
-        [self loadFolder];
-        [self setupCompile];
+        [self folderChanged];
     }
+}
+
+- (void) folderChanged {
+    [self loadFolder];
+    [self listenForProjectChanges];
+    [self setupCompile];
+}
+
+- (void) listenForProjectChanges {
+    [_watcher removeAllPaths];
+    NSLog(@"Changed");
+    if (!self.folder) return;
+    [_watcher addPath:self.folder.path notifyingAbout:VDKQueueNotifyDefault];
+}
+
+- (void)VDKQueue:(VDKQueue *)queue receivedNotification:(NSString *)noteName forPath:(NSString *)fpath {
+    [self folderChanged];
 }
 
 - (void)reload {
