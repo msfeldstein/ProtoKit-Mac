@@ -47,7 +47,6 @@
 
 - (void) listenForProjectChanges {
     [_watcher removeAllPaths];
-    NSLog(@"Changed");
     if (!self.folder) return;
     [_watcher addPath:self.folder.path notifyingAbout:VDKQueueNotifyDefault];
 }
