@@ -23,16 +23,21 @@
 }
 
 - (void)compile {
+    NSFileManager* fm = [NSFileManager defaultManager];
     NSLog(@"Compiling %@", self.directory);
+    if (![fm fileExistsAtPath:self.directory]) {
+        NSLog(@"Folder no longer exists %@", self.directory);
+        return;
+    }
     NSURL *outputURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
     NSError* error;
-    [[NSFileManager defaultManager] createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
+    [fm createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
     [self compileFolder:self.directory toFolder:outputURL.path];
     NSURL* outFolder = [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:@"out"]];
-    [[NSFileManager defaultManager] createDirectoryAtURL:outFolder withIntermediateDirectories:YES attributes:nil error:&error];
+    [fm createDirectoryAtURL:outFolder withIntermediateDirectories:YES attributes:nil error:&error];
     NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"out/compiled.js"];
     [self concatFolder:outputURL toFile:compiledFile];
-    [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
+    [fm removeItemAtURL:outputURL error:nil];
 }
 
 - (void)compileFolder:(NSString*)folder toFolder:(NSString*)destination {
@@ -98,6 +103,7 @@
         }
     }
     [self appendFile:appPath.path toFile:writer];
+    
     
     [writer closeFile];
 }
