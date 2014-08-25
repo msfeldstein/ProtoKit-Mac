@@ -20,7 +20,6 @@
 }
 
 - (void)sendReload:(NSNotification*)n {
-    NSLog(@"Send Reload %@", n);
     for (WebSocket* socket in _websockets) {
         [socket sendMessage:@"reload"];
     }
@@ -97,12 +96,8 @@
 
 - (WebSocket *)webSocketForURI:(NSString *)path
 {
-    NSLog(@"Web socket for URI: %@", path);
-	
 	if([path isEqualToString:@"/live-reload"])
 	{
-		NSLog(@"MyHTTPConnection: Creating MyWebSocket...");
-        
 		ReloadWebSocket* socket = [[ReloadWebSocket alloc] initWithRequest:request socket:asyncSocket];
         [_websockets addObject:socket];
         socket.connection = self;
@@ -113,12 +108,7 @@
 }
 
 - (void)myWebSocketDidDisconnect:(ReloadWebSocket *)socket {
-    NSLog(@"did disconnect");
     [_websockets removeObject:socket];
-}
-
-- (void)finalize {
-    NSLog(@"Dealloc");
 }
 
 @end
