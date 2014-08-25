@@ -13,7 +13,6 @@
 - (NSDictionary*)generateManifestInProject:(NSString*)folder directory:(NSString*)directory {
     NSMutableDictionary* files = [NSMutableDictionary dictionary];
     NSString* path = [[folder stringByAppendingPathComponent:directory] stringByAppendingString:@"/"];
-    NSLog(@"path %@", path);
     NSURL* url = [NSURL fileURLWithPath:path];
     files = [self recursiveFileFetch:url appendTo:files withPath:directory];
     return files;
@@ -23,7 +22,6 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *directoryURL = directory;
     NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
-    NSLog(@"URL IS %@", directoryURL);
     NSDirectoryEnumerator *enumerator = [fileManager
                                          enumeratorAtURL:directoryURL
                                          includingPropertiesForKeys:keys
@@ -38,7 +36,6 @@
         NSString* filename = [[url pathComponents]lastObject];
         
         if ([filename rangeOfString:@"."].location == 0) continue;
-        NSLog(@"FILENAME %@", filename);
         if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
             NSLog(@"Error in determining if a file is a directory: %@", error);
         } else if ([isDirectory boolValue]) {

@@ -13,7 +13,7 @@
 - (void)didOpen
 {
     NSLog(@"Did open");
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendReload:) name:@"SOURCE_HAS_CHANGED" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendReload:) name:@"COMPILE_COMPLETE" object:nil];
 	[super didOpen];
     self.connected = YES;
 }

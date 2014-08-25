@@ -41,7 +41,7 @@
     self.qrView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"SOURCE_HAS_CHANGED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"COMPILE_COMPLETE" object:nil];
 }
 
 - (void) changed:(NSNotification*) n {

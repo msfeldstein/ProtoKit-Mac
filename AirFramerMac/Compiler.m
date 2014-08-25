@@ -23,7 +23,7 @@
     self = [super init];
     self.directory = directory;
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.directory stringByAppendingPathComponent:@"frame-compile.json"]]) {
-        return self;;
+        return self;
     }
     _queue = [[NSOperationQueue alloc] init];
     NSArray* paths = @[[NSURL fileURLWithPath:self.directory]];
@@ -43,7 +43,7 @@
     CompileOperation* compilation = [[CompileOperation alloc] initWithProjectDirectory:self.directory];
     NSBlockOperation* complete = [NSBlockOperation blockOperationWithBlock:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"SOURCE_HAS_CHANGED" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"COMPILE_COMPLETE" object:self];
         });
     }];
     [complete addDependency:compilation];

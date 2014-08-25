@@ -76,7 +76,6 @@
 - (void)generateResources:(NSString*)path toFolder:(NSString*)destination {
     ResourcesGenerator* generator = [[ResourcesGenerator alloc] init];
     NSDictionary* files = [generator generateManifestInProject:path directory:@"images"];
-    NSLog(@"files %@", files);
     NSError* err;
     NSData* data = [NSJSONSerialization dataWithJSONObject:files options:0 error:&err];
     if (err) {
@@ -84,7 +83,6 @@
         return;
     }
     NSURL* destinationURL = [NSURL fileURLWithPath:[destination stringByAppendingPathComponent:@"resources.js"]];
-    NSLog(@"Destination url %@", destinationURL);
     NSFileManager* fm = [NSFileManager defaultManager];
     [fm createFileAtPath:destinationURL.path contents:nil attributes:nil];
     NSFileHandle *writer = [NSFileHandle fileHandleForWritingAtPath:destinationURL.path];
@@ -95,7 +93,7 @@
 }
 
 - (void)concatFolder:(NSURL*)input toFile:(NSString*)destination {
-    NSURL* output = [NSURL URLWithString:destination];
+    NSURL* output = [NSURL fileURLWithPath:destination];
     NSFileManager* fm = [NSFileManager defaultManager];
     [fm createFileAtPath:output.path contents:nil attributes:nil];
     NSFileHandle *writer = [NSFileHandle fileHandleForWritingAtPath:output.path];
