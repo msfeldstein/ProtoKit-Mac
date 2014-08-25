@@ -7,6 +7,7 @@
 //
 
 #import "CompileOperation.h"
+#import "ResourcesGenerator.h"
 
 @implementation CompileOperation
 
@@ -33,6 +34,7 @@
     NSError* error;
     [fm createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
     [self compileFolder:self.directory toFolder:outputURL.path];
+    [self generateResources:self.directory toFolder:outputURL.path];
     NSURL* outFolder = [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:@"out"]];
     [fm createDirectoryAtURL:outFolder withIntermediateDirectories:YES attributes:nil error:&error];
     NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"out/compiled.js"];
@@ -69,6 +71,27 @@
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
     [file closeFile];
+}
+
+- (void)generateResources:(NSString*)path toFolder:(NSString*)destination {
+    ResourcesGenerator* generator = [[ResourcesGenerator alloc] init];
+    NSDictionary* files = [generator generateManifestInProject:path directory:@"images"];
+    NSLog(@"files %@", files);
+    NSError* err;
+    NSData* data = [NSJSONSerialization dataWithJSONObject:files options:0 error:&err];
+    if (err) {
+        NSLog(@"Error creating resources %@", err);
+        return;
+    }
+    NSURL* destinationURL = [NSURL fileURLWithPath:[destination stringByAppendingPathComponent:@"resources.js"]];
+    NSLog(@"Destination url %@", destinationURL);
+    NSFileManager* fm = [NSFileManager defaultManager];
+    [fm createFileAtPath:destinationURL.path contents:nil attributes:nil];
+    NSFileHandle *writer = [NSFileHandle fileHandleForWritingAtPath:destinationURL.path];
+    [writer writeData:[@"\n\nwindow.Resources = " dataUsingEncoding:NSUTF8StringEncoding]];
+    [writer writeData:data];
+    [writer writeData:[@";\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [writer closeFile];
 }
 
 - (void)concatFolder:(NSURL*)input toFile:(NSString*)destination {

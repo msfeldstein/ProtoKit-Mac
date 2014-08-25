@@ -34,8 +34,9 @@
 }
 
 - (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
-    if (![event.URL.lastPathComponent isEqualToString:@"compiled.js"])
-        [self doCompile];
+    if ([event.URL.lastPathComponent isEqualToString:@"compiled.js"] || [event.URL.lastPathComponent hasPrefix:@"."])
+        return;
+    [self doCompile];
 }
 
 - (void)doCompile {
