@@ -91,6 +91,7 @@
     
 }
 
+
 - (IBAction)showSim:(id)sender {
     NSButton *button = (NSButton *)sender;
     NSTextField* textField = [(NSTextField *)[button superview] viewWithTag:100];
@@ -135,9 +136,12 @@
         [[cell viewWithTag:200] setHidden:YES];
         [[cell viewWithTag:201] setHidden:YES];
         [[cell viewWithTag:202] setHidden:YES];
+        NSTableRowView *myRowView = [self.tableView rowViewAtRow:i makeIfNecessary:NO];
+        [myRowView setEmphasized:NO];
     }
 
     NSInteger selected = [self.tableView selectedRow];
+    if (selected == -1) return;
     NSTableCellView *cell = [self.tableView viewAtColumn:0 row:selected makeIfNecessary:YES];
     [[cell viewWithTag:200] setHidden:NO];
     [[cell viewWithTag:201] setHidden:NO];

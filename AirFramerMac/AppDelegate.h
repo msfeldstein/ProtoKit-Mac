@@ -29,6 +29,7 @@
 @property (assign) IBOutlet NSTableView* projectList;
 @property (assign) IBOutlet ProjectsModel* projects;
 @property (assign) IBOutlet NSView* statusContainer;
+@property (assign) IBOutlet NSTextField* titleLabel;
 
 @property NSNetService* netService;
 @property HTTPServer* server;

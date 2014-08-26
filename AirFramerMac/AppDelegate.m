@@ -116,15 +116,15 @@
 }
 
 - (void) reconfig {
+    NSString* title = [NSString stringWithFormat:@"Frame - %@", [self.folder.path stringByAbbreviatingWithTildeInPath]];
+    [self.titleLabel setStringValue:title];
     [self.projects setFolder:self.folder];
     [self.projects reload];
 //    CGRect frame = self.window.frame;
 //    CGRect tableFrame = self.projectList.frame;
 //    NSPoint tableOrigin = [self.projectList convertPoint:self.projectList.frame.origin toView:nil];
-//    frame.size.height = tableOrigin.y + 100 * [self.projects projects].count + 100;
-//    NSLog(@"F %i", frame.size.height);
-
-//??    [self.window setFrame:frame display:YES animate:YES];
+//    frame.size.height = 50 * [self.projects projects].count + 300;
+//    [self.window setFrame:frame display:YES animate:YES];
     [self setupServer];
     [self sendChangeNotification:@"CHANGE"];
 }
@@ -233,6 +233,7 @@
 
 - (IBAction)newProject:(id)sender {
     NSString* name = [self input:@"Name of prototype" defaultValue:@"New Project"];
+    if (!name || [name length] == 0) return;
     name = [name stringByAppendingPathExtension:@"framer"];
     NSFileManager* fm = [NSFileManager defaultManager];
     NSBundle* bundle = [NSBundle mainBundle];

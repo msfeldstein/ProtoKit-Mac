@@ -22,6 +22,7 @@
                 <outlet property="statusIndicator" destination="a5g-9s-1M1" id="7ed-Zy-QL6"/>
                 <outlet property="statusSubText" destination="irU-wr-gh6" id="9ro-l2-d9b"/>
                 <outlet property="statusText" destination="3gF-cV-PXd" id="dcw-zC-nQ7"/>
+                <outlet property="titleLabel" destination="pny-hW-gUY" id="BkJ-9j-rla"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -170,13 +171,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="446" height="612"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-2i-NjF">
-                        <rect key="frame" x="20" y="494" width="61" height="92"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-2i-NjF">
+                        <rect key="frame" x="20" y="500" width="79" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="92" id="I5F-GZ-0mm"/>
-                        </constraints>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="workspacebutton" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="lLb-VI-r9x">
+                        <buttonCell key="cell" type="bevel" title="Workspace" bezelStyle="rounded" image="workspacebutton" imagePosition="above" alignment="center" imageScaling="proportionallyDown" inset="2" id="lLb-VI-r9x">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -184,10 +182,10 @@
                             <action selector="chooseFolder:" target="Voe-Tx-rLC" id="MGn-Dc-yam"/>
                         </connections>
                     </button>
-                    <scrollView ambiguous="YES" misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-z9-tkr">
+                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-z9-tkr">
                         <rect key="frame" x="-1" y="47" width="448" height="445"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="dm8-Du-034">
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="dm8-Du-034">
                             <rect key="frame" x="0.0" y="0.0" width="448" height="445"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -226,7 +224,7 @@
                                                         <button hidden="YES" fixedFrame="YES" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-bl-iD5">
                                                             <rect key="frame" x="403" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="run" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Wkb-XA-6Em">
+                                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Simulate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Wkb-XA-6Em">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -234,21 +232,10 @@
                                                                 <action selector="showSim:" target="vdq-IW-IZW" id="taB-rr-eCX"/>
                                                             </connections>
                                                         </button>
-                                                        <button hidden="YES" fixedFrame="YES" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-AZ-wBX">
-                                                            <rect key="frame" x="368" y="13" width="27" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="folder" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="JIs-eH-Ipa">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="system"/>
-                                                            </buttonCell>
-                                                            <connections>
-                                                                <action selector="showFolder:" target="vdq-IW-IZW" id="lbE-z7-OQK"/>
-                                                            </connections>
-                                                        </button>
                                                         <button hidden="YES" fixedFrame="YES" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-KR-uUp">
-                                                            <rect key="frame" x="333" y="13" width="27" height="25"/>
+                                                            <rect key="frame" x="358" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="edit" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="nEd-NK-odf">
+                                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="editbutton" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="nEd-NK-odf">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -285,13 +272,10 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-FD-bPR">
-                        <rect key="frame" x="370" y="494" width="56" height="92"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-FD-bPR">
+                        <rect key="frame" x="330" y="500" width="96" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="56" id="oiY-fu-Beh"/>
-                        </constraints>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="newprototype" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="1u5-Jx-E1S">
+                        <buttonCell key="cell" type="bevel" title="New Prototype" bezelStyle="rounded" image="newprototype" imagePosition="above" alignment="center" inset="2" id="1u5-Jx-E1S">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -299,11 +283,11 @@
                             <action selector="newProject:" target="Voe-Tx-rLC" id="ii4-h3-mjc"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pny-hW-gUY">
-                        <rect key="frame" x="116" y="590" width="215" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pny-hW-gUY">
+                        <rect key="frame" x="68" y="590" width="315" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="211" id="G4R-Ye-eEd"/>
+                            <constraint firstAttribute="width" constant="311" id="sYs-iU-eRS"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Title" id="Ne9-Bk-ArH">
                             <font key="font" metaFont="system"/>
@@ -311,21 +295,27 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5C-ha-jSb">
+                    <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5C-ha-jSb" userLabel="Quit Button">
                         <rect key="frame" x="7" y="588" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="T16-vT-C6N">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="hide:" target="-3" id="6Dc-im-Nar"/>
+                        </connections>
                     </button>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulP-0j-Eyz">
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulP-0j-Eyz" userLabel="Minimize Button">
                         <rect key="frame" x="32" y="588" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="minimize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="aVt-SE-2ec">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="miniaturize:" target="QvC-M9-y7g" id="wZz-hS-tng"/>
+                        </connections>
                     </button>
                     <customView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S13-Jg-sVU" userLabel="Connection Container">
                         <rect key="frame" x="0.0" y="1" width="446" height="68"/>
@@ -386,25 +376,19 @@
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="D5C-ha-jSb" firstAttribute="width" secondItem="ulP-0j-Eyz" secondAttribute="width" id="4cV-PG-uSe"/>
+                    <constraint firstAttribute="bottom" secondItem="O4F-z9-tkr" secondAttribute="bottom" constant="47" id="0Yv-PN-ZgX"/>
+                    <constraint firstAttribute="centerX" secondItem="S13-Jg-sVU" secondAttribute="centerX" id="15O-iQ-tZK"/>
+                    <constraint firstItem="pny-hW-gUY" firstAttribute="leading" secondItem="ulP-0j-Eyz" secondAttribute="trailing" constant="18" id="4b5-yi-eDn"/>
                     <constraint firstAttribute="trailing" secondItem="O4F-z9-tkr" secondAttribute="trailing" constant="-1" id="65E-GA-rS8"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="-1" id="9DL-11-jCm"/>
-                    <constraint firstItem="oAC-2i-NjF" firstAttribute="top" secondItem="W0E-FD-bPR" secondAttribute="top" id="Cpt-pk-bA8"/>
-                    <constraint firstItem="D5C-ha-jSb" firstAttribute="height" secondItem="ulP-0j-Eyz" secondAttribute="height" id="Cvg-AW-Dvb"/>
-                    <constraint firstItem="pny-hW-gUY" firstAttribute="centerY" secondItem="D5C-ha-jSb" secondAttribute="centerY" id="Gfs-IO-sYf"/>
-                    <constraint firstItem="pny-hW-gUY" firstAttribute="centerY" secondItem="ulP-0j-Eyz" secondAttribute="centerY" id="Jz9-fR-XMg"/>
-                    <constraint firstItem="oAC-2i-NjF" firstAttribute="baseline" secondItem="W0E-FD-bPR" secondAttribute="baseline" id="Me3-yG-6v4"/>
-                    <constraint firstItem="oAC-2i-NjF" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="Pjg-5I-2TU"/>
-                    <constraint firstItem="W0E-FD-bPR" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="26" id="QQA-Qv-4YY"/>
+                    <constraint firstAttribute="trailing" secondItem="pny-hW-gUY" secondAttribute="trailing" constant="65" id="KRw-Q5-QYb"/>
+                    <constraint firstItem="O4F-z9-tkr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="120" id="Ltf-TZ-lIp"/>
+                    <constraint firstItem="pny-hW-gUY" firstAttribute="centerY" secondItem="ulP-0j-Eyz" secondAttribute="centerY" id="MLL-Cy-ywH"/>
+                    <constraint firstItem="pny-hW-gUY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="5" id="QjB-IQ-ROS"/>
                     <constraint firstAttribute="trailing" secondItem="S13-Jg-sVU" secondAttribute="trailing" id="Xhq-4r-HUe"/>
                     <constraint firstAttribute="bottom" secondItem="S13-Jg-sVU" secondAttribute="bottom" id="YJL-0V-qwP"/>
-                    <constraint firstItem="pny-hW-gUY" firstAttribute="leading" secondItem="ulP-0j-Eyz" secondAttribute="trailing" constant="66" id="biH-rA-x7l"/>
-                    <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="oAC-2i-NjF" secondAttribute="bottom" constant="2" id="gQP-Sh-LWP"/>
-                    <constraint firstItem="O4F-z9-tkr" firstAttribute="centerX" secondItem="pny-hW-gUY" secondAttribute="centerX" id="hEk-VA-Zwl"/>
-                    <constraint firstItem="oAC-2i-NjF" firstAttribute="top" secondItem="ulP-0j-Eyz" secondAttribute="bottom" constant="2" id="iJo-bO-9ML"/>
-                    <constraint firstItem="D5C-ha-jSb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="7" id="pg8-sw-ZLT"/>
+                    <constraint firstItem="pny-hW-gUY" firstAttribute="centerY" secondItem="D5C-ha-jSb" secondAttribute="centerY" id="jru-xK-tNP"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="-1" id="rVE-O8-SWJ"/>
-                    <constraint firstAttribute="trailing" secondItem="W0E-FD-bPR" secondAttribute="trailing" constant="20" symbolic="YES" id="wyx-jW-rQY"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="120" id="zLy-CF-vpg"/>
                 </constraints>
             </view>
@@ -439,12 +423,11 @@
     </objects>
     <resources>
         <image name="Reload" width="15" height="12"/>
+        <image name="Simulate" width="25" height="24"/>
         <image name="close" width="18" height="18"/>
-        <image name="edit" width="25" height="25"/>
-        <image name="folder" width="25" height="25"/>
+        <image name="editbutton" width="26" height="18"/>
         <image name="minimize" width="18" height="18"/>
-        <image name="newprototype" width="28" height="46"/>
-        <image name="run" width="25" height="25"/>
-        <image name="workspacebutton" width="61" height="48"/>
+        <image name="newprototype" width="28" height="28"/>
+        <image name="workspacebutton" width="28" height="28"/>
     </resources>
 </document>
