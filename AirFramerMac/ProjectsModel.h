@@ -15,4 +15,5 @@
 - (void)reload;
 - (IBAction)showSim:(id)sender;
 - (IBAction)showFolder:(id)sender;
+- (NSArray*)projects;
 @end

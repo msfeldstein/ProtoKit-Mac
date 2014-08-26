@@ -24,9 +24,11 @@
 @property (assign) IBOutlet NSButton* reloadButton;
 @property (assign) IBOutlet NSView* statusIndicator;
 @property (assign) IBOutlet NSTextField* statusText;
+@property (assign) IBOutlet NSTextField* statusSubText;
 @property (assign) IBOutlet NSImageView* qrView;
 @property (assign) IBOutlet NSTableView* projectList;
 @property (assign) IBOutlet ProjectsModel* projects;
+@property (assign) IBOutlet NSView* statusContainer;
 
 @property NSNetService* netService;
 @property HTTPServer* server;

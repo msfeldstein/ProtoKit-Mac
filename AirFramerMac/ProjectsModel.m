@@ -39,6 +39,10 @@
     }
 }
 
+- (NSArray*)projects {
+    return _projects;
+}
+
 - (void) folderChanged {
     [self loadFolder];
     [self listenForProjectChanges];
@@ -122,5 +126,21 @@
     NSTextField* title = [view viewWithTag:100];
     title.stringValue = project;
     return view;
+}
+
+- (void)tableViewSelectionIsChanging:(NSNotification *)notification {
+    for (int i = 0; i < _projects.count; ++i) {
+        // Jesus is this really how you do this?
+        NSTableCellView *cell = [self.tableView viewAtColumn:0 row:i makeIfNecessary:YES];
+        [[cell viewWithTag:200] setHidden:YES];
+        [[cell viewWithTag:201] setHidden:YES];
+        [[cell viewWithTag:202] setHidden:YES];
+    }
+
+    NSInteger selected = [self.tableView selectedRow];
+    NSTableCellView *cell = [self.tableView viewAtColumn:0 row:selected makeIfNecessary:YES];
+    [[cell viewWithTag:200] setHidden:NO];
+    [[cell viewWithTag:201] setHidden:NO];
+    [[cell viewWithTag:202] setHidden:NO];
 }
 @end

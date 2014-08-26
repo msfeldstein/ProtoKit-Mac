@@ -33,7 +33,7 @@
     
     [self reconfig];
     
-    self.statusIndicator.layer.cornerRadius = 6;
+    self.statusIndicator.layer.cornerRadius = 8;
     self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
 
     [self.reloadButton setHidden:YES];
@@ -42,6 +42,27 @@
     self.qrView.image = [QRCodeGenerator qrImageForString:[self getIPAddress] imageSize:self.qrView.bounds.size.width];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"COMPILE_COMPLETE" object:nil];
+    self.window.backgroundColor = [NSColor whiteColor];
+    [self addBorders];
+}
+
+- (void) addBorders {
+    CGRect frame = self.statusContainer.bounds;
+    frame.origin.y = frame.size.height - 1;
+    frame.size.height = 1;
+    frame.size.width -= 60;
+    frame.origin.x = 30;
+    
+    NSView* border = [[NSView alloc] initWithFrame:frame];
+    border.wantsLayer = YES;
+    border.layer.backgroundColor = [NSColor colorWithWhite:0.94 alpha:1].CGColor;
+    [self.statusContainer addSubview:border];
+
+    frame.origin.y = 494;
+    border = [[NSView alloc] initWithFrame:frame];
+    border.wantsLayer = YES;
+    border.layer.backgroundColor = [NSColor colorWithWhite:0.94 alpha:1].CGColor;
+    [self.window.contentView addSubview:border];
 }
 
 - (void) changed:(NSNotification*) n {
@@ -97,6 +118,13 @@
 - (void) reconfig {
     [self.projects setFolder:self.folder];
     [self.projects reload];
+//    CGRect frame = self.window.frame;
+//    CGRect tableFrame = self.projectList.frame;
+//    NSPoint tableOrigin = [self.projectList convertPoint:self.projectList.frame.origin toView:nil];
+//    frame.size.height = tableOrigin.y + 100 * [self.projects projects].count + 100;
+//    NSLog(@"F %i", frame.size.height);
+
+//??    [self.window setFrame:frame display:YES animate:YES];
     [self setupServer];
     [self sendChangeNotification:@"CHANGE"];
 }
@@ -143,8 +171,10 @@
 - (void)updateLabel {
     if (self.connectedSockets.count > 0) {
         self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:185.0 / 255.0 green:233.0 / 255.0 blue:134.0 / 255.0 alpha:1.0].CGColor;
+        self.statusSubText.stringValue = @"";
         if (self.connectedSockets.count == 1) {
             self.statusText.stringValue = @"One phone connected";
+            
         } else {
             self.statusText.stringValue = [NSString stringWithFormat:@"%lu phones connected", (unsigned long)self.connectedSockets.count];
         }
@@ -154,7 +184,8 @@
         [self.reloadButton setHidden:YES];
         [self.helpButton setHidden:NO];
         self.statusIndicator.layer.backgroundColor = [NSColor colorWithCalibratedRed:1.0 green:127.0 / 255.0 blue:127.0 / 255.0 alpha:1.0].CGColor;
-        self.statusText.stringValue = @"No Phone Connected (Make sure it's on the same wifi network)";
+        self.statusText.stringValue = @"No device connected";
+        self.statusSubText.stringValue = @"Make sure it's on the same Wi-Fi network";
     }
 }
 

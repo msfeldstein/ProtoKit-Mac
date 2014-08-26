@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1308B319AC38C2000CE48B /* FrameWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B219AC38C2000CE48B /* FrameWindow.m */; };
+		4C1308B619AC3A67000CE48B /* RootWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B519AC3A67000CE48B /* RootWindowView.m */; };
 		4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2895431995AC06006B7C5D /* ManifestGenerator.m */; };
 		4C2895461996B323006B7C5D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
@@ -72,6 +74,10 @@
 
 /* Begin PBXFileReference section */
 		1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirFramerMac.xcconfig"; path = "Pods/Pods-AirFramerMac.xcconfig"; sourceTree = "<group>"; };
+		4C1308B119AC38C2000CE48B /* FrameWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameWindow.h; sourceTree = "<group>"; };
+		4C1308B219AC38C2000CE48B /* FrameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameWindow.m; sourceTree = "<group>"; };
+		4C1308B419AC3A67000CE48B /* RootWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootWindowView.h; sourceTree = "<group>"; };
+		4C1308B519AC3A67000CE48B /* RootWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootWindowView.m; sourceTree = "<group>"; };
 		4C2895421995AC06006B7C5D /* ManifestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManifestGenerator.h; sourceTree = "<group>"; };
 		4C2895431995AC06006B7C5D /* ManifestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManifestGenerator.m; sourceTree = "<group>"; };
 		4C2895451996B323006B7C5D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		4CB839BE19931EDB002A67D8 /* AirFramerMac */ = {
 			isa = PBXGroup;
 			children = (
+				4C35385D19A31595001A1511 /* Nibs */,
 				4C35386319A31695001A1511 /* ViewControllers */,
 				4CB839CA19931EDB002A67D8 /* AppDelegate.h */,
 				4CB839CB19931EDB002A67D8 /* AppDelegate.m */,
@@ -281,7 +288,6 @@
 				4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */,
 				4C35385819A31189001A1511 /* ProjectsModel.h */,
 				4C35385919A31189001A1511 /* ProjectsModel.m */,
-				4C35385D19A31595001A1511 /* Nibs */,
 				4CB839BF19931EDB002A67D8 /* Supporting Files */,
 				4C35385F19A315BB001A1511 /* Libraries */,
 				4C35386419A3257B001A1511 /* Macros.h */,
@@ -291,6 +297,10 @@
 				4CB995B019A5BF6500BECA35 /* CompileOperation.m */,
 				4CB995D719A6965800BECA35 /* ReloadWebSocket.h */,
 				4CB995D819A6965800BECA35 /* ReloadWebSocket.m */,
+				4C1308B119AC38C2000CE48B /* FrameWindow.h */,
+				4C1308B219AC38C2000CE48B /* FrameWindow.m */,
+				4C1308B419AC3A67000CE48B /* RootWindowView.h */,
+				4C1308B519AC3A67000CE48B /* RootWindowView.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -476,9 +486,11 @@
 				4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */,
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
 				4C985961199BCCB300CB68D3 /* split.c in Sources */,
+				4C1308B619AC3A67000CE48B /* RootWindowView.m in Sources */,
 				4C985960199BCCB300CB68D3 /* rscode.c in Sources */,
 				4CB995B119A5BF6500BECA35 /* CompileOperation.m in Sources */,
 				4CB995D919A6965800BECA35 /* ReloadWebSocket.m in Sources */,
+				4C1308B319AC38C2000CE48B /* FrameWindow.m in Sources */,
 				4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */,
 				4C98595F199BCCB300CB68D3 /* qrspec.c in Sources */,
 				4C98595E199BCCB300CB68D3 /* qrinput.c in Sources */,
