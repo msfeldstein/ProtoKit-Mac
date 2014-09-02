@@ -44,6 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"COMPILE_COMPLETE" object:nil];
     self.window.backgroundColor = [NSColor whiteColor];
     [self addBorders];
+    self.simulatorController = [[SimulatorWindowController alloc] init];
 }
 
 - (void) addBorders {
@@ -71,6 +72,12 @@
 }
 
 - (void)showSimulator:(NSString*)project {
+    [self.simulatorController showWindow:nil];
+    NSString* urlStr = [self urlForProject:project];
+    [self.simulatorController loadURL:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (void)launchInChrome:(NSString*)project {
     NSString* urlStr = [self urlForProject:project];
     NSURL* url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     [[NSWorkspace sharedWorkspace] openURL:url];
@@ -267,6 +274,14 @@
         return [input stringValue];
     }
     return nil;
+}
+
+- (IBAction)toggleConsole:(id)sender {
+    [self.simulatorController toggleConsole];
+}
+
+- (IBAction)setSimulatorZoomLevel:(NSMenuItem*)sender {
+    [self.simulatorController setZoomLevel:(int)sender.tag];
 }
 
 @end

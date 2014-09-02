@@ -11,5 +11,10 @@
 
 @interface SimulatorWindowController : NSWindowController
 @property IBOutlet WebView* webView;
+@property IBOutlet NSDrawer* drawer;
+@property IBOutlet NSTextView* consoleOutput;
 - (void)loadURL:(NSString*)url;
+
+- (void)toggleConsole;
+- (void)setZoomLevel:(int)zoomLevel;
 @end

@@ -49,4 +49,5 @@
 - (IBAction)chooseFolder:(id)sender;
 - (IBAction)sendChange:(id)sender;
 - (IBAction)showHelp:(id)sender;
+- (IBAction)toggleConsole:(id)sender;
 @end

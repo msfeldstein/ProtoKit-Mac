@@ -127,13 +127,34 @@
                         <items>
                             <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
                                 <connections>
-                                    <action selector="performMiniaturize:" target="-1" id="VwT-WD-YPe"/>
+                                    <action selector="miniaturize:" target="QvC-M9-y7g" id="NVd-F6-LL2"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Zoom" id="R4o-n2-Eq4">
+                            <menuItem title="Simulator Zoom Level" id="0kh-Qi-4qb">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Simulator Zoom Level" id="MbG-5G-T2O">
+                                    <items>
+                                        <menuItem title="100%" tag="100" keyEquivalent="1" id="X15-4l-YzA">
+                                            <connections>
+                                                <action selector="setSimulatorZoomLevel:" target="Voe-Tx-rLC" id="u0e-OP-6fF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="75%" tag="75" keyEquivalent="2" id="eyQ-Kk-hsA">
+                                            <connections>
+                                                <action selector="setSimulatorZoomLevel:" target="Voe-Tx-rLC" id="Prj-vC-3yn"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="50%" tag="50" keyEquivalent="3" id="JPQ-81-wi1">
+                                            <connections>
+                                                <action selector="setSimulatorZoomLevel:" target="Voe-Tx-rLC" id="03o-dh-FON"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Show/Hide Console" keyEquivalent="C" id="sA5-f7-bOc">
                                 <connections>
-                                    <action selector="performZoom:" target="-1" id="DIl-cC-cCs"/>
+                                    <action selector="toggleConsole:" target="Voe-Tx-rLC" id="O8D-K9-C1t"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>

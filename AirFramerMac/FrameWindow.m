@@ -19,7 +19,7 @@
     {
         [self setStyleMask:NSBorderlessWindowMask];
         [self setOpaque:NO];
-        [self setBackgroundColor:[NSColor clearColor]];
+//        [self setBackgroundColor:[NSColor clearColor]];
     }
     
     return self;
