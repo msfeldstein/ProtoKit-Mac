@@ -72,9 +72,13 @@
 }
 
 - (void)showSimulator:(NSString*)project {
-    [self.simulatorController showWindow:nil];
     NSString* urlStr = [self urlForProject:project];
-    [self.simulatorController loadURL:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL* url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+    //    [self.simulatorController showWindow:nil];
+    
+
+    //    [self.simulatorController loadURL:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void)launchInChrome:(NSString*)project {

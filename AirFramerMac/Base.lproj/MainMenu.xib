@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="helpButton" destination="B4E-ci-e5g" id="Obi-jy-9uf"/>
                 <outlet property="helpPanel" destination="UWw-sK-7FP" id="EIP-iq-MJO"/>
+                <outlet property="newProjectButton" destination="W0E-FD-bPR" id="Bws-Zg-vNU"/>
                 <outlet property="projects" destination="vdq-IW-IZW" id="7EZ-ZR-E4E"/>
                 <outlet property="qrView" destination="3rq-Hd-WX7" id="mzC-vX-9c6"/>
                 <outlet property="reloadButton" destination="RT1-zx-Vg1" id="4ZK-JD-uVz"/>
@@ -24,6 +25,7 @@
                 <outlet property="statusText" destination="3gF-cV-PXd" id="dcw-zC-nQ7"/>
                 <outlet property="titleLabel" destination="pny-hW-gUY" id="BkJ-9j-rla"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="workspaceButton" destination="oAC-2i-NjF" id="NVS-wx-LE7"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -185,7 +187,7 @@
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="446" height="612"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <value key="minSize" type="size" width="446" height="383"/>
             <value key="maxSize" type="size" width="446" height="3000"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="RootWindowView">
@@ -196,7 +198,7 @@
                         <rect key="frame" x="20" y="500" width="79" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="Workspace" bezelStyle="rounded" image="workspacebutton" imagePosition="above" alignment="center" imageScaling="proportionallyDown" inset="2" id="lLb-VI-r9x">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
@@ -246,7 +248,7 @@
                                                             <rect key="frame" x="403" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Simulate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Wkb-XA-6Em">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <behavior key="behavior" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
@@ -257,7 +259,7 @@
                                                             <rect key="frame" x="358" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="editbutton" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="nEd-NK-odf">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <behavior key="behavior" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
@@ -297,7 +299,7 @@
                         <rect key="frame" x="330" y="500" width="96" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="New Prototype" bezelStyle="rounded" image="newprototype" imagePosition="above" alignment="center" inset="2" id="1u5-Jx-E1S">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
@@ -419,7 +421,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-153" y="1222" width="252" height="348"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="TVt-t0-Phu">
                 <rect key="frame" x="0.0" y="0.0" width="252" height="348"/>
                 <autoresizingMask key="autoresizingMask"/>
