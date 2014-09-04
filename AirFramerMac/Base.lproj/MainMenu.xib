@@ -232,11 +232,12 @@
                                                     <rect key="frame" x="1" y="1" width="445" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-r4-2MB">
-                                                            <rect key="frame" x="20" y="17" width="445" height="17"/>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-r4-2MB">
+                                                            <rect key="frame" x="15" y="18" width="293" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="439" id="cI4-8e-qRt"/>
+                                                                <constraint firstAttribute="width" constant="289" id="8Pl-gv-304"/>
+                                                                <constraint firstAttribute="height" constant="14" id="unu-KF-PKK"/>
                                                             </constraints>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="21o-Om-OsM">
                                                                 <font key="font" metaFont="system"/>
@@ -244,7 +245,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button hidden="YES" fixedFrame="YES" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-bl-iD5">
+                                                        <button hidden="YES" ambiguous="YES" misplaced="YES" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-bl-iD5">
                                                             <rect key="frame" x="403" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Simulate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Wkb-XA-6Em">
@@ -255,7 +256,7 @@
                                                                 <action selector="showSim:" target="vdq-IW-IZW" id="taB-rr-eCX"/>
                                                             </connections>
                                                         </button>
-                                                        <button hidden="YES" fixedFrame="YES" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-KR-uUp">
+                                                        <button hidden="YES" ambiguous="YES" misplaced="YES" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-KR-uUp">
                                                             <rect key="frame" x="358" y="13" width="27" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="editbutton" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="nEd-NK-odf">
@@ -266,10 +267,29 @@
                                                                 <action selector="editProject:" target="vdq-IW-IZW" id="pVy-lX-Wph"/>
                                                             </connections>
                                                         </button>
+                                                        <button hidden="YES" ambiguous="YES" misplaced="YES" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="UKw-9Z-J9Q">
+                                                            <rect key="frame" x="311" y="13" width="27" height="25"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="SCs-00-ARZ"/>
+                                                                <constraint firstAttribute="height" constant="25" id="vtp-2j-JdY"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="folder" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="lOh-c1-Kr4">
+                                                                <behavior key="behavior" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="showFolder:" target="vdq-IW-IZW" id="6Pj-Y7-WE1"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="22" id="OLd-Yg-BMs"/>
-                                                        <constraint firstAttribute="centerY" secondItem="9yd-r4-2MB" secondAttribute="centerY" constant="0.5" id="cU5-2I-KGU"/>
+                                                        <constraint firstItem="UKw-9Z-J9Q" firstAttribute="baseline" secondItem="d6l-bl-iD5" secondAttribute="baseline" id="8yc-ZQ-CDO"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="o0d-P9-3P5" secondAttribute="centerY" id="BuP-9c-3GK"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="Znw-KR-uUp" secondAttribute="centerY" id="Yr2-4J-mBh"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="d6l-bl-iD5" secondAttribute="centerY" id="bHE-Si-0LX"/>
+                                                        <constraint firstItem="UKw-9Z-J9Q" firstAttribute="baseline" secondItem="Znw-KR-uUp" secondAttribute="baseline" id="pit-Rr-ztz"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="17" id="yKq-vw-f0u"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="textField" destination="9yd-r4-2MB" id="G5b-1T-GiB"/>
@@ -449,6 +469,7 @@
         <image name="Simulate" width="25" height="24"/>
         <image name="close" width="18" height="18"/>
         <image name="editbutton" width="26" height="18"/>
+        <image name="folder" width="54" height="46"/>
         <image name="minimize" width="18" height="18"/>
         <image name="newprototype" width="28" height="28"/>
         <image name="workspacebutton" width="28" height="28"/>

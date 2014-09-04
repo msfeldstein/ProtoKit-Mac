@@ -95,9 +95,32 @@
 }
 
 - (void)openInEditor: (NSString*)project {
+    NSString* editorURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"editor_url"];
+    if (!editorURL) {
+        NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+        openDlg.canChooseFiles = YES;
+        openDlg.canChooseDirectories = NO;
+        openDlg.prompt = @"Open";
+        openDlg.title = @"Choose Text Editor";
+        openDlg.directoryURL = [NSURL URLWithString:@"/Applications"];
+        if ([openDlg runModal] == NSOKButton) {
+            editorURL = openDlg.URL.path;
+        }
+    }
     NSString* path = [self filePathForProjectFolder:project];
     NSWorkspace* ws = [NSWorkspace sharedWorkspace];
-    [ws openFile:path withApplication:@"Sublime Text 2"];
+    BOOL success = [ws openFile:path withApplication:editorURL];
+    if (success) {
+        [[NSUserDefaults standardUserDefaults] setValue:editorURL forKeyPath:@"editor_url"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Okay :("];
+        [alert setMessageText:@"Oops"];
+        [alert setInformativeText:@"Couldn't open the project folder with that app.  Try something else."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
 }
 
 - (NSString*)filePathForProjectFolder:(NSString*)project {
@@ -131,11 +154,6 @@
     [self.titleLabel setStringValue:title];
     [self.projects setFolder:self.folder];
     [self.projects reload];
-//    CGRect frame = self.window.frame;
-//    CGRect tableFrame = self.projectList.frame;
-//    NSPoint tableOrigin = [self.projectList convertPoint:self.projectList.frame.origin toView:nil];
-//    frame.size.height = 50 * [self.projects projects].count + 300;
-//    [self.window setFrame:frame display:YES animate:YES];
     [self setupServer];
     [self sendChangeNotification:@"CHANGE"];
 }
