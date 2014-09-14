@@ -67,7 +67,7 @@
     NSFileHandle *file = pipe.fileHandleForReading;
     NSTask *task = [[NSTask alloc] init];
     task.launchPath = nodePath;
-    task.arguments = @[coffeePath, @"-o", destination, @"-c", folder];
+    task.arguments = @[coffeePath,@"-b", @"-o", destination, @"-c", folder];
     task.standardOutput = pipe;
     task.standardError = pipe;
     [task launch];
