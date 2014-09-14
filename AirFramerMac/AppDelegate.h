@@ -14,7 +14,7 @@
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
 #import "ProjectsModel.h"
 
-@class SimulatorWindowController;
+@class SimulatorWindowController, PreferencesWindowController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
@@ -38,6 +38,7 @@
 @property WebSocket* reloadSocket;
 @property NSMutableArray* connectedSockets;
 @property SimulatorWindowController* simulatorController;
+@property PreferencesWindowController* preferencesController;
 
 @property NSURL* folder;
 
@@ -50,4 +51,5 @@
 - (IBAction)sendChange:(id)sender;
 - (IBAction)showHelp:(id)sender;
 - (IBAction)toggleConsole:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 @end

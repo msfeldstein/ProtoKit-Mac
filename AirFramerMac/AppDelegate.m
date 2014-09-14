@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MyHTTPConnection.h"
 #import "ManifestGenerator.h"
+#import "PreferencesWindowController.h"
 #import "QRCodeGenerator.h"
 #import "ResourcesGenerator.h"
 #import "SimulatorWindowController.h"
@@ -304,6 +305,11 @@
 
 - (IBAction)setSimulatorZoomLevel:(NSMenuItem*)sender {
     [self.simulatorController setZoomLevel:(int)sender.tag];
+}
+
+- (IBAction)showPreferences:(id)sender {
+    self.preferencesController = [[PreferencesWindowController alloc] init];
+    [self.preferencesController showWindow:nil];
 }
 
 @end

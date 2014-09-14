@@ -34,12 +34,29 @@
     NSError* error;
     [fm createDirectoryAtURL:outputURL withIntermediateDirectories:YES attributes:nil error:&error];
     [self compileFolder:self.directory toFolder:outputURL.path];
+    [self copyJavascriptsAtFolder:[self.directory stringByAppendingPathComponent:@"scripts"] toFolder:outputURL.path];
     [self generateResources:self.directory toFolder:outputURL.path];
     NSURL* outFolder = [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:@"out"]];
     [fm createDirectoryAtURL:outFolder withIntermediateDirectories:YES attributes:nil error:&error];
     NSString* compiledFile = [self.directory stringByAppendingPathComponent:@"out/compiled.js"];
     [self concatFolder:outputURL toFile:compiledFile];
     [fm removeItemAtURL:outputURL error:nil];
+}
+
+- (void)copyJavascriptsAtFolder:(NSString*)folder toFolder:(NSString*)destination {
+    NSString* env = [[NSBundle mainBundle] pathForResource:@"JSEnv" ofType:@""];
+    NSString* nodePath = [env stringByAppendingPathComponent:@"node"];
+    NSString* scriptPath = [[NSBundle mainBundle] pathForResource:@"copy-javascripts" ofType:@"js"];
+    NSPipe *pipe = [NSPipe pipe];
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = nodePath;
+    task.arguments = @[scriptPath, folder, destination];
+    task.standardOutput = pipe;
+    task.standardError = pipe;
+    [task launch];
+    
+    // We need to actually read the data here otherwise NSTask will return asynchronously and the files wont be there for the next step
+    [[pipe fileHandleForReading] readDataToEndOfFile];
 }
 
 - (void)compileFolder:(NSString*)folder toFolder:(NSString*)destination {

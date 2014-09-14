@@ -8,7 +8,7 @@
 }
 
 body {
-	background: black url("images/background.png") repeat scroll top left;
+	background: white;
 	font: 28px/1em "Helvetica";
 	color: #FFF;
 }

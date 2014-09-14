@@ -1,1 +1,0 @@
-# @Resources = JSON.parse Utils.domLoadDataSync "./resources.json"

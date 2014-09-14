@@ -54,7 +54,11 @@
                                     <action selector="checkForUpdates:" target="GT2-D1-2Of" id="Kqd-V3-bBD"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                <connections>
+                                    <action selector="showPreferences:" target="Voe-Tx-rLC" id="X9a-kK-VYv"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -233,11 +237,11 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-r4-2MB">
-                                                            <rect key="frame" x="15" y="18" width="293" height="14"/>
+                                                            <rect key="frame" x="12" y="3" width="293" height="29"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="289" id="8Pl-gv-304"/>
-                                                                <constraint firstAttribute="height" constant="14" id="unu-KF-PKK"/>
+                                                                <constraint firstAttribute="height" constant="29" id="unu-KF-PKK"/>
                                                             </constraints>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="21o-Om-OsM">
                                                                 <font key="font" metaFont="system"/>
@@ -285,11 +289,11 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="UKw-9Z-J9Q" firstAttribute="baseline" secondItem="d6l-bl-iD5" secondAttribute="baseline" id="8yc-ZQ-CDO"/>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="o0d-P9-3P5" secondAttribute="centerY" id="BuP-9c-3GK"/>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="Znw-KR-uUp" secondAttribute="centerY" id="Yr2-4J-mBh"/>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="d6l-bl-iD5" secondAttribute="centerY" id="bHE-Si-0LX"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="o0d-P9-3P5" secondAttribute="centerY" constant="7.5" id="BuP-9c-3GK"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="Znw-KR-uUp" secondAttribute="centerY" constant="8" id="Yr2-4J-mBh"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="centerY" secondItem="d6l-bl-iD5" secondAttribute="centerY" constant="8" id="bHE-Si-0LX"/>
                                                         <constraint firstItem="UKw-9Z-J9Q" firstAttribute="baseline" secondItem="Znw-KR-uUp" secondAttribute="baseline" id="pit-Rr-ztz"/>
-                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="17" id="yKq-vw-f0u"/>
+                                                        <constraint firstItem="9yd-r4-2MB" firstAttribute="leading" secondItem="o0d-P9-3P5" secondAttribute="leading" constant="14" id="yKq-vw-f0u"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="textField" destination="9yd-r4-2MB" id="G5b-1T-GiB"/>
