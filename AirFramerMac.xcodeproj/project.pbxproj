@@ -12,7 +12,7 @@
 		4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2895431995AC06006B7C5D /* ManifestGenerator.m */; };
 		4C2895461996B323006B7C5D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
-		4C28954B1996B4D3006B7C5D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
+		4C28954B1996B4D3006B7C5D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */; };
 		4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385119A2EDEC001A1511 /* Simulator.xib */; };
 		4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385419A2EED9001A1511 /* SimulatorWindowController.m */; };
@@ -398,7 +398,7 @@
 		4CB839AD19931EDB002A67D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Macromeez;
 				TargetAttributes = {
 					4CB839D519931EDB002A67D8 = {
