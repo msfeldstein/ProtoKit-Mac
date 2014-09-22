@@ -312,4 +312,8 @@
     [self.preferencesController showWindow:nil];
 }
 
+- (IBAction)minimize:(id)sender {
+    [self.window miniaturize:sender];
+}
+
 @end

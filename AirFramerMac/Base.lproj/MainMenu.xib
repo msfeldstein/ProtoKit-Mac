@@ -133,7 +133,7 @@
                         <items>
                             <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
                                 <connections>
-                                    <action selector="miniaturize:" target="QvC-M9-y7g" id="NVd-F6-LL2"/>
+                                    <action selector="minimize:" target="Voe-Tx-rLC" id="alN-DN-FOf"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Simulator Zoom Level" id="0kh-Qi-4qb">

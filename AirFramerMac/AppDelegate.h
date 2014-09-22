@@ -52,4 +52,5 @@
 - (IBAction)showHelp:(id)sender;
 - (IBAction)toggleConsole:(id)sender;
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)minimize:(id)sender;
 @end
