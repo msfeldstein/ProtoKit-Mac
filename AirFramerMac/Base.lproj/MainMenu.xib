@@ -41,7 +41,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Frame for Mac" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About AirFramerMac" id="5kV-Vb-QxS">
+                            <menuItem title="About Frame" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -98,30 +98,6 @@
                             <menuItem title="New FramerJS Project" keyEquivalent="n" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="newProject:" target="Voe-Tx-rLC" id="l9I-Pi-iy9"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
-                                <connections>
-                                    <action selector="chooseFolder:" target="Voe-Tx-rLC" id="me3-ds-267"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Open Recent" id="tXI-mr-wws">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                    <items>
-                                        <menuItem title="Clear Menu" id="vNY-rz-j42">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="clearRecentDocuments:" target="-1" id="Daa-9d-B3U"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
-                                <connections>
-                                    <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -319,6 +295,14 @@
                                                                 <action selector="showFolder:" target="vdq-IW-IZW" id="6Pj-Y7-WE1"/>
                                                             </connections>
                                                         </button>
+                                                        <button hidden="YES" tag="206" id="TtI-cz-95G">
+                                                            <rect key="frame" x="245" y="5" width="54" height="25"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="alert" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="rY5-Vc-9gL">
+                                                                <behavior key="behavior" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                        </button>
                                                     </subviews>
                                                     <connections>
                                                         <outlet property="textField" destination="9yd-r4-2MB" id="G5b-1T-GiB"/>
@@ -434,6 +418,7 @@
     <resources>
         <image name="Reload" width="15" height="12"/>
         <image name="Simulate" width="25" height="24"/>
+        <image name="alert" width="14" height="14"/>
         <image name="close" width="8" height="8"/>
         <image name="editbutton" width="26" height="18"/>
         <image name="folder" width="54" height="46"/>

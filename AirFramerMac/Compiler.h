@@ -11,7 +11,10 @@
 @interface Compiler : NSObject <CDEventsDelegate>
 
 @property NSString* directory;
+@property BOOL isFrameProject; // Whether this will be compiled
+
 
 - (id) initWithProjectDirectory:(NSString*)directory;
+
 
 @end

@@ -23,8 +23,10 @@
     self = [super init];
     self.directory = directory;
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.directory stringByAppendingPathComponent:@"frame-compile.json"]]) {
+        self.isFrameProject = NO;
         return self;
     }
+    self.isFrameProject = YES;
     _queue = [[NSOperationQueue alloc] init];
     NSArray* paths = @[[NSURL fileURLWithPath:self.directory]];
     CDEventsEventStreamCreationFlags creationFlags = kCDEventsDefaultEventStreamFlags | kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents;

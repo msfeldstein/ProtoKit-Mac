@@ -136,6 +136,7 @@
         [[cell viewWithTag:200] setHidden:YES];
         [[cell viewWithTag:201] setHidden:YES];
         [[cell viewWithTag:202] setHidden:YES];
+        [[cell viewWithTag:206] setHidden:YES];
         NSTableRowView *myRowView = [self.tableView rowViewAtRow:i makeIfNecessary:NO];
         [myRowView setEmphasized:NO];
     }
@@ -146,5 +147,8 @@
     [[cell viewWithTag:200] setHidden:NO];
     [[cell viewWithTag:201] setHidden:NO];
     [[cell viewWithTag:202] setHidden:NO];
+    Compiler* compiler = _compilers[selected];
+    if (!compiler.isFrameProject)
+        [[cell viewWithTag:206] setHidden:NO];
 }
 @end
