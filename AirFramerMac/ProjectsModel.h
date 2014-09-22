@@ -11,9 +11,11 @@
 
 @interface ProjectsModel : NSObject <NSTableViewDataSource, NSTableViewDelegate, VDKQueueDelegate>
 @property IBOutlet NSTableView* tableView;
+@property IBOutlet NSWindow* window;
 @property NSURL* folder;
 - (void)reload;
 - (IBAction)showSim:(id)sender;
 - (IBAction)showFolder:(id)sender;
+- (IBAction)showNonFrameAlert:(id)sender;
 - (NSArray*)projects;
 @end

@@ -113,6 +113,18 @@
     [delegate openInEditor:textField.stringValue];
 }
 
+- (IBAction)showNonFrameAlert:(id)sender {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Okay"];
+    [alert addButtonWithTitle:@"Convert"];
+    [alert setInformativeText:@"This project was not created in frame so you won't get some of the benefits."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    NSModalResponse resp = [alert runModal];
+    if (resp == NSAlertSecondButtonReturn) {
+        NSLog(@"Convert");
+    }
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return _projects.count;
 }

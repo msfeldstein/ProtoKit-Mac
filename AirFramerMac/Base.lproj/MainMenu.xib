@@ -33,6 +33,7 @@
         <customObject id="vdq-IW-IZW" customClass="ProjectsModel">
             <connections>
                 <outlet property="tableView" destination="Jjm-rX-ghk" id="4eJ-uY-kjd"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="3Rp-l3-XfU"/>
             </connections>
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
@@ -302,6 +303,9 @@
                                                                 <behavior key="behavior" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                            <connections>
+                                                                <action selector="showNonFrameAlert:" target="vdq-IW-IZW" id="Xtq-mE-i6z"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <connections>
@@ -319,7 +323,7 @@
                             </subviews>
                             <color key="backgroundColor" red="0.8784313725490196" green="0.89411764705882346" blue="0.91764705882352937" alpha="0.0" colorSpace="calibratedRGB"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="J4p-A8-m5I">
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="J4p-A8-m5I">
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="VcB-CN-Xng">
