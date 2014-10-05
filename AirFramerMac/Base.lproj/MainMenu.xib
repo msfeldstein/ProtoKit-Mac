@@ -281,7 +281,7 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="31" id="fUL-ov-zIb"/>
+                            <constraint firstAttribute="height" priority="500" constant="31" id="fUL-ov-zIb"/>
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="S13-Jg-sVU" userLabel="Connection Container">

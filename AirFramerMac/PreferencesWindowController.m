@@ -30,20 +30,26 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationSuccess:) name:kRegistrationSuccessNotificationKey object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationFailure:) name:kRegistrationFailureNotificationKey object:nil];
     NSString* editorURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"editor_url"];
-    self.currentEditorPath.stringValue = editorURL;
+    if (editorURL)
+        self.currentEditorPath.stringValue = editorURL;
+    RegistrationManager* regMgr = [RegistrationManager sharedManager];
+    [regMgr addObserver:self forKeyPath:kIsRegisteredKey options:0 context:nil];
     [self updateRegistrationState];
 }
 
 - (void)registrationSuccess:(NSNotification*)n {
+    [self updateRegistrationState];
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"OK"];
     [alert setMessageText:@"You're all set!"];
     [alert setInformativeText:@"Thanks for supporting the development of Frame Pro."];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
+    
 }
 
 - (void)registrationFailure:(NSNotification*)n {
+    [self updateRegistrationState];
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"OK"];
     [alert setMessageText:@"Oops"];
@@ -60,14 +66,15 @@
 
 - (void)updateRegistrationState {
     RegistrationManager* regMgr = [RegistrationManager sharedManager];
-    self.licenseField.stringValue = [regMgr currentKey];
+    if ([regMgr currentKey])
+        self.licenseField.stringValue = [regMgr currentKey];
     [regMgr addObserver:self forKeyPath:kIsRegisteredKey options:0 context:nil];
     if (regMgr.registered) {
-        [self.registrationStatus setTextColor: SUCCESS_GREEN];
         self.registrationStatus.stringValue = @"Registered";
+        [self.registrationStatus setTextColor: SUCCESS_GREEN];
     } else {
-        [self.registrationStatus setTextColor:FAIL_RED];
         self.registrationStatus.stringValue = @"Unregistered";
+        [self.registrationStatus setTextColor:FAIL_RED];
     }
 }
 
