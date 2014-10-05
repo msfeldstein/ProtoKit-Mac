@@ -13,6 +13,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="bottomDivider" destination="KLU-9k-xbJ" id="3fN-xs-Kdi"/>
+                <outlet property="divider" destination="F8z-hS-4pc" id="VSa-ur-Mdj"/>
                 <outlet property="enterSerialButton" destination="eWj-U9-deV" id="QOG-Qk-1Dq"/>
                 <outlet property="helpButton" destination="B4E-ci-e5g" id="Obi-jy-9uf"/>
                 <outlet property="helpPanel" destination="UWw-sK-7FP" id="EIP-iq-MJO"/>
@@ -216,6 +218,12 @@
                 <rect key="frame" x="0.0" y="5" width="446" height="443"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-qE-KVS">
+                        <rect key="frame" x="0.0" y="0.0" width="448" height="443"/>
+                        <shadow key="shadow" blurRadius="4">
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </shadow>
+                    </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pny-hW-gUY">
                         <rect key="frame" x="68" y="418" width="315" height="23"/>
                         <constraints>
@@ -368,7 +376,7 @@
                     </button>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-z9-tkr">
                         <rect key="frame" x="0.0" y="68" width="448" height="234"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="dm8-Du-034">
+                        <clipView key="contentView" copiesOnScroll="NO" id="dm8-Du-034">
                             <rect key="frame" x="0.0" y="0.0" width="448" height="445"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -453,7 +461,7 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="0.8784313725490196" green="0.89411764705882346" blue="0.91764705882352937" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="J4p-A8-m5I">
                             <autoresizingMask key="autoresizingMask"/>
@@ -462,20 +470,42 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="F8z-hS-4pc" userLabel="Top Divider">
+                        <rect key="frame" x="0.0" y="302" width="446" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="446" id="2YP-Eh-VjG"/>
+                            <constraint firstAttribute="height" constant="1" id="fWf-QJ-CPp"/>
+                        </constraints>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="KLU-9k-xbJ" userLabel="Bottom Divider">
+                        <rect key="frame" x="0.0" y="68" width="446" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="446" id="AXh-55-ZTT"/>
+                            <constraint firstAttribute="height" constant="1" id="cz5-KZ-bkB"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="S13-Jg-sVU" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="1" id="3Qh-Sp-E2J"/>
                     <constraint firstItem="oAC-2i-NjF" firstAttribute="top" secondItem="Yqn-Th-gBM" secondAttribute="bottom" constant="13" id="7TW-ek-DVN"/>
                     <constraint firstItem="oAC-2i-NjF" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="8UO-4g-3vu"/>
                     <constraint firstItem="W0E-FD-bPR" firstAttribute="top" secondItem="Yqn-Th-gBM" secondAttribute="bottom" constant="13" id="A3E-iy-oIW"/>
+                    <constraint firstAttribute="centerX" secondItem="F8z-hS-4pc" secondAttribute="centerX" id="Esg-nA-Gos"/>
+                    <constraint firstItem="n4W-qE-KVS" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="Fbo-lA-0Sn"/>
+                    <constraint firstItem="S13-Jg-sVU" firstAttribute="top" secondItem="KLU-9k-xbJ" secondAttribute="bottom" id="LaS-lH-eUd"/>
                     <constraint firstItem="Yqn-Th-gBM" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="MJb-Uu-PRg"/>
                     <constraint firstAttribute="centerX" secondItem="Yqn-Th-gBM" secondAttribute="centerX" id="N3h-tP-eeN"/>
+                    <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="F8z-hS-4pc" secondAttribute="bottom" id="RjD-xi-qJs"/>
                     <constraint firstAttribute="trailing" secondItem="O4F-z9-tkr" secondAttribute="trailing" constant="-2" id="T9A-qw-mLR"/>
+                    <constraint firstAttribute="trailing" secondItem="n4W-qE-KVS" secondAttribute="trailing" constant="-2" id="UPb-Xp-PCJ"/>
                     <constraint firstAttribute="trailing" secondItem="S13-Jg-sVU" secondAttribute="trailing" constant="-1" id="Uey-6u-LjX"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="Wi2-Wa-78O"/>
                     <constraint firstItem="O4F-z9-tkr" firstAttribute="top" secondItem="Yqn-Th-gBM" secondAttribute="bottom" constant="80" id="XfT-Lo-6qE"/>
+                    <constraint firstItem="n4W-qE-KVS" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="ZmC-8t-INI"/>
+                    <constraint firstAttribute="centerX" secondItem="KLU-9k-xbJ" secondAttribute="centerX" id="aBe-Bw-6Ul"/>
                     <constraint firstAttribute="centerX" secondItem="pny-hW-gUY" secondAttribute="centerX" constant="-2.5" id="ePT-n9-1Fz"/>
                     <constraint firstItem="Yqn-Th-gBM" firstAttribute="top" secondItem="pny-hW-gUY" secondAttribute="bottom" constant="5" id="ex9-Pq-H3Q"/>
+                    <constraint firstAttribute="bottom" secondItem="n4W-qE-KVS" secondAttribute="bottom" id="lA8-qV-l1f"/>
                     <constraint firstAttribute="trailing" secondItem="Yqn-Th-gBM" secondAttribute="trailing" id="ltf-dz-OPo"/>
                     <constraint firstItem="S13-Jg-sVU" firstAttribute="top" secondItem="O4F-z9-tkr" secondAttribute="bottom" id="mgW-aw-0B7"/>
                     <constraint firstAttribute="bottom" secondItem="S13-Jg-sVU" secondAttribute="bottom" id="sbC-Gf-dIj"/>

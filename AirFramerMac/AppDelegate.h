@@ -30,6 +30,9 @@
 @property (assign) IBOutlet ProjectsModel* projects;
 @property (assign) IBOutlet NSView* statusContainer;
 @property (assign) IBOutlet NSTextField* titleLabel;
+@property (assign) IBOutlet NSView* divider;
+@property (assign) IBOutlet NSView* bottomDivider;
+@property (assign) IBOutlet NSView* background;
 
 @property (assign) IBOutlet NSView* trialView;
 @property (assign) IBOutlet NSButton* purchaseButton;

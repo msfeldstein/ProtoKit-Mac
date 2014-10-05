@@ -53,22 +53,13 @@
 }
 
 - (void) addBorders {
-    CGRect frame = self.statusContainer.bounds;
-    frame.origin.y = frame.size.height - 1;
-    frame.size.height = 1;
-    frame.size.width -= 60;
-    frame.origin.x = 30;
-    
-    NSView* border = [[NSView alloc] initWithFrame:frame];
-    border.wantsLayer = YES;
-    border.layer.backgroundColor = [NSColor colorWithWhite:0.94 alpha:1].CGColor;
-    [self.statusContainer addSubview:border];
+    self.divider.wantsLayer = YES;
+    self.divider.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.1].CGColor;
+    self.bottomDivider.wantsLayer = YES;
+    self.bottomDivider.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.1].CGColor;
+    self.background.wantsLayer = YES;
+    self.background.layer.backgroundColor = [NSColor colorWithWhite:1.0 alpha:1.0].CGColor;
 
-    frame.origin.y = 494;
-    border = [[NSView alloc] initWithFrame:frame];
-    border.wantsLayer = YES;
-    border.layer.backgroundColor = [NSColor colorWithWhite:0.94 alpha:1].CGColor;
-    [self.window.contentView addSubview:border];
 }
 
 - (void) changed:(NSNotification*) n {
