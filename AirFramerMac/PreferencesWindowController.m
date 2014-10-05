@@ -26,9 +26,30 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    NSLog(@"Did Load");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationSuccess:) name:kRegistrationSuccessNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationFailure:) name:kRegistrationFailureNotificationKey object:nil];
     NSString* editorURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"editor_url"];
     self.currentEditorPath.stringValue = editorURL;
     [self updateRegistrationState];
+}
+
+- (void)registrationSuccess:(NSNotification*)n {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:@"You're all set!"];
+    [alert setInformativeText:@"Thanks for supporting the development of Frame Pro."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
+}
+
+- (void)registrationFailure:(NSNotification*)n {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:@"Oops"];
+    [alert setInformativeText:@"Looks like that's not a valid license key.  Email us at support@extrastrength.co if you need help."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

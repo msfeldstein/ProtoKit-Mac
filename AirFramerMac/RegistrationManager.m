@@ -55,7 +55,6 @@
         NSLog(@"JSON: %@", responseObject);
         if (responseObject[@"success"]) {
             self.registered = YES;
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:kRegistrationSuccessNotificationKey object:nil];
         } else {
             self.registered = NO;
@@ -63,6 +62,8 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        self.registered = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRegistrationFailureNotificationKey object:nil];
     }];
 }
 

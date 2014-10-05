@@ -14,6 +14,7 @@
 #import "ResourcesGenerator.h"
 #import "SimulatorWindowController.h"
 #import "Compiler.h"
+#import "Constants.h"
 
 @implementation AppDelegate
 
@@ -332,7 +333,13 @@
     NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
     if ([def boolForKey:@"registered"]) {
         [self hideTrialBar];
+    } else {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationSuccess:) name:kRegistrationSuccessNotificationKey object:nil];
     }
+}
+
+- (void)registrationSuccess:(NSNotification*)n {
+    [self hideTrialBar];
 }
 
 - (void)hideTrialBar {
