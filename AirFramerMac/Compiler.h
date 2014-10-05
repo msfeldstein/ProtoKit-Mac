@@ -15,6 +15,6 @@
 
 
 - (id) initWithProjectDirectory:(NSString*)directory;
-
+- (void)convertToFrameProject;
 
 @end

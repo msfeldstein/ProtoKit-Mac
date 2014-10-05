@@ -122,6 +122,13 @@
     NSModalResponse resp = [alert runModal];
     if (resp == NSAlertSecondButtonReturn) {
         NSLog(@"Convert");
+        Compiler* compiler = _compilers[self.tableView.selectedRow];
+        [compiler convertToFrameProject];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Done"];
+        [alert setInformativeText:@"You'll need to replace the coffee-script.js, framer.js, and init.js script tags in index.html with a script tag to out/compiled.js.\n\nDelete These:\n<script src=\"framer/coffee-script.js\"></script>\n<script src=\"framer/framer.js\"></script>\n<script src=\"framer/init.js\"></script>\n\nAdd This\n<script src=\"out/compiled.js\"></script>"];
+        [alert runModal];
+        [self tableViewSelectionIsChanging:nil];
     }
 }
 

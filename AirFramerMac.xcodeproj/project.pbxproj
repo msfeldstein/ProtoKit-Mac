@@ -88,6 +88,7 @@
 		4C2895481996B48F006B7C5D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesGenerator.h; sourceTree = "<group>"; };
 		4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourcesGenerator.m; sourceTree = "<group>"; };
+		4C33B5CE19E1BB0B00D9B778 /* Frame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Frame.entitlements; sourceTree = "<group>"; };
 		4C35385119A2EDEC001A1511 /* Simulator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Simulator.xib; sourceTree = "<group>"; };
 		4C35385319A2EED9001A1511 /* SimulatorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorWindowController.h; sourceTree = "<group>"; };
 		4C35385419A2EED9001A1511 /* SimulatorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulatorWindowController.m; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 		4CB839BE19931EDB002A67D8 /* AirFramerMac */ = {
 			isa = PBXGroup;
 			children = (
+				4C33B5CE19E1BB0B00D9B778 /* Frame.entitlements */,
 				4C35385D19A31595001A1511 /* Nibs */,
 				4C35386319A31695001A1511 /* ViewControllers */,
 				4CB839CA19931EDB002A67D8 /* AppDelegate.h */,
@@ -401,6 +403,13 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Macromeez;
 				TargetAttributes = {
+					4CB839B419931EDB002A67D8 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 					4CB839D519931EDB002A67D8 = {
 						TestTargetID = 4CB839B419931EDB002A67D8;
 					};
@@ -648,6 +657,7 @@
 			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,6 +677,7 @@
 			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

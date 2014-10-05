@@ -27,12 +27,16 @@
         return self;
     }
     self.isFrameProject = YES;
+    [self setupWatchers];
+    return self;
+}
+
+- (void)setupWatchers {
     _queue = [[NSOperationQueue alloc] init];
     NSArray* paths = @[[NSURL fileURLWithPath:self.directory]];
     CDEventsEventStreamCreationFlags creationFlags = kCDEventsDefaultEventStreamFlags | kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents;
     _watcher = [[CDEvents alloc] initWithURLs:paths delegate:self onRunLoop:[NSRunLoop currentRunLoop] sinceEventIdentifier:kCDEventsSinceEventNow notificationLantency:1.0f ignoreEventsFromSubDirs:NO excludeURLs:@[] streamCreationFlags:creationFlags];
     [self doCompile];
-    return self;
 }
 
 - (void)URLWatcher:(CDEvents *)URLWatcher eventOccurred:(CDEvent *)event {
@@ -51,6 +55,30 @@
     [complete addDependency:compilation];
     [_queue addOperation:compilation];
     [_queue addOperation:complete];
+}
+
+- (void)convertToFrameProject {
+    [self writeConfigFile];
+    [self rewriteHTML];
+    self.isFrameProject = YES;
+    [self setupWatchers];
+}
+
+- (void)writeConfigFile {
+    NSString* config = @"{\"compile\": true,\"resources\": true}";
+    NSString* configPath = [self.directory stringByAppendingPathComponent:@"frame-compile.json"];
+    NSLog(@"Config Path %@", configPath);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:configPath]) {
+        NSError* err;
+        [config writeToFile:configPath atomically:YES encoding:NSASCIIStringEncoding error:&err];
+        if (err) {
+            NSLog(@"Error creating config file %@", err);
+        }
+    }
+}
+
+- (void)rewriteHTML {
+    
 }
 
 @end

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AirFramerMac/ProjectsModel.m"
-            timestampString = "433057919.831471"
+            timestampString = "433058902.354066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-tableViewSelectionIsChanging:"
             landmarkType = "5">
          </BreakpointContent>
