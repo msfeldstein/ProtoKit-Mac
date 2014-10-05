@@ -7,9 +7,12 @@
 //
 
 #import "PreferencesWindowController.h"
+#import "RegistrationManager.h"
+#import "Constants.h"
+#import "Macros.h"
 
-@interface PreferencesWindowController ()
-
+@interface PreferencesWindowController () {
+}
 @end
 
 @implementation PreferencesWindowController
@@ -25,6 +28,31 @@
     [super windowDidLoad];
     NSString* editorURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"editor_url"];
     self.currentEditorPath.stringValue = editorURL;
+    [self updateRegistrationState];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:kIsRegisteredKey]) {
+        [self updateRegistrationState];
+    }
+}
+
+- (void)updateRegistrationState {
+    RegistrationManager* regMgr = [RegistrationManager sharedManager];
+    self.licenseField.stringValue = [regMgr currentKey];
+    [regMgr addObserver:self forKeyPath:kIsRegisteredKey options:0 context:nil];
+    if (regMgr.registered) {
+        [self.registrationStatus setTextColor: SUCCESS_GREEN];
+        self.registrationStatus.stringValue = @"Registered";
+    } else {
+        [self.registrationStatus setTextColor:FAIL_RED];
+        self.registrationStatus.stringValue = @"Unregistered";
+    }
+}
+
+- (IBAction)changeLicenseKey:(NSTextField*)sender {
+    RegistrationManager* regMgr = [RegistrationManager sharedManager];
+    [regMgr setLicenseKey:sender.stringValue];
 }
 
 - (IBAction)chooseTextEditor:(id)sender {
@@ -39,14 +67,16 @@
         [[NSUserDefaults standardUserDefaults] setValue:editorURL forKey:@"editor_url"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         self.currentEditorPath.stringValue = editorURL;
-        
-
     }
 
 }
 
 - (IBAction)tweet:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://twitter.com/msfeldstein"]];
+}
+
+- (IBAction)email:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"mailto:msfeldstein@gmail.com"]];
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30ECC2B6C30B49448C50CDC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A88BBC797C4A6CBFA702F3 /* libPods.a */; };
 		4C1308B319AC38C2000CE48B /* FrameWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B219AC38C2000CE48B /* FrameWindow.m */; };
 		4C1308B619AC3A67000CE48B /* RootWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B519AC3A67000CE48B /* RootWindowView.m */; };
 		4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2895431995AC06006B7C5D /* ManifestGenerator.m */; };
@@ -14,6 +15,8 @@
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
 		4C28954B1996B4D3006B7C5D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4C2E2318199C5800008E4FE1 /* ResourcesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */; };
+		4C33B5D119E1F60800D9B778 /* RegistrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C33B5D019E1F60800D9B778 /* RegistrationManager.m */; };
+		4C33B5D419E1FB0900D9B778 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C33B5D319E1FB0900D9B778 /* Constants.m */; };
 		4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385119A2EDEC001A1511 /* Simulator.xib */; };
 		4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C35385419A2EED9001A1511 /* SimulatorWindowController.m */; };
 		4C35385719A2FD19001A1511 /* example.framer in Resources */ = {isa = PBXBuildFile; fileRef = 4C35385619A2FD19001A1511 /* example.framer */; };
@@ -50,7 +53,6 @@
 		4CB83A021993310B002A67D8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB83A011993310B002A67D8 /* CoreServices.framework */; };
 		4CB995B119A5BF6500BECA35 /* CompileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB995B019A5BF6500BECA35 /* CompileOperation.m */; };
 		4CB995D919A6965800BECA35 /* ReloadWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB995D819A6965800BECA35 /* ReloadWebSocket.m */; };
-		50F19C7DC9464C0ABDE74891 /* libPods-AirFramerMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,10 @@
 		4C2E2316199C5800008E4FE1 /* ResourcesGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesGenerator.h; sourceTree = "<group>"; };
 		4C2E2317199C5800008E4FE1 /* ResourcesGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourcesGenerator.m; sourceTree = "<group>"; };
 		4C33B5CE19E1BB0B00D9B778 /* Frame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Frame.entitlements; sourceTree = "<group>"; };
+		4C33B5CF19E1F60800D9B778 /* RegistrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationManager.h; sourceTree = "<group>"; };
+		4C33B5D019E1F60800D9B778 /* RegistrationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationManager.m; sourceTree = "<group>"; };
+		4C33B5D219E1FB0900D9B778 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4C33B5D319E1FB0900D9B778 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4C35385119A2EDEC001A1511 /* Simulator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Simulator.xib; sourceTree = "<group>"; };
 		4C35385319A2EED9001A1511 /* SimulatorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatorWindowController.h; sourceTree = "<group>"; };
 		4C35385419A2EED9001A1511 /* SimulatorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulatorWindowController.m; sourceTree = "<group>"; };
@@ -129,18 +135,18 @@
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4CB839BC19931EDB002A67D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4CB839BD19931EDB002A67D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4CB839C019931EDB002A67D8 /* AirFramerMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirFramerMac-Info.plist"; sourceTree = "<group>"; };
+		4CB839C019931EDB002A67D8 /* Frame Pro for Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frame Pro for Mac-Info.plist"; sourceTree = "<group>"; };
 		4CB839C219931EDB002A67D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CB839C419931EDB002A67D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4CB839C619931EDB002A67D8 /* AirFramerMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirFramerMac-Prefix.pch"; sourceTree = "<group>"; };
+		4CB839C619931EDB002A67D8 /* Frame Pro for Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frame Pro for Mac-Prefix.pch"; sourceTree = "<group>"; };
 		4CB839C819931EDB002A67D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4CB839CA19931EDB002A67D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CB839CB19931EDB002A67D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4CB839CE19931EDB002A67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4CB839D019931EDB002A67D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4CB839D619931EDB002A67D8 /* AirFramerMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirFramerMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB839D619931EDB002A67D8 /* Frame Pro for MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Frame Pro for MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839D719931EDB002A67D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4CB839DE19931EDB002A67D8 /* AirFramerMacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirFramerMacTests-Info.plist"; sourceTree = "<group>"; };
+		4CB839DE19931EDB002A67D8 /* Frame Pro for MacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frame Pro for MacTests-Info.plist"; sourceTree = "<group>"; };
 		4CB839E019931EDB002A67D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CB839E219931EDB002A67D8 /* AirFramerMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirFramerMacTests.m; sourceTree = "<group>"; };
 		4CB839EF199324C6002A67D8 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
@@ -151,6 +157,8 @@
 		4CB995D719A6965800BECA35 /* ReloadWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReloadWebSocket.h; sourceTree = "<group>"; };
 		4CB995D819A6965800BECA35 /* ReloadWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReloadWebSocket.m; sourceTree = "<group>"; };
 		AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirFramerMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1AF357B80934CFA8C9CACD0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C2A88BBC797C4A6CBFA702F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +168,8 @@
 			files = (
 				4CB83A021993310B002A67D8 /* CoreServices.framework in Frameworks */,
 				4CB839B919931EDB002A67D8 /* Cocoa.framework in Frameworks */,
-				50F19C7DC9464C0ABDE74891 /* libPods-AirFramerMac.a in Frameworks */,
 				4C2895461996B323006B7C5D /* Sparkle.framework in Frameworks */,
+				30ECC2B6C30B49448C50CDC3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +258,7 @@
 				4CB839B719931EDB002A67D8 /* Frameworks */,
 				4CB839B619931EDB002A67D8 /* Products */,
 				1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */,
+				C1AF357B80934CFA8C9CACD0 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				4CB839B519931EDB002A67D8 /* Frame.app */,
-				4CB839D619931EDB002A67D8 /* AirFramerMacTests.xctest */,
+				4CB839D619931EDB002A67D8 /* Frame Pro for MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +280,7 @@
 				4CB839D719931EDB002A67D8 /* XCTest.framework */,
 				4CB839BA19931EDB002A67D8 /* Other Frameworks */,
 				AC2942DD23D14041A4FFA4D9 /* libPods-AirFramerMac.a */,
+				C2A88BBC797C4A6CBFA702F3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,6 +324,10 @@
 				4C1308B219AC38C2000CE48B /* FrameWindow.m */,
 				4C1308B419AC3A67000CE48B /* RootWindowView.h */,
 				4C1308B519AC3A67000CE48B /* RootWindowView.m */,
+				4C33B5CF19E1F60800D9B778 /* RegistrationManager.h */,
+				4C33B5D019E1F60800D9B778 /* RegistrationManager.m */,
+				4C33B5D219E1FB0900D9B778 /* Constants.h */,
+				4C33B5D319E1FB0900D9B778 /* Constants.m */,
 			);
 			path = AirFramerMac;
 			sourceTree = "<group>";
@@ -326,10 +340,10 @@
 				4C35385619A2FD19001A1511 /* example.framer */,
 				4CB839D019931EDB002A67D8 /* Images.xcassets */,
 				4C2895481996B48F006B7C5D /* dsa_pub.pem */,
-				4CB839C019931EDB002A67D8 /* AirFramerMac-Info.plist */,
+				4CB839C019931EDB002A67D8 /* Frame Pro for Mac-Info.plist */,
 				4CB839C119931EDB002A67D8 /* InfoPlist.strings */,
 				4CB839C419931EDB002A67D8 /* main.m */,
-				4CB839C619931EDB002A67D8 /* AirFramerMac-Prefix.pch */,
+				4CB839C619931EDB002A67D8 /* Frame Pro for Mac-Prefix.pch */,
 				4CB839C719931EDB002A67D8 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -347,7 +361,7 @@
 		4CB839DD19931EDB002A67D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4CB839DE19931EDB002A67D8 /* AirFramerMacTests-Info.plist */,
+				4CB839DE19931EDB002A67D8 /* Frame Pro for MacTests-Info.plist */,
 				4CB839DF19931EDB002A67D8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -356,9 +370,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CB839B419931EDB002A67D8 /* AirFramerMac */ = {
+		4CB839B419931EDB002A67D8 /* Frame Pro for Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMac" */;
+			buildConfigurationList = 4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for Mac" */;
 			buildPhases = (
 				23D70413FB8B4FD2BA8A98E9 /* Check Pods Manifest.lock */,
 				4CB839B119931EDB002A67D8 /* Sources */,
@@ -371,14 +385,14 @@
 			);
 			dependencies = (
 			);
-			name = AirFramerMac;
+			name = "Frame Pro for Mac";
 			productName = AirFramerMac;
 			productReference = 4CB839B519931EDB002A67D8 /* Frame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4CB839D519931EDB002A67D8 /* AirFramerMacTests */ = {
+		4CB839D519931EDB002A67D8 /* Frame Pro for MacTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CB839E919931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMacTests" */;
+			buildConfigurationList = 4CB839E919931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for MacTests" */;
 			buildPhases = (
 				4CB839D219931EDB002A67D8 /* Sources */,
 				4CB839D319931EDB002A67D8 /* Frameworks */,
@@ -389,9 +403,9 @@
 			dependencies = (
 				4CB839DB19931EDB002A67D8 /* PBXTargetDependency */,
 			);
-			name = AirFramerMacTests;
+			name = "Frame Pro for MacTests";
 			productName = AirFramerMacTests;
-			productReference = 4CB839D619931EDB002A67D8 /* AirFramerMacTests.xctest */;
+			productReference = 4CB839D619931EDB002A67D8 /* Frame Pro for MacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -404,6 +418,7 @@
 				ORGANIZATIONNAME = Macromeez;
 				TargetAttributes = {
 					4CB839B419931EDB002A67D8 = {
+						DevelopmentTeam = 7GU3G9VBFN;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -415,7 +430,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CB839B019931EDB002A67D8 /* Build configuration list for PBXProject "AirFramerMac" */;
+			buildConfigurationList = 4CB839B019931EDB002A67D8 /* Build configuration list for PBXProject "Frame Pro for Mac" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -428,8 +443,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CB839B419931EDB002A67D8 /* AirFramerMac */,
-				4CB839D519931EDB002A67D8 /* AirFramerMacTests */,
+				4CB839B419931EDB002A67D8 /* Frame Pro for Mac */,
+				4CB839D519931EDB002A67D8 /* Frame Pro for MacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -491,7 +506,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-AirFramerMac-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -508,6 +523,7 @@
 				4C985964199BCCBD00CB68D3 /* QRCodeGenerator.m in Sources */,
 				4C35385519A2EED9001A1511 /* SimulatorWindowController.m in Sources */,
 				4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */,
+				4C33B5D419E1FB0900D9B778 /* Constants.m in Sources */,
 				4CB839CC19931EDB002A67D8 /* AppDelegate.m in Sources */,
 				4C985961199BCCB300CB68D3 /* split.c in Sources */,
 				4C1308B619AC3A67000CE48B /* RootWindowView.m in Sources */,
@@ -516,6 +532,7 @@
 				4CB995D919A6965800BECA35 /* ReloadWebSocket.m in Sources */,
 				4C1308B319AC38C2000CE48B /* FrameWindow.m in Sources */,
 				4C84077A19B9805200A84F0A /* PreferencesWindowController.m in Sources */,
+				4C33B5D119E1F60800D9B778 /* RegistrationManager.m in Sources */,
 				4C35385A19A31189001A1511 /* ProjectsModel.m in Sources */,
 				4C98595F199BCCB300CB68D3 /* qrspec.c in Sources */,
 				4C98595E199BCCB300CB68D3 /* qrinput.c in Sources */,
@@ -541,7 +558,7 @@
 /* Begin PBXTargetDependency section */
 		4CB839DB19931EDB002A67D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4CB839B419931EDB002A67D8 /* AirFramerMac */;
+			target = 4CB839B419931EDB002A67D8 /* Frame Pro for Mac */;
 			targetProxy = 4CB839DA19931EDB002A67D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -654,18 +671,20 @@
 		};
 		4CB839E719931EDB002A67D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
+			baseConfigurationReference = C1AF357B80934CFA8C9CACD0 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = AirFramerMac/Frame.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
-				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
+				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
+				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
 				PRODUCT_NAME = Frame;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -674,18 +693,20 @@
 		};
 		4CB839E819931EDB002A67D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ABE9455E6FB455EB25D6407 /* Pods-AirFramerMac.xcconfig */;
+			baseConfigurationReference = C1AF357B80934CFA8C9CACD0 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = AirFramerMac/Frame.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
-				INFOPLIST_FILE = "AirFramerMac/AirFramerMac-Info.plist";
+				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
+				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
 				PRODUCT_NAME = Frame;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -707,8 +728,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "AirFramerMacTests/AirFramerMacTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AirFramerMacTests/Frame Pro for MacTests-Info.plist";
+				PRODUCT_NAME = "Frame Pro for MacTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -725,8 +746,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/AirFramerMac-Prefix.pch";
-				INFOPLIST_FILE = "AirFramerMacTests/AirFramerMacTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AirFramerMacTests/Frame Pro for MacTests-Info.plist";
+				PRODUCT_NAME = "Frame Pro for MacTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -735,7 +756,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CB839B019931EDB002A67D8 /* Build configuration list for PBXProject "AirFramerMac" */ = {
+		4CB839B019931EDB002A67D8 /* Build configuration list for PBXProject "Frame Pro for Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB839E419931EDB002A67D8 /* Debug */,
@@ -744,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMac" */ = {
+		4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB839E719931EDB002A67D8 /* Debug */,
@@ -753,7 +774,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CB839E919931EDB002A67D8 /* Build configuration list for PBXNativeTarget "AirFramerMacTests" */ = {
+		4CB839E919931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for MacTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB839EA19931EDB002A67D8 /* Debug */,

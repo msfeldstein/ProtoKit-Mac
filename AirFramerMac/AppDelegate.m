@@ -46,6 +46,9 @@
     self.window.backgroundColor = [NSColor whiteColor];
     [self addBorders];
     self.simulatorController = [[SimulatorWindowController alloc] init];
+    
+    self.trialView.layer.backgroundColor = [NSColor colorWithCalibratedRed:74.0 / 255.0 green:144.0 / 255.0 blue:226.0 / 255.0 alpha:1.0].CGColor;
+    [self checkTrialStatus];
 }
 
 - (void) addBorders {
@@ -314,6 +317,30 @@
 
 - (IBAction)minimize:(id)sender {
     [self.window miniaturize:sender];
+}
+
+- (IBAction)purchase:(id)sender {
+    NSURL* url = [NSURL URLWithString:@"https://gumroad.com/l/framepro"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+}
+
+- (IBAction)enterLicense:(id)sender {
+    [self showPreferences:nil];
+}
+
+- (void)checkTrialStatus {
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    if ([def boolForKey:@"registered"]) {
+        [self hideTrialBar];
+    }
+}
+
+- (void)hideTrialBar {
+    NSView* view = self.trialView;
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==0)]"
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:NSDictionaryOfVariableBindings(view)]];
 }
 
 @end

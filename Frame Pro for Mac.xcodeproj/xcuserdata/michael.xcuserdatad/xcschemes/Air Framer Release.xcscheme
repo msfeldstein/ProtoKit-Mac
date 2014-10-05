@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A745059E1AEF48A88038C1F1"
-               BuildableName = "libPods-AirFramerMac-CocoaLumberjack.a"
-               BlueprintName = "Pods-AirFramerMac-CocoaLumberjack"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "4CB839B419931EDB002A67D8"
+               BuildableName = "Frame.app"
+               BlueprintName = "Frame Pro for Mac"
+               ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,25 +29,34 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4CB839B419931EDB002A67D8"
+            BuildableName = "Frame.app"
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A745059E1AEF48A88038C1F1"
-            BuildableName = "libPods-AirFramerMac-CocoaLumberjack.a"
-            BlueprintName = "Pods-AirFramerMac-CocoaLumberjack"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "4CB839B419931EDB002A67D8"
+            BuildableName = "Frame.app"
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,6 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4CB839B419931EDB002A67D8"
+            BuildableName = "Frame.app"
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

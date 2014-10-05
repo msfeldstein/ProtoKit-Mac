@@ -4,65 +4,65 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AirFramerMac-CDEvents.xcscheme</key>
+		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
-		<key>Pods-AirFramerMac-CocoaAsyncSocket.xcscheme</key>
+		<key>Pods-CDEvents.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
-		<key>Pods-AirFramerMac-CocoaHTTPServer.xcscheme</key>
+		<key>Pods-CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
-		<key>Pods-AirFramerMac-CocoaLumberjack.xcscheme</key>
+		<key>Pods-CocoaHTTPServer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
-		<key>Pods-AirFramerMac.xcscheme</key>
+		<key>Pods-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3A8BD84B3CDF4619B6E1F0DF</key>
+		<key>3C8869892AB94ED686861DE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42F8AC0EBFF840259DC511ED</key>
+		<key>43208BCE2BDD42EDA319BFE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BA0A6D6505E456D8917BA26</key>
+		<key>4D7E0DC50A044CB89481C4C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>958EC05852E6459188354B68</key>
+		<key>54EF8C6157C942FB9194368B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A745059E1AEF48A88038C1F1</key>
+		<key>6C596D5E729E499D904E476E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E71604BD83A495A9150864D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -31,6 +31,11 @@
 @property (assign) IBOutlet NSView* statusContainer;
 @property (assign) IBOutlet NSTextField* titleLabel;
 
+@property (assign) IBOutlet NSView* trialView;
+@property (assign) IBOutlet NSButton* purchaseButton;
+@property (assign) IBOutlet NSButton* enterSerialButton;
+
+
 @property NSNetService* netService;
 @property HTTPServer* server;
 @property CDEvents* watcher;
@@ -53,4 +58,7 @@
 - (IBAction)toggleConsole:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)minimize:(id)sender;
+
+- (IBAction)purchase:(id)sender;
+- (IBAction)enterLicense:(id)sender;
 @end

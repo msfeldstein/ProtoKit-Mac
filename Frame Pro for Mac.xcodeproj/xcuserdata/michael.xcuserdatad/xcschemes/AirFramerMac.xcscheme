@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CB839B419931EDB002A67D8"
                BuildableName = "Frame.app"
-               BlueprintName = "AirFramerMac"
-               ReferencedContainer = "container:AirFramerMac.xcodeproj">
+               BlueprintName = "Frame Pro for Mac"
+               ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CB839D519931EDB002A67D8"
-               BuildableName = "AirFramerMacTests.xctest"
-               BlueprintName = "AirFramerMacTests"
-               ReferencedContainer = "container:AirFramerMac.xcodeproj">
+               BuildableName = "Frame Pro for MacTests.xctest"
+               BlueprintName = "Frame Pro for MacTests"
+               ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "AirFramerMac"
-            ReferencedContainer = "container:AirFramerMac.xcodeproj">
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "AirFramerMac"
-            ReferencedContainer = "container:AirFramerMac.xcodeproj">
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "AirFramerMac"
-            ReferencedContainer = "container:AirFramerMac.xcodeproj">
+            BlueprintName = "Frame Pro for Mac"
+            ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
