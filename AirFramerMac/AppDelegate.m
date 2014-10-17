@@ -46,10 +46,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changed:) name:@"COMPILE_COMPLETE" object:nil];
     self.window.backgroundColor = [NSColor whiteColor];
     [self addBorders];
-    self.simulatorController = [[SimulatorWindowController alloc] init];
+    //self.simulatorController = [[SimulatorWindowController alloc] init];
     
     self.trialView.layer.backgroundColor = [NSColor colorWithCalibratedRed:74.0 / 255.0 green:144.0 / 255.0 blue:226.0 / 255.0 alpha:1.0].CGColor;
     [self checkTrialStatus];
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) addBorders {
@@ -74,7 +76,7 @@
     //    [self.simulatorController showWindow:nil];
     
 
-    //    [self.simulatorController loadURL:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+      //  [self.simulatorController loadURL:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void)launchInChrome:(NSString*)project {
@@ -146,7 +148,7 @@
 }
 
 - (void) reconfig {
-    NSString* title = [NSString stringWithFormat:@"Frame - %@", [self.folder.path stringByAbbreviatingWithTildeInPath]];
+    NSString* title = [NSString stringWithFormat:@"Workbench (%@)", [self.folder.path stringByAbbreviatingWithTildeInPath]];
     [self.titleLabel setStringValue:title];
     [self.projects setFolder:self.folder];
     [self.projects reload];
@@ -260,20 +262,7 @@
     NSString* name = [self input:@"Name of prototype" defaultValue:@"New Project"];
     if (!name || [name length] == 0) return;
     name = [name stringByAppendingPathExtension:@"framer"];
-    NSFileManager* fm = [NSFileManager defaultManager];
-    NSBundle* bundle = [NSBundle mainBundle];
-    NSString* templatePath = [bundle pathForResource:@"example" ofType:@"framer"];
-    NSError* err;
-    NSString* newPath = [self.folder.path stringByAppendingPathComponent:name];
-    [fm copyItemAtPath:templatePath toPath:newPath error:&err];
-    if (err) {
-        NSLog(@"Error copying new project template %@", err);
-    }
-    NSURL* folderURL = [NSURL fileURLWithPath:newPath];
-
-    [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:[self urlForProject:name]]];
-    [[NSWorkspace sharedWorkspace] openURL: folderURL];
-    [self.projects reload];
+    [self.projects createProject:name];
 }
 
 - (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
@@ -327,6 +316,7 @@
     } else {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registrationSuccess:) name:kRegistrationSuccessNotificationKey object:nil];
     }
+    [self hideTrialBar];
 }
 
 - (void)registrationSuccess:(NSNotification*)n {

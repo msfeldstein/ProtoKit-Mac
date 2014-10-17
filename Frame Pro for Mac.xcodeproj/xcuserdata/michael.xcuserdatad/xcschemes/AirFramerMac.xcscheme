@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4CB839B419931EDB002A67D8"
                BuildableName = "Frame.app"
-               BlueprintName = "Frame Pro for Mac"
+               BlueprintName = "Workbench"
                ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "Frame Pro for Mac"
+            BlueprintName = "Workbench"
             ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "Frame Pro for Mac"
+            BlueprintName = "Workbench"
             ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4CB839B419931EDB002A67D8"
             BuildableName = "Frame.app"
-            BlueprintName = "Frame Pro for Mac"
+            BlueprintName = "Workbench"
             ReferencedContainer = "container:Frame Pro for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

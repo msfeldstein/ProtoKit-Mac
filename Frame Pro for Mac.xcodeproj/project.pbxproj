@@ -10,6 +10,7 @@
 		30ECC2B6C30B49448C50CDC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A88BBC797C4A6CBFA702F3 /* libPods.a */; };
 		4C1308B319AC38C2000CE48B /* FrameWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B219AC38C2000CE48B /* FrameWindow.m */; };
 		4C1308B619AC3A67000CE48B /* RootWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1308B519AC3A67000CE48B /* RootWindowView.m */; };
+		4C19C87C19E39CDB0004FB03 /* Frames.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C19C87B19E39CDB0004FB03 /* Frames.xcassets */; };
 		4C2895441995AC06006B7C5D /* ManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2895431995AC06006B7C5D /* ManifestGenerator.m */; };
 		4C2895461996B323006B7C5D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2895451996B323006B7C5D /* Sparkle.framework */; };
 		4C2895491996B48F006B7C5D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4C2895481996B48F006B7C5D /* dsa_pub.pem */; };
@@ -84,6 +85,7 @@
 		4C1308B219AC38C2000CE48B /* FrameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameWindow.m; sourceTree = "<group>"; };
 		4C1308B419AC3A67000CE48B /* RootWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootWindowView.h; sourceTree = "<group>"; };
 		4C1308B519AC3A67000CE48B /* RootWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootWindowView.m; sourceTree = "<group>"; };
+		4C19C87B19E39CDB0004FB03 /* Frames.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Frames.xcassets; sourceTree = "<group>"; };
 		4C2895421995AC06006B7C5D /* ManifestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManifestGenerator.h; sourceTree = "<group>"; };
 		4C2895431995AC06006B7C5D /* ManifestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManifestGenerator.m; sourceTree = "<group>"; };
 		4C2895451996B323006B7C5D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 		4C985962199BCCBD00CB68D3 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
 		4C985963199BCCBD00CB68D3 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
 		4CAFE8C719C5622900A5DAE9 /* copy-javascripts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "copy-javascripts.js"; sourceTree = "<group>"; };
-		4CB839B519931EDB002A67D8 /* Frame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB839B519931EDB002A67D8 /* Workbench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workbench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4CB839BC19931EDB002A67D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,7 @@
 				4CB839CD19931EDB002A67D8 /* MainMenu.xib */,
 				4C35386519A3B3EA001A1511 /* Assets.xcassets */,
 				4C84077619B97FEE00A84F0A /* Preferences.xib */,
+				4C19C87B19E39CDB0004FB03 /* Frames.xcassets */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -265,7 +268,7 @@
 		4CB839B619931EDB002A67D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CB839B519931EDB002A67D8 /* Frame.app */,
+				4CB839B519931EDB002A67D8 /* Workbench.app */,
 				4CB839D619931EDB002A67D8 /* Frame Pro for MacTests.xctest */,
 			);
 			name = Products;
@@ -370,9 +373,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CB839B419931EDB002A67D8 /* Frame Pro for Mac */ = {
+		4CB839B419931EDB002A67D8 /* Workbench */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for Mac" */;
+			buildConfigurationList = 4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Workbench" */;
 			buildPhases = (
 				23D70413FB8B4FD2BA8A98E9 /* Check Pods Manifest.lock */,
 				4CB839B119931EDB002A67D8 /* Sources */,
@@ -385,9 +388,9 @@
 			);
 			dependencies = (
 			);
-			name = "Frame Pro for Mac";
+			name = Workbench;
 			productName = AirFramerMac;
-			productReference = 4CB839B519931EDB002A67D8 /* Frame.app */;
+			productReference = 4CB839B519931EDB002A67D8 /* Workbench.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4CB839D519931EDB002A67D8 /* Frame Pro for MacTests */ = {
@@ -443,7 +446,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CB839B419931EDB002A67D8 /* Frame Pro for Mac */,
+				4CB839B419931EDB002A67D8 /* Workbench */,
 				4CB839D519931EDB002A67D8 /* Frame Pro for MacTests */,
 			);
 		};
@@ -459,6 +462,7 @@
 				4C35385719A2FD19001A1511 /* example.framer in Resources */,
 				4CB839C319931EDB002A67D8 /* InfoPlist.strings in Resources */,
 				4C84077719B97FEE00A84F0A /* Preferences.xib in Resources */,
+				4C19C87C19E39CDB0004FB03 /* Frames.xcassets in Resources */,
 				4C35385219A2EDEC001A1511 /* Simulator.xib in Resources */,
 				4CB839D119931EDB002A67D8 /* Images.xcassets in Resources */,
 				4CB839C919931EDB002A67D8 /* Credits.rtf in Resources */,
@@ -558,7 +562,7 @@
 /* Begin PBXTargetDependency section */
 		4CB839DB19931EDB002A67D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4CB839B419931EDB002A67D8 /* Frame Pro for Mac */;
+			target = 4CB839B419931EDB002A67D8 /* Workbench */;
 			targetProxy = 4CB839DA19931EDB002A67D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -685,7 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
-				PRODUCT_NAME = Frame;
+				PRODUCT_NAME = Workbench;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -707,7 +711,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
-				PRODUCT_NAME = Frame;
+				PRODUCT_NAME = Workbench;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -765,7 +769,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Frame Pro for Mac" */ = {
+		4CB839E619931EDB002A67D8 /* Build configuration list for PBXNativeTarget "Workbench" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB839E719931EDB002A67D8 /* Debug */,

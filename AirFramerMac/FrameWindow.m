@@ -34,6 +34,9 @@
     return YES;
 }
 
+- (BOOL)acceptsFirstResponder {
+    return YES;
+}
 
 
 - (BOOL)isMovableByWindowBackground {

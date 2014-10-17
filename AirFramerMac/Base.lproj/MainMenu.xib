@@ -216,7 +216,7 @@
             <value key="maxSize" type="size" width="446" height="3000"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="RootWindowView">
                 <rect key="frame" x="0.0" y="5" width="446" height="443"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-qE-KVS">
                         <rect key="frame" x="0.0" y="0.0" width="448" height="443"/>

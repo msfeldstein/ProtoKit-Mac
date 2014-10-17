@@ -170,4 +170,30 @@
     if (!compiler.isFrameProject)
         [[cell viewWithTag:206] setHidden:NO];
 }
+
+- (void)createProject:(NSString *)name {
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* templatePath = [bundle pathForResource:@"example" ofType:@"framer"];
+    NSError* err;
+    NSString* newPath = [self.folder.path stringByAppendingPathComponent:name];
+    [fm copyItemAtPath:templatePath toPath:newPath error:&err];
+    if (err) {
+        NSLog(@"Error copying new project template %@", err);
+    }
+    
+    //    NSURL* folderURL = [NSURL fileURLWithPath:newPath];
+    //    [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:[self urlForProject:name]]];
+    //    [[NSWorkspace sharedWorkspace] openURL: folderURL];
+    [self reload];
+    NSIndexSet* index = [NSIndexSet indexSetWithIndex:[self.projects indexOfObject:name]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.tableView selectRowIndexes:index byExtendingSelection:NO];
+        NSTableCellView *cell = [self.tableView viewAtColumn:0 row:[self.projects indexOfObject:name] makeIfNecessary:YES];
+        [[cell viewWithTag:200] setHidden:NO];
+        [[cell viewWithTag:201] setHidden:NO];
+        [[cell viewWithTag:202] setHidden:NO];
+    });
+
+}
 @end

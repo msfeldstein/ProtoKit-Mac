@@ -18,4 +18,5 @@
 - (IBAction)showFolder:(id)sender;
 - (IBAction)showNonFrameAlert:(id)sender;
 - (NSArray*)projects;
+- (void)createProject:(NSString*)name;
 @end

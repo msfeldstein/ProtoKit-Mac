@@ -7,7 +7,8 @@
 //
 
 #import "SimulatorWindowController.h"
-
+#import <WebKit/WebKit.h>
+#import "FrameWindow.h"
 @interface SimulatorWindowController ()
 
 @end
@@ -16,7 +17,26 @@
 
 - (id)init
 {
-    return [super initWithWindowNibName:@"Simulator"];
+    NSImage* device = [NSImage imageNamed:@"iphone5s"];
+    NSRect frame = CGRectMake(0, 0, device.size.width, device.size.height);
+    NSWindow* window  = [[FrameWindow alloc] initWithContentRect:frame
+                                                     styleMask:NSBorderlessWindowMask
+                                                       backing:NSBackingStoreBuffered
+                                                         defer:NO];
+    [window makeKeyAndOrderFront:NSApp];
+    [window setOpaque:YES];
+//    [window setBackgroundColor:[NSColor clearColor]];
+    self = [super initWithWindow:window];
+    CGRect webFrame = CGRectMake(25, 96, 274, 490);
+    self.webView = [[WebView alloc] initWithFrame:webFrame];
+    
+    NSImageView* frameImage = [[NSImageView alloc]initWithFrame:window.frame];
+    frameImage.image = device;
+    [window.contentView addSubview:frameImage];
+//    [window.contentView addSubview:self.webView];
+
+//    self.window = window;
+    return self;
 }
 
 - (void)loadURL:(NSString*)url {
@@ -87,7 +107,9 @@
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
-        [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.style.zoom = \"0.5\""];
+    NSString* scale = [NSString stringWithFormat:@"window.content.scale = %f", 50.0f / 100.0f];
+    NSLog(@"Scale %@", scale);
+    [self.webView stringByEvaluatingJavaScriptFromString:scale];
 }
 
 - (void)setZoomLevel:(int)zoomLevel {
@@ -98,7 +120,9 @@
     CGRect frame = self.window.frame;
     frame.size = size;
     [self.window setFrame:frame display:YES];
-    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.body.style.zoom = \"%f\"", zoomLevel / 100.0f]];
+    NSString* scale = [NSString stringWithFormat:@"window.content.scale = %f", zoomLevel / 100.0f];
+    NSLog(@"Scale %@", scale);
+    [self.webView stringByEvaluatingJavaScriptFromString:scale];
 }
 
 
