@@ -1668,7 +1668,7 @@ exports.DeviceView = (function(_super) {
       return this._deviceType;
     },
     set: function(deviceType) {
-      var device;
+      var device, shouldZoomToFit;
       if (deviceType === this._deviceType) {
         return;
       }
@@ -1682,6 +1682,7 @@ exports.DeviceView = (function(_super) {
       if (this._device === device) {
         return;
       }
+      shouldZoomToFit = this._deviceType === "fullscreen";
       this._device = device;
       this._deviceType = deviceType;
       this.fullscreen = false;
@@ -1689,7 +1690,10 @@ exports.DeviceView = (function(_super) {
       this._update();
       this.keyboard = false;
       this._positionKeyboard();
-      return this.emit("change:deviceType");
+      this.emit("change:deviceType");
+      if (shouldZoomToFit) {
+        return this.deviceScale = "fit";
+      }
     }
   });
 
@@ -2132,6 +2136,33 @@ Devices = {
   "fullscreen": {
     name: "Fullscreen",
     deviceType: "desktop"
+  },
+  "desktop-browser-1024": {
+    deviceType: "browser",
+    deviceImage: "desktop-safari-1024-600.png",
+    name: "Desktop Browser 1024 x 600",
+    screenWidth: 1024,
+    screenHeight: 600,
+    deviceImageWidth: 1136,
+    deviceImageHeight: 760
+  },
+  "desktop-browser-1280": {
+    deviceType: "browser",
+    deviceImage: "desktop-safari-1280-800.png",
+    name: "Desktop Browser 1280 x 800",
+    screenWidth: 1280,
+    screenHeight: 800,
+    deviceImageWidth: 1392,
+    deviceImageHeight: 960
+  },
+  "desktop-browser-1440": {
+    deviceType: "browser",
+    deviceImage: "desktop-safari-1440-900.png",
+    name: "Desktop Browser 1440 x 900",
+    screenWidth: 1440,
+    screenHeight: 900,
+    deviceImageWidth: 1552,
+    deviceImageHeight: 1060
   },
   "iphone-6-spacegray": _.extend({}, iPhone6BaseDevice, {
     deviceImage: "iphone-6-spacegray.png"
@@ -3348,6 +3379,9 @@ exports.Layer = (function(_super) {
     set: function(value) {
       var currentValue, imageUrl, loader, _ref, _ref1,
         _this = this;
+      if (!(_.isString(value) || value === null)) {
+        layerValueTypeError("image", value);
+      }
       currentValue = this._getPropertyValue("image");
       if (currentValue === value) {
         return this.emit("load");
@@ -4624,7 +4658,7 @@ Utils.cycle = function() {
 Utils.toggle = Utils.cycle;
 
 Utils.isWebKit = function() {
-  return window.WebKitCSSMatrix !== null;
+  return window.WebKitCSSMatrix !== void 0;
 };
 
 Utils.webkitVersion = function() {
@@ -5091,6 +5125,7 @@ exports.VideoLayer = (function(_super) {
     }
     VideoLayer.__super__.constructor.call(this, options);
     this.player = document.createElement("video");
+    this.player.setAttribute("webkit-playsinline", "true");
     this.player.style.width = "100%";
     this.player.style.height = "100%";
     this.player.on = this.player.addEventListener;
@@ -5156,9 +5191,10 @@ EventEmitter.prototype._events = undefined;
  */
 EventEmitter.prototype.listeners = function listeners(event) {
   if (!this._events || !this._events[event]) return [];
+  if (this._events[event].fn) return [this._events[event].fn];
 
-  for (var i = 0, l = this._events[event].length, ee = []; i < l; i++) {
-    ee.push(this._events[event][i].fn);
+  for (var i = 0, l = this._events[event].length, ee = new Array(l); i < l; i++) {
+    ee[i] = this._events[event][i].fn;
   }
 
   return ee;
@@ -5175,30 +5211,31 @@ EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
   if (!this._events || !this._events[event]) return false;
 
   var listeners = this._events[event]
-    , length = listeners.length
     , len = arguments.length
-    , ee = listeners[0]
     , args
-    , i, j;
+    , i;
 
-  if (1 === length) {
-    if (ee.once) this.removeListener(event, ee.fn, true);
+  if ('function' === typeof listeners.fn) {
+    if (listeners.once) this.removeListener(event, listeners.fn, true);
 
     switch (len) {
-      case 1: return ee.fn.call(ee.context), true;
-      case 2: return ee.fn.call(ee.context, a1), true;
-      case 3: return ee.fn.call(ee.context, a1, a2), true;
-      case 4: return ee.fn.call(ee.context, a1, a2, a3), true;
-      case 5: return ee.fn.call(ee.context, a1, a2, a3, a4), true;
-      case 6: return ee.fn.call(ee.context, a1, a2, a3, a4, a5), true;
+      case 1: return listeners.fn.call(listeners.context), true;
+      case 2: return listeners.fn.call(listeners.context, a1), true;
+      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
+      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
+      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
     }
 
     for (i = 1, args = new Array(len -1); i < len; i++) {
       args[i - 1] = arguments[i];
     }
 
-    ee.fn.apply(ee.context, args);
+    listeners.fn.apply(listeners.context, args);
   } else {
+    var length = listeners.length
+      , j;
+
     for (i = 0; i < length; i++) {
       if (listeners[i].once) this.removeListener(event, listeners[i].fn, true);
 
@@ -5228,9 +5265,16 @@ EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
  * @api public
  */
 EventEmitter.prototype.on = function on(event, fn, context) {
+  var listener = new EE(fn, context || this);
+
   if (!this._events) this._events = {};
-  if (!this._events[event]) this._events[event] = [];
-  this._events[event].push(new EE( fn, context || this ));
+  if (!this._events[event]) this._events[event] = listener;
+  else {
+    if (!this._events[event].fn) this._events[event].push(listener);
+    else this._events[event] = [
+      this._events[event], listener
+    ];
+  }
 
   return this;
 };
@@ -5244,9 +5288,16 @@ EventEmitter.prototype.on = function on(event, fn, context) {
  * @api public
  */
 EventEmitter.prototype.once = function once(event, fn, context) {
+  var listener = new EE(fn, context || this, true);
+
   if (!this._events) this._events = {};
-  if (!this._events[event]) this._events[event] = [];
-  this._events[event].push(new EE(fn, context || this, true ));
+  if (!this._events[event]) this._events[event] = listener;
+  else {
+    if (!this._events[event].fn) this._events[event].push(listener);
+    else this._events[event] = [
+      this._events[event], listener
+    ];
+  }
 
   return this;
 };
@@ -5265,17 +5316,25 @@ EventEmitter.prototype.removeListener = function removeListener(event, fn, once)
   var listeners = this._events[event]
     , events = [];
 
-  if (fn) for (var i = 0, length = listeners.length; i < length; i++) {
-    if (listeners[i].fn !== fn && listeners[i].once !== once) {
-      events.push(listeners[i]);
+  if (fn) {
+    if (listeners.fn && (listeners.fn !== fn || (once && !listeners.once))) {
+      events.push(listeners);
+    }
+    if (!listeners.fn) for (var i = 0, length = listeners.length; i < length; i++) {
+      if (listeners[i].fn !== fn || (once && !listeners[i].once)) {
+        events.push(listeners[i]);
+      }
     }
   }
 
   //
   // Reset the array, or remove it completely if we have no more listeners.
   //
-  if (events.length) this._events[event] = events;
-  else this._events[event] = null;
+  if (events.length) {
+    this._events[event] = events.length === 1 ? events[0] : events;
+  } else {
+    delete this._events[event];
+  }
 
   return this;
 };
@@ -5289,7 +5348,7 @@ EventEmitter.prototype.removeListener = function removeListener(event, fn, once)
 EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
   if (!this._events) return this;
 
-  if (event) this._events[event] = null;
+  if (event) delete this._events[event];
   else this._events = {};
 
   return this;
@@ -5315,9 +5374,10 @@ EventEmitter.EventEmitter = EventEmitter;
 EventEmitter.EventEmitter2 = EventEmitter;
 EventEmitter.EventEmitter3 = EventEmitter;
 
-if ('object' === typeof module && module.exports) {
-  module.exports = EventEmitter;
-}
+//
+// Expose the module.
+//
+module.exports = EventEmitter;
 
 },{}],36:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};/**
@@ -12112,7 +12172,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 //  Underscore.string is freely distributable under the terms of the MIT license.
 //  Documentation: https://github.com/epeli/underscore.string
 //  Some code is borrowed from MooTools and Alexandru Marasteanu.
-//  Version '2.3.2'
+//  Version '2.4.0'
 
 !function(root, String){
   'use strict';
@@ -12298,7 +12358,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
 
   var _s = {
 
-    VERSION: '2.3.0',
+    VERSION: '2.4.0',
 
     isBlank: function(str){
       if (str == null) str = '';
@@ -12458,7 +12518,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
     },
 
     classify: function(str){
-      return _s.titleize(String(str).replace(/[\W_]/g, ' ')).replace(/\s/g, '');
+      return _s.capitalize(_s.camelize(String(str).replace(/[\W_]/g, ' ')).replace(/\s/g, ''));
     },
 
     humanize: function(str){
@@ -12469,7 +12529,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
       if (str == null) return '';
       if (!characters && nativeTrim) return nativeTrim.call(str);
       characters = defaultToWhiteSpace(characters);
-      return String(str).replace(new RegExp('\^' + characters + '+|' + characters + '+$', 'g'), '');
+      return String(str).replace(new RegExp('^' + characters + '+|' + characters + '+$', 'g'), '');
     },
 
     ltrim: function(str, characters){
