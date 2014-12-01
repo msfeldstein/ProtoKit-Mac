@@ -132,7 +132,7 @@
 		4C985962199BCCBD00CB68D3 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
 		4C985963199BCCBD00CB68D3 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
 		4CAFE8C719C5622900A5DAE9 /* copy-javascripts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "copy-javascripts.js"; sourceTree = "<group>"; };
-		4CB839B519931EDB002A67D8 /* Workbench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workbench.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB839B519931EDB002A67D8 /* ProtoKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtoKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB839B819931EDB002A67D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4CB839BB19931EDB002A67D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4CB839BC19931EDB002A67D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -268,7 +268,7 @@
 		4CB839B619931EDB002A67D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CB839B519931EDB002A67D8 /* Workbench.app */,
+				4CB839B519931EDB002A67D8 /* ProtoKit.app */,
 				4CB839D619931EDB002A67D8 /* Frame Pro for MacTests.xctest */,
 			);
 			name = Products;
@@ -390,7 +390,7 @@
 			);
 			name = Workbench;
 			productName = AirFramerMac;
-			productReference = 4CB839B519931EDB002A67D8 /* Workbench.app */;
+			productReference = 4CB839B519931EDB002A67D8 /* ProtoKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4CB839D519931EDB002A67D8 /* Frame Pro for MacTests */ = {
@@ -679,7 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AirFramerMac/Frame.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -689,7 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
-				PRODUCT_NAME = Workbench;
+				PRODUCT_NAME = ProtoKit;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -701,7 +701,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AirFramerMac/Frame.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -711,7 +711,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirFramerMac/Frame Pro for Mac-Prefix.pch";
 				INFOPLIST_FILE = "AirFramerMac/Frame Pro for Mac-Info.plist";
-				PRODUCT_NAME = Workbench;
+				PRODUCT_NAME = ProtoKit;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

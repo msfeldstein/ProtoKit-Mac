@@ -148,7 +148,7 @@
 }
 
 - (void) reconfig {
-    NSString* title = [NSString stringWithFormat:@"Workbench (%@)", [self.folder.path stringByAbbreviatingWithTildeInPath]];
+    NSString* title = [NSString stringWithFormat:@"ProtoKit (%@)", [self.folder.path stringByAbbreviatingWithTildeInPath]];
     [self.titleLabel setStringValue:title];
     [self.projects setFolder:self.folder];
     [self.projects reload];
