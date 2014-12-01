@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Air Framer Release.xcscheme</key>
+		<key>ProtoKit for Mac Release.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>AirFramerMac.xcscheme</key>
+		<key>ProtoKit for Mac.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
